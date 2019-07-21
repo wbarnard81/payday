@@ -52,10 +52,10 @@
             </div>
 
             <div class="flex justify-between pt-8 text-white text-sm font-bold">
-                <a class="" href="{{ route('password.request') }}">
+                <a class="hover:text-blue-200" href="{{ route('password.request') }}">
                     Forgot Your Password?
                 </a>
-                <a class="" href="{{ route('register') }}">
+                <a class="hover:text-blue-200" href="{{ route('register') }}">
                     Register
                 </a>
             </div>
