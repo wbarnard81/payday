@@ -120,7 +120,7 @@ class ContactsTest extends TestCase
 
         $response = $this->get('/api/contacts/' . $contact->id . '?api_token=' . $anotherUser->api_token);
 
-        $response->assertStatus(404);
+        $response->assertStatus(403);
     }
 
     /** @test */
