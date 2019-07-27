@@ -12,7 +12,7 @@
         name: "InputField",
 
         props: [
-            'name', 'label', 'placeholder', 'errors',
+            'name', 'label', 'placeholder', 'errors', 'data',
         ],
 
         data: function () {
@@ -50,6 +50,12 @@
                 return {
                     'error-field': this.hasError
                 }
+            }
+        },
+
+        watch: {
+            data: function (val) {
+                this.value = val;
             }
         }
     }
