@@ -2397,16 +2397,75 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       user: "your name here",
       employer_type: "",
       id_type: "",
-      country_select: ""
+      country_select: "",
+      country_select2: "",
+      id_number: "",
+      progress: 0
     };
   },
-  methods: {},
+  methods: {
+    procede: function procede() {
+      this.progress = this.progress + 10;
+    }
+  },
   mounted: function mounted() {
     this.user = "Werner Barnard";
     console.log("Component mounted.");
@@ -21489,6 +21548,20 @@ var render = function() {
       [_vm._v("Let's add an employer")]
     ),
     _vm._v(" "),
+    _c("div", { staticClass: "w-full" }, [
+      _c("div", { staticClass: "shadow w-full bg-grey-light" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "bg-green-500 text-xs leading-none py-2 text-center text-white mb-6",
+            style: { width: _vm.progress + "%" }
+          },
+          [_vm._v("Progress: " + _vm._s(_vm.progress + "%"))]
+        )
+      ])
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "flex mb-4" }, [
       _c("div", { staticClass: "w-1/3 h-screen" }, [
         _c("div", [
@@ -21519,6 +21592,9 @@ var render = function() {
                     "block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
                   attrs: { id: "employer_type" },
                   on: {
+                    "~change": function($event) {
+                      return _vm.procede()
+                    },
                     change: function($event) {
                       var $$selectedVal = Array.prototype.filter
                         .call($event.target.options, function(o) {
@@ -21535,6 +21611,12 @@ var render = function() {
                   }
                 },
                 [
+                  _c(
+                    "option",
+                    { attrs: { value: "0", disabled: "", selected: "" } },
+                    [_vm._v("Select an employer type")]
+                  ),
+                  _vm._v(" "),
                   _c("option", { attrs: { value: "1" } }, [
                     _vm._v("Individual")
                   ]),
@@ -21626,6 +21708,9 @@ var render = function() {
                               "block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
                             attrs: { id: "id_type" },
                             on: {
+                              "~change": function($event) {
+                                return _vm.procede()
+                              },
                               change: function($event) {
                                 var $$selectedVal = Array.prototype.filter
                                   .call($event.target.options, function(o) {
@@ -21699,11 +21784,55 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm.id_type == 1 ? _c("div", [_vm._m(2)]) : _vm._e(),
+        _vm.id_type == 1
+          ? _c("div", [
+              _c("div", { staticClass: "w-full md:w-1/2 mb-6 md:mb-0" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2",
+                    attrs: { for: "grid-rsa-id" }
+                  },
+                  [_vm._v("ID Number")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.id_number,
+                      expression: "id_number"
+                    }
+                  ],
+                  staticClass:
+                    "appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white",
+                  attrs: {
+                    id: "grid-rsa-id",
+                    type: "text",
+                    placeholder: "800101 5060 080"
+                  },
+                  domProps: { value: _vm.id_number },
+                  on: {
+                    "~input": function($event) {
+                      return _vm.procede()
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.id_number = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _vm.id_type == 2
           ? _c("div", [
-              _vm._m(3),
+              _vm._m(2),
               _vm._v(" "),
               _c("div", { staticClass: "w-full md:w-1/2 mb-6 md:mb-0" }, [
                 _c(
@@ -21732,6 +21861,9 @@ var render = function() {
                         "block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
                       attrs: { id: "pp_country" },
                       on: {
+                        "~change": function($event) {
+                          return _vm.procede()
+                        },
                         change: function($event) {
                           var $$selectedVal = Array.prototype.filter
                             .call($event.target.options, function(o) {
@@ -21800,16 +21932,22 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm.id_type == 3 ? _c("div", [_c("p", [_vm._v("type3")])]) : _vm._e(),
+        _vm.id_type == 3
+          ? _c("div", [_c("p", [_vm._v("id type3")])])
+          : _vm._e(),
         _vm._v(" "),
-        _vm.id_type == 4 ? _c("div", [_c("p", [_vm._v("type4")])]) : _vm._e(),
+        _vm.id_type == 4
+          ? _c("div", [_c("p", [_vm._v("id type4")])])
+          : _vm._e(),
         _vm._v(" "),
-        _vm.id_type == 5 ? _c("div", [_c("p", [_vm._v("type5")])]) : _vm._e()
+        _vm.id_type == 5 ? _c("div", [_c("p", [_vm._v("id type5")])]) : _vm._e()
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "w-2/3 h-12" }, [
-        _vm.country_select
+        _vm.id_number.length > 9 || _vm.country_select
           ? _c("div", [
+              _vm._m(3),
+              _vm._v(" "),
               _vm._m(4),
               _vm._v(" "),
               _vm._m(5),
@@ -21818,7 +21956,86 @@ var render = function() {
               _vm._v(" "),
               _vm._m(7),
               _vm._v(" "),
-              _vm._m(8)
+              _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
+                _c(
+                  "div",
+                  { staticClass: "w-full md:w-1/2 px-3 mb-6 md:mb-0" },
+                  [
+                    _c(
+                      "label",
+                      {
+                        staticClass:
+                          "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2",
+                        attrs: { for: "country" }
+                      },
+                      [_vm._v("Country")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "relative" }, [
+                      _c(
+                        "select",
+                        {
+                          staticClass:
+                            "block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+                          attrs: { id: "country" },
+                          on: {
+                            "~change": function($event) {
+                              return _vm.procede()
+                            }
+                          }
+                        },
+                        [
+                          _c("option", [_vm._v("Australia")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Austria")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Azerbaijan")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Burundi")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Belgium")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Benin")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Burkina Faso")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Bangladesh")]),
+                          _vm._v(" "),
+                          _c("option", [_vm._v("Bulgaria")])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "fill-current h-4 w-4",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                viewBox: "0 0 20 20"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ])
             ])
           : _vm._e()
       ])
@@ -21890,32 +22107,6 @@ var staticRenderFns = [
           id: "grid-birthday",
           type: "birthday",
           placeholder: "DD/MM/YYYY"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-full md:w-1/2 mb-6 md:mb-0" }, [
-      _c(
-        "label",
-        {
-          staticClass:
-            "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2",
-          attrs: { for: "grid-rsa-id" }
-        },
-        [_vm._v("ID Number")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass:
-          "appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white",
-        attrs: {
-          id: "grid-rsa-id",
-          type: "text",
-          placeholder: "800101 5060 080"
         }
       })
     ])
