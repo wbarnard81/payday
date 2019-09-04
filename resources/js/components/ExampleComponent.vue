@@ -5,6 +5,7 @@
     <h1
       class="fill-current text-3xl text-center text-blue-600 capitalize underline"
     >Let's add an employer</h1>
+
     <div class="w-full">
       <div class="shadow w-full bg-grey-light">
         <div
@@ -13,395 +14,184 @@
         >Progress: {{ progress + '%' }}</div>
       </div>
     </div>
-    <div class="flex mb-4">
-      <!-- Left -->
-      <div class="w-1/3 h-screen">
-        <div>
-          <div class="w-full md:w-1/2 -mx-3 px-3 md:mb-0">
-            <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="employer_type"
-            >Employer Type</label>
-            <div class="relative">
-              <select
-                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="employer_type"
-                v-model="employer_type"
-                @change.once="procede()"
-              >
-                <option value="0" disabled selected>Select an employer type</option>
-                <option value="1">Individual</option>
-                <option value="2">Partnership</option>
-                <option value="3">Company</option>
-                <option value="4">Authority</option>
-                <option value="5">NPO</option>
-                <option value="6">Estate</option>
-                <option value="7">Club</option>
-              </select>
-              <div
-                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-              >
-                <svg
-                  class="fill-current h-4 w-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div v-if="employer_type == 1">
-          <form class="w-full max-w-lg mt-4">
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="grid-first-name"
-                >First Name</label>
-                <input
-                  class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                  id="grid-first-name"
-                  type="text"
-                  placeholder="Jane"
-                />
-              </div>
-              <div class="w-full md:w-1/2 px-3">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="grid-last-name"
-                >Last Name</label>
-                <input
-                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="grid-last-name"
-                  type="text"
-                  placeholder="Doe"
-                />
-              </div>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full md:w-1/2 px-3">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="grid-password"
-                >Birthday</label>
-                <input
-                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="grid-birthday"
-                  type="birthday"
-                  placeholder="DD/MM/YYYY"
-                />
-              </div>
-              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="id_type"
-                >Other ID Type</label>
-                <div class="relative">
-                  <select
-                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="id_type"
-                    v-model="id_type"
-                    @change.once="procede()"
-                  >
-                    <option value="1">RSA ID</option>
-                    <option value="2">Passport</option>
-                    <option value="3">CIPC Number</option>
-                    <option value="4">Trust Number</option>
-                    <option value="5">Asylum Permit Number</option>
-                  </select>
-                  <div
-                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-                  >
-                    <svg
-                      class="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
 
-        <div v-if="id_type == 1">
-          <div class="w-full md:w-1/2 mb-6 md:mb-0">
-            <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-rsa-id"
-            >ID Number</label>
-            <input
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              id="grid-rsa-id"
-              type="text"
-              placeholder="800101 5060 080"
-              v-model="id_number"
-              @input.once="procede()"
-            />
-          </div>
-        </div>
-        <div v-if="id_type == 2">
-          <div class="w-full md:w-1/2 mb-6 md:mb-0">
-            <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-passport-id"
-            >Passport Number</label>
-            <input
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              id="grid-passport-id"
-              type="text"
-              placeholder="XXXXXX XXXX XXX"
-            />
-          </div>
-          <div class="w-full md:w-1/2 mb-6 md:mb-0">
-            <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="pp_country"
-            >Passport Country</label>
-            <div class="relative">
-              <select
-                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="pp_country"
-                v-model="country_select"
-                @change.once="procede()"
-              >
-                <option>Australia</option>
-                <option>Austria</option>
-                <option>Azerbaijan</option>
-                <option>Burundi</option>
-                <option>Belgium</option>
-                <option>Benin</option>
-                <option>Burkina Faso</option>
-                <option>Bangladesh</option>
-                <option>Bulgaria</option>
-              </select>
-              <div
-                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-              >
-                <svg
-                  class="fill-current h-4 w-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div v-if="id_type == 3">
-          <p>id type3</p>
-        </div>
-        <div v-if="id_type == 4">
-          <p>id type4</p>
-        </div>
-        <div v-if="id_type == 5">
-          <p>id type5</p>
-        </div>
+    <form @submit.prevent="submitData">
+      <Selectfield
+        name="employer_type"
+        label="Employer Type"
+        @update:field="form.employer_type = $event"
+        @change="procede()"
+      />
+
+      <div v-if="form.employer_type == 1">
+        <Inputfield
+          name="first_name"
+          label="First Name(s)"
+          placeholder="John William"
+          @update:field="form.first_name = $event"
+        />
+        <Inputfield
+          name="last_name"
+          label="Last Name"
+          placeholder="Doe"
+          @update:field="form.last_name = $event"
+        />
+        <Inputfield
+          name="birthday"
+          label="Date of Birth"
+          placeholder="DD/MM/YYYY"
+          @update:field="form.birthday = $event"
+        />
+
+        <Selectfield name="id_type" label="ID Type" @update:field="form.id_type = $event" />
       </div>
-      <!-- Right -->
-      <div class="w-2/3 h-12">
-        <div v-if="id_number.length > 9 || country_select">
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="number"
-              >Telephone Number</label>
-              <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                id="number"
-                type="text"
-                placeholder="012-345-6789"
-              />
-            </div>
-            <div class="w-full md:w-1/2 px-3">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="cellnumber"
-              >Cellphone Number</label>
-              <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="cellnumber"
-                type="text"
-                placeholder="012-345-6789"
-              />
-            </div>
-          </div>
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="work_number"
-              >Work Number</label>
-              <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                id="work_number"
-                type="text"
-                placeholder="012-345-6789"
-              />
-            </div>
-            <div class="w-full md:w-1/2 px-3">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="email"
-              >Email Address:</label>
-              <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="email"
-                type="email"
-                placeholder="jdoe@example.com"
-              />
-            </div>
-          </div>
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="unit_number"
-              >Unit Number</label>
-              <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                id="unit_number"
-                type="text"
-                placeholder="123"
-              />
-            </div>
-            <div class="w-full md:w-1/2 px-3">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="complex_name"
-              >Complex Name</label>
-              <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="complex_name"
-                type="text"
-                placeholder="Sunrise Shadow"
-              />
-            </div>
-          </div>
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="street_number"
-              >Street Number</label>
-              <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                id="street_number"
-                type="text"
-                placeholder="112"
-              />
-            </div>
-            <div class="w-full md:w-1/2 px-3">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="street_name"
-              >Street Name</label>
-              <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="street_name"
-                type="text"
-                placeholder="Something avenue"
-              />
-            </div>
-          </div>
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="suburb"
-              >Suburb</label>
-              <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                id="suburb"
-                type="text"
-                placeholder="Nowhere South"
-              />
-            </div>
-            <div class="w-full md:w-1/2 px-3">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="city_name"
-              >City Name</label>
-              <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="city_name"
-                type="text"
-                placeholder="Greatcity"
-              />
-            </div>
-          </div>
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="country"
-              >Country</label>
-              <div class="relative">
-                <select
-                  class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="country"
-                  @change.once="procede()"
-                >
-                  <option>Australia</option>
-                  <option>Austria</option>
-                  <option>Azerbaijan</option>
-                  <option>Burundi</option>
-                  <option>Belgium</option>
-                  <option>Benin</option>
-                  <option>Burkina Faso</option>
-                  <option>Bangladesh</option>
-                  <option>Bulgaria</option>
-                </select>
-                <div
-                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-                >
-                  <svg
-                    class="fill-current h-4 w-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+      <div v-if="form.id_type == 1">
+        <Inputfield
+          name="idnumber"
+          label="ID Number"
+          placeholder="800123 5050 080"
+          @update:field="form.idnumber = $event"
+        />
       </div>
-    </div>
+
+      <div v-if="form.id_type == 2">
+        <Inputfield
+          name="passport_number"
+          label="Passport Number"
+          placeholder="800123 5050 080"
+          @update:field="form.passport_number = $event"
+        />
+
+        <Selectfield name="ppcountry" label="ID Type" @update:field="form.ppcountry = $event" />
+      </div>
+
+      <div v-if="form.ppcountry || form.idnumber.length > 9">
+        <Inputfield
+          name="telephone"
+          label="Telephone Number"
+          placeholder="012 345 6789"
+          @update:field="form.telephone = $event"
+        />
+
+        <Inputfield
+          name="cellphone"
+          label="Cellphone Number"
+          placeholder="012 345 6789"
+          @update:field="form.cellphone = $event"
+        />
+        <Inputfield
+          name="business_number"
+          label="Business Number"
+          placeholder="012 345 6789"
+          @update:field="form.business_number = $event"
+        />
+        <Inputfield
+          name="email"
+          label="Email Address"
+          placeholder="someone@example.com"
+          @update:field="form.email = $event"
+        />
+        <Inputfield
+          name="unit_number"
+          label="Unit Number"
+          placeholder="123"
+          @update:field="form.unit_number = $event"
+        />
+        <Inputfield
+          name="complex_name"
+          label="Complex Name"
+          placeholder="Sunrise Rainbow"
+          @update:field="form.complex_name = $event"
+        />
+        <Inputfield
+          name="street_number"
+          label="Street Number"
+          placeholder="11a"
+          @update:field="form.street_number = $event"
+        />
+        <Inputfield
+          name="street_name"
+          label="Street Name"
+          placeholder="North avenue"
+          @update:field="form.street_name = $event"
+        />
+        <Inputfield
+          name="suburb"
+          label="Suburb Name"
+          placeholder="City Deep"
+          @update:field="form.suburb = $event"
+        />
+        <Inputfield
+          name="city_name"
+          label="City Name"
+          placeholder="Nowhere"
+          @update:field="form.city_name = $event"
+        />
+
+        <Selectfield name="country" label="Country" @update:field="form.country = $event" />
+      </div>
+
+      <div v-if="form.country">
+        <Selectfield
+          name="same_address"
+          label="Is the Postal Address the same as the Street Address?"
+          @update:field="form.same_address = $event"
+        />
+      </div>
+
+      <!-- <div v-if="form.same_address"> -->
+      <div>
+        <button
+          class="bg-green-500 hover:bg-breen-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+        >Submit</button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
+import Inputfield from "../components/InputField";
+import Selectfield from "../components/Selectfield";
 export default {
   data: () => {
     return {
-      user: "your name here",
-      employer_type: "",
-      id_type: "",
-      country_select: "",
-      country_select2: "",
-      id_number: "",
-      progress: 0
+      form: {
+        first_name: "",
+        last_name: "",
+        birthday: "",
+        idnumber: "",
+        passport_number: "",
+        ppcountry: "",
+        id_type: "",
+        telephone: "",
+        cellphone: "",
+        business_number: "",
+        email: "",
+        unit_number: "",
+        complex_name: "",
+        street_number: "",
+        street_name: "",
+        suburb: "",
+        city_name: "",
+        country: "",
+        same_address: "",
+        employer_type: ""
+      },
+      progress: 0,
+      user: ""
     };
+  },
+  components: {
+    Inputfield,
+    Selectfield
   },
   methods: {
     procede: function() {
       this.progress = this.progress + 10;
+    },
+    submitData: () => {
+      console.log(this.form);
     }
   },
   mounted() {
