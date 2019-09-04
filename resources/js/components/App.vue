@@ -10,7 +10,7 @@
           <p class="pt-12 text-gray-500 text-xs uppercase font-bold">Create</p>
 
           <router-link
-            to="/contacts/create"
+            to="/employer/create"
             class="flex items-center py-2 hover:text-blue-600 text-sm"
           >
             <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
@@ -18,7 +18,154 @@
                 d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
               />
             </svg>
-            <div class="tracking-wide pl-3">Add New</div>
+            <div class="tracking-wide pl-3">New Employer</div>
+          </router-link>
+
+          <router-link
+            to="/employertype"
+            class="flex items-center py-2 hover:text-blue-600 text-sm"
+          >
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">Employer Type</div>
+          </router-link>
+
+          <router-link
+            to="/employeetype"
+            class="flex items-center py-2 hover:text-blue-600 text-sm"
+          >
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">Employee Type</div>
+          </router-link>
+
+          <router-link to="/sez" class="flex items-center py-2 hover:text-blue-600 text-sm">
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">New SEZ</div>
+          </router-link>
+
+          <router-link to="/accounttype" class="flex items-center py-2 hover:text-blue-600 text-sm">
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">Account Type</div>
+          </router-link>
+
+          <router-link
+            to="/accountrelationship"
+            class="flex items-center py-2 hover:text-blue-600 text-sm"
+          >
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">Acc Relationship</div>
+          </router-link>
+
+          <router-link to="/bankname" class="flex items-center py-2 hover:text-blue-600 text-sm">
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">Bank Name</div>
+          </router-link>
+
+          <router-link to="/repposition" class="flex items-center py-2 hover:text-blue-600 text-sm">
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">Rep Position</div>
+          </router-link>
+
+          <router-link to="/idtypes" class="flex items-center py-2 hover:text-blue-600 text-sm">
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">Other ID Types</div>
+          </router-link>
+
+          <router-link to="/transaction" class="flex items-center py-2 hover:text-blue-600 text-sm">
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">Transaction</div>
+          </router-link>
+
+          <router-link to="/paymethod" class="flex items-center py-2 hover:text-blue-600 text-sm">
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">Payment Method</div>
+          </router-link>
+
+          <router-link to="/irp5codes" class="flex items-center py-2 hover:text-blue-600 text-sm">
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">IRP5 Codes</div>
+          </router-link>
+
+          <router-link to="/country" class="flex items-center py-2 hover:text-blue-600 text-sm">
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">Country</div>
+          </router-link>
+
+          <router-link to="/sic7" class="flex items-center py-2 hover:text-blue-600 text-sm">
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">SIC7</div>
+          </router-link>
+
+          <router-link to="/activity" class="flex items-center py-2 hover:text-blue-600 text-sm">
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">Activity</div>
+          </router-link>
+
+          <router-link
+            to="/activitycodes"
+            class="flex items-center py-2 hover:text-blue-600 text-sm"
+          >
+            <svg viewBox="0 0 24 24" class="fill-current text-blue-600 w-5 h-5">
+              <path
+                d="M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+              />
+            </svg>
+            <div class="tracking-wide pl-3">Activity Code</div>
           </router-link>
 
           <p class="pt-12 text-gray-500 text-xs uppercase font-bold">General</p>
