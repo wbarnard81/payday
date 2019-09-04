@@ -2442,7 +2442,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AccountType",
+  name: "AccountRelationship",
   components: {
     Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -2502,7 +2502,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AccountType",
+  name: "Activity",
   components: {
     Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -2532,7 +2532,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AccountType",
+  name: "ActivityCodes",
   components: {
     Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -2561,7 +2561,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AccountType",
+  name: "BankName",
   components: {
     Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -2877,11 +2877,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AccountType",
+  name: "Country",
   components: {
     Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      country: null
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    console.log(this.user);
+    axios.get("/api/country/").then(function (response) {
+      _this.country = response.data;
+    })["catch"](function (error) {
+      console.log(error);
+    });
   }
 });
 
@@ -2908,7 +2934,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "EmployerType",
+  name: "EmployeeType",
   components: {
     Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -3082,6 +3108,7 @@ var _this = undefined;
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: "EmployerCreate",
   data: function data() {
     return {
       form: {
@@ -3180,7 +3207,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AccountType",
+  name: "IdTypes",
   components: {
     Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -3210,7 +3237,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AccountType",
+  name: "Irp5Codes",
   components: {
     Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -3239,7 +3266,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AccountType",
+  name: "PayementMethod",
   components: {
     Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -3268,7 +3295,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AccountType",
+  name: "RepPosition",
   components: {
     Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -3328,7 +3355,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AccountType",
+  name: "Sic7",
   components: {
     Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -3369,7 +3396,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AccountType",
+  name: "Transaction",
   components: {
     Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"],
     Selectfield: _components_Selectfield__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -22858,12 +22885,50 @@ var render = function() {
             "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
         },
         [_vm._v("Add")]
+      ),
+      _vm._v(" "),
+      _c("hr", { staticClass: "border-2 border-black" }),
+      _vm._v(" "),
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.country, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black" }, [
+                _vm._v(_vm._s(item.code))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "border border-black" }, [
+                _vm._v(_vm._s(item.name))
+              ])
+            ])
+          })
+        ],
+        2
       )
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Country Code")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Country Name")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

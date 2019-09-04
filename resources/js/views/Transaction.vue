@@ -22,7 +22,7 @@ import Inputfield from "../components/InputField";
 import Selectfield from "../components/Selectfield";
 
 export default {
-  name: "AccountType",
+  name: "Transaction",
 
   components: {
     Inputfield,

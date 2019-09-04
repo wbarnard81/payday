@@ -152,6 +152,7 @@
 import Inputfield from "../components/InputField";
 import Selectfield from "../components/Selectfield";
 export default {
+  name: "EmployerCreate",
   data: () => {
     return {
       form: {

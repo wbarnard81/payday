@@ -12,7 +12,7 @@
 import Inputfield from "../components/InputField";
 
 export default {
-  name: "AccountType",
+  name: "ActivityCodes",
 
   components: {
     Inputfield

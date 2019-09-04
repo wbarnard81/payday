@@ -11,7 +11,7 @@
 import Inputfield from "../components/InputField";
 
 export default {
-  name: "AccountType",
+  name: "IdTypes",
 
   components: {
     Inputfield
