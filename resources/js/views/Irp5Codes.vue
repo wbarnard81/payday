@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Inputfield name="irp5codes" label="Add IRP5 Codes" />
+    <Inputfield name="irp5code" label="Enter IRP5 Code" />
+    <Inputfield name="irp5description" label="Enter Description" />
     <button
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
     >Add</button>
