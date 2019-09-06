@@ -4,60 +4,39 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Country;
+use App\Http\Resources\CountryResource;
+use Illuminate\Support\Facades\DB;
 
 class CountryController extends Controller
 {
     public function index()
     {
-
+        $this->authorize('viewAny', Country::class);
         return Country::all();
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $this->authorize('create', Contact::class);
+        $this->authorize('store', Country::class);
+        $country = $request->isMethod('patch') ? Country::findOrFail($request->id) : new Country();
 
-        $contact = request()->user()->contacts()->create($this->validateData());
+        $country->id = $request->input('country_id');
+        $country->code = $request->input('country_code');
+        $country->name = $request->input('country_name');
 
-        return (new ContactResource($contact))
-            ->response()
-            ->setStatusCode(Response::HTTP_CREATED);
+        if ($country->save()) {
+            return new CountryResource($country);
+        }
     }
 
-    public function show(Contact $contact)
+    public function destroy($country)
     {
-        $this->authorize('view', $contact);
+        $this->authorize('delete', Country::class);
 
-        return new ContactResource($contact);
-    }
+        DB::table('countries')->where('id', '=', $country)->delete();
 
-    public function update(Contact $contact)
-    {
-        $this->authorize('update', $contact);
-
-        $contact->update($this->validateData());
-
-        return (new ContactResource($contact))
-            ->response()
-            ->setStatusCode(Response::HTTP_OK);
-    }
-
-    public function destroy(Contact $contact)
-    {
-        $this->authorize('delete', $contact);
-
-        $contact->delete();
-
-        return response([], Response::HTTP_NO_CONTENT);
-    }
-
-    private function validateData()
-    {
-        return request()->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'birthday' => 'required',
-            'company' => 'required',
+        return response()->json([
+            'msg' => 'Deleted'
         ]);
     }
 }

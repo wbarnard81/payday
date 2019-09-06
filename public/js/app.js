@@ -2888,6 +2888,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Country",
@@ -2896,18 +2927,78 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      country: null
+      country: null,
+      edit: false,
+      countryInput: {
+        country_id: "",
+        country_code: "",
+        country_name: ""
+      }
     };
   },
   mounted: function mounted() {
-    var _this = this;
+    this.getCountries();
+  },
+  methods: {
+    getCountries: function getCountries() {
+      var _this = this;
 
-    console.log(this.user);
-    axios.get("/api/country/").then(function (response) {
-      _this.country = response.data;
-    })["catch"](function (error) {
-      console.log(error);
-    });
+      axios.get("/api/country/").then(function (response) {
+        _this.country = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    addCountry: function addCountry(country_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/country", this.countryInput).then(function (res) {
+          if (res.status == 201) {
+            alert("Country Added.");
+            _this2.countryInput.country_code = "";
+            _this2.countryInput.country_name = "";
+
+            _this2.getCountries();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      } else {
+        axios.patch("/api/country/" + this.countryInput.country_id, this.countryInput).then(function (res) {
+          if (res.status == 200) {
+            alert("Country Updated.");
+            _this2.countryInput.country_id = "";
+            _this2.countryInput.country_code = "";
+            _this2.countryInput.country_name = "";
+            _this2.edit = false;
+
+            _this2.getCountries();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      }
+    },
+    editCountry: function editCountry(item) {
+      this.edit = true;
+      this.countryInput.country_id = item.id;
+      this.countryInput.country_code = item.code;
+      this.countryInput.country_name = item.name;
+    },
+    deleteCountry: function deleteCountry(country_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this country?")) {
+        axios["delete"]("/api/country/".concat(country_id)).then(function (response) {
+          alert("Country deleted.");
+
+          _this3.getCountries();
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
+    }
   }
 });
 
@@ -22867,51 +22958,144 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", {
-        attrs: { name: "country_code", label: "Enter Country Code" }
-      }),
-      _vm._v(" "),
-      _c("Inputfield", {
-        attrs: { name: "country_name", label: "Enter Country Name" }
-      }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
-        },
-        [_vm._v("Add")]
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Country Code")]
       ),
       _vm._v(" "),
-      _c("hr", { staticClass: "border-2 border-black" }),
-      _vm._v(" "),
-      _c(
-        "table",
-        { staticClass: "text-center mt-4" },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._l(_vm.country, function(item) {
-            return _c("tr", { key: item.id }, [
-              _c("td", { staticClass: "border border-black" }, [
-                _vm._v(_vm._s(item.code))
-              ]),
-              _vm._v(" "),
-              _c("td", { staticClass: "border border-black" }, [
-                _vm._v(_vm._s(item.name))
-              ])
-            ])
-          })
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.countryInput.country_code,
+            expression: "countryInput.country_code"
+          }
         ],
-        2
-      )
-    ],
-    1
-  )
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter code",
+          name: "country_code"
+        },
+        domProps: { value: _vm.countryInput.country_code },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.countryInput, "country_code", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Country Name")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.countryInput.country_name,
+            expression: "countryInput.country_name"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter name",
+          name: "country_name"
+        },
+        domProps: { value: _vm.countryInput.country_name },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.countryInput, "country_name", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addCountry()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.country, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.code))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.name))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 border border-yellow-700 rounded",
+                  on: {
+                    click: function($event) {
+                      return _vm.editCountry(item)
+                    }
+                  }
+                },
+                [_vm._v("Edit")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteCountry(item.id)
+                    }
+                  }
+                },
+                [_vm._v("Delete")]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -22925,7 +23109,9 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("Country Name")
-      ])
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
     ])
   }
 ]
