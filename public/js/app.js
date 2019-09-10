@@ -2097,6 +2097,168 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2430,7 +2592,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -2440,11 +2601,145 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AccountRelationship",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  name: "ActivityCode",
+  data: function data() {
+    return {
+      accrelationships: null,
+      edit: false,
+      accrelationship: {
+        accrelationship_id: "",
+        name: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getAccrelationships();
+  },
+  methods: {
+    getAccrelationships: function getAccrelationships() {
+      var _this = this;
+
+      axios.get("/api/accrel/").then(function (response) {
+        _this.accrelationships = response.data;
+      })["catch"](function (error) {
+        console.log(error.response);
+      });
+    },
+    addAccrelationship: function addAccrelationship(accrelationship_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/accrel", this.accrelationship).then(function (res) {
+          if (res.status == 201) {
+            alert("Activity Code Added.");
+            _this2.accrelationship.name = "";
+
+            _this2.getAccrelationships();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      } else {
+        axios.patch("/api/accrel/" + this.accrelationship.accrelationship_id, this.accrelationship).then(function (res) {
+          if (res.status == 200) {
+            alert("Activity Code Updated.");
+            _this2.accrelationship.accrelationship_id = "";
+            _this2.accrelationship.name = "";
+            _this2.edit = false;
+
+            _this2.getAccrelationships();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      }
+    },
+    editActcrelationship: function editActcrelationship(item) {
+      this.edit = true;
+      this.accrelationship.accrelationship_id = item.id;
+      this.accrelationship.name = item.name;
+    },
+    deleteAccrelationship: function deleteAccrelationship(accrelationship_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this activity code?")) {
+        axios["delete"]("/api/accrel/".concat(accrelationship_id)).then(function (response) {
+          alert("Activity Code deleted.");
+
+          _this3.getAccrelationships();
+        })["catch"](function (err) {
+          console.log(err.response);
+        });
+      }
+    }
   }
 });
 
@@ -2815,7 +3110,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -2826,11 +3120,163 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ActivityCodes",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  name: "ActivityCode",
+  data: function data() {
+    return {
+      activitycodes: null,
+      edit: false,
+      activitycodeInput: {
+        activitycode_id: "",
+        code: "",
+        loss_code: "",
+        description: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getActivitycodes();
+  },
+  methods: {
+    getActivitycodes: function getActivitycodes() {
+      var _this = this;
+
+      axios.get("/api/actcode/").then(function (response) {
+        _this.activitycodes = response.data;
+      })["catch"](function (error) {
+        console.log(error.response);
+      });
+    },
+    addActivitycode: function addActivitycode(activitycode_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/actcode", this.activitycodeInput).then(function (res) {
+          if (res.status == 201) {
+            alert("Activity Code Added.");
+            _this2.activitycodeInput.code = "";
+            _this2.activitycodeInput.loss_code = "";
+            _this2.activitycodeInput.description = "";
+
+            _this2.getActivitycodes();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      } else {
+        axios.patch("/api/actcode/" + this.activitycodeInput.activitycode_id, this.activitycodeInput).then(function (res) {
+          if (res.status == 200) {
+            alert("Activity Code Updated.");
+            _this2.activitycodeInput.activitycode_id = "";
+            _this2.activitycodeInput.code = "";
+            _this2.activitycodeInput.loss_code = "";
+            _this2.activitycodeInput.description = "";
+            _this2.edit = false;
+
+            _this2.getActivitycodes();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      }
+    },
+    editActivitycode: function editActivitycode(item) {
+      this.edit = true;
+      this.activitycodeInput.activitycode_id = item.id;
+      this.activitycodeInput.code = item.code;
+      this.activitycodeInput.description = item.description;
+    },
+    deleteActivity: function deleteActivity(activitycode_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this activity code?")) {
+        axios["delete"]("/api/actcode/".concat(activitycode_id)).then(function (response) {
+          alert("Activity Code deleted.");
+
+          _this3.getActivitycodes();
+        })["catch"](function (err) {
+          console.log(err.response);
+        });
+      }
+    }
   }
 });
 
@@ -4352,7 +4798,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -4362,11 +4807,145 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "PayementMethod",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  name: "PayMethod",
+  data: function data() {
+    return {
+      paymethods: null,
+      edit: false,
+      paymethodInput: {
+        paymethod_id: "",
+        name: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getPaymethods();
+  },
+  methods: {
+    getPaymethods: function getPaymethods() {
+      var _this = this;
+
+      axios.get("/api/paymethod/").then(function (response) {
+        _this.paymethods = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    addPaymethod: function addPaymethod(paymethod_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/paymethod", this.paymethodInput).then(function (res) {
+          if (res.status == 201) {
+            alert("Payment Method Added.");
+            _this2.paymethodInput.name = "";
+
+            _this2.getPaymethods();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      } else {
+        axios.patch("/api/paymethod/" + this.paymethodInput.paymethod_id, this.paymethodInput).then(function (res) {
+          if (res.status == 200) {
+            alert("Payment Method Updated.");
+            _this2.paymethodInput.paymethod_id = "";
+            _this2.paymethodInput.name = "";
+            _this2.edit = false;
+
+            _this2.getPaymethods();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      }
+    },
+    editPaymethods: function editPaymethods(item) {
+      this.edit = true;
+      this.paymethodInput.paymethod_id = item.id;
+      this.paymethodInput.name = item.name;
+    },
+    deletePaymethod: function deletePaymethod(paymethod_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this Payment Method?")) {
+        axios["delete"]("/api/paymethod/".concat(paymethod_id)).then(function (response) {
+          alert("Payment Method deleted.");
+
+          _this3.getPaymethods();
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
+    }
   }
 });
 
@@ -22846,14 +23425,34 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-briefcase",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
+                      _c("rect", {
+                        attrs: {
+                          x: "2",
+                          y: "7",
+                          width: "20",
+                          height: "14",
+                          rx: "2",
+                          ry: "2"
+                        }
+                      }),
+                      _vm._v(" "),
                       _c("path", {
                         attrs: {
-                          d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+                          d: "M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"
                         }
                       })
                     ]
@@ -22876,16 +23475,27 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-layers",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
-                        }
-                      })
+                      _c("polygon", {
+                        attrs: { points: "12 2 2 7 12 12 22 7 12 2" }
+                      }),
+                      _vm._v(" "),
+                      _c("polyline", { attrs: { points: "2 17 12 22 22 17" } }),
+                      _vm._v(" "),
+                      _c("polyline", { attrs: { points: "2 12 12 17 22 12" } })
                     ]
                   ),
                   _vm._v(" "),
@@ -22906,14 +23516,69 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-loader",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
-                      _c("path", {
+                      _c("line", {
+                        attrs: { x1: "12", y1: "2", x2: "12", y2: "6" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "12", y1: "18", x2: "12", y2: "22" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
                         attrs: {
-                          d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+                          x1: "4.93",
+                          y1: "4.93",
+                          x2: "7.76",
+                          y2: "7.76"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: {
+                          x1: "16.24",
+                          y1: "16.24",
+                          x2: "19.07",
+                          y2: "19.07"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "2", y1: "12", x2: "6", y2: "12" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "18", y1: "12", x2: "22", y2: "12" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: {
+                          x1: "4.93",
+                          y1: "19.07",
+                          x2: "7.76",
+                          y2: "16.24"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: {
+                          x1: "16.24",
+                          y1: "7.76",
+                          x2: "19.07",
+                          y2: "4.93"
                         }
                       })
                     ]
@@ -22936,14 +23601,30 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-globe",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
+                      _c("circle", { attrs: { cx: "12", cy: "12", r: "10" } }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "2", y1: "12", x2: "22", y2: "12" }
+                      }),
+                      _vm._v(" "),
                       _c("path", {
                         attrs: {
                           d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+                            "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
                         }
                       })
                     ]
@@ -22966,15 +23647,30 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-archive",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
-                        }
+                      _c("polyline", {
+                        attrs: { points: "21 8 21 21 3 21 3 8" }
+                      }),
+                      _vm._v(" "),
+                      _c("rect", {
+                        attrs: { x: "1", y: "3", width: "22", height: "5" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "12", x2: "14", y2: "12" }
                       })
                     ]
                   ),
@@ -22996,14 +23692,28 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-inbox",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
+                      _c("polyline", {
+                        attrs: { points: "22 12 16 12 14 15 10 15 8 12 2 12" }
+                      }),
+                      _vm._v(" "),
                       _c("path", {
                         attrs: {
                           d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+                            "M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
                         }
                       })
                     ]
@@ -23026,15 +23736,26 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-bold",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
                       _c("path", {
-                        attrs: {
-                          d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
-                        }
+                        attrs: { d: "M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z" }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: { d: "M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z" }
                       })
                     ]
                   ),
@@ -23056,14 +23777,24 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-key",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
                       _c("path", {
                         attrs: {
                           d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+                            "M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"
                         }
                       })
                     ]
@@ -23086,15 +23817,33 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-sidebar",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
-                      _c("path", {
+                      _c("rect", {
                         attrs: {
-                          d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+                          x: "3",
+                          y: "3",
+                          width: "18",
+                          height: "18",
+                          rx: "2",
+                          ry: "2"
                         }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "9", y1: "3", x2: "9", y2: "21" }
                       })
                     ]
                   ),
@@ -23116,14 +23865,27 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-dollar-sign",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
+                      _c("line", {
+                        attrs: { x1: "12", y1: "1", x2: "12", y2: "23" }
+                      }),
+                      _vm._v(" "),
                       _c("path", {
                         attrs: {
-                          d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+                          d: "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
                         }
                       })
                     ]
@@ -23146,15 +23908,29 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-airplay",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
                       _c("path", {
                         attrs: {
                           d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+                            "M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"
                         }
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        attrs: { points: "12 15 17 21 7 21 12 15" }
                       })
                     ]
                   ),
@@ -23176,15 +23952,54 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-sliders",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
-                        }
+                      _c("line", {
+                        attrs: { x1: "4", y1: "21", x2: "4", y2: "14" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "4", y1: "10", x2: "4", y2: "3" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "12", y1: "21", x2: "12", y2: "12" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "12", y1: "8", x2: "12", y2: "3" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "20", y1: "21", x2: "20", y2: "16" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "20", y1: "12", x2: "20", y2: "3" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "1", y1: "14", x2: "7", y2: "14" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "9", y1: "8", x2: "15", y2: "8" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "17", y1: "16", x2: "23", y2: "16" }
                       })
                     ]
                   ),
@@ -23206,14 +24021,25 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-award",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
-                      _c("path", {
+                      _c("circle", { attrs: { cx: "12", cy: "8", r: "7" } }),
+                      _vm._v(" "),
+                      _c("polyline", {
                         attrs: {
-                          d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+                          points: "8.21 13.89 7 23 12 20 17 23 15.79 13.88"
                         }
                       })
                     ]
@@ -23236,15 +24062,45 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-codesandbox",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
                       _c("path", {
                         attrs: {
                           d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
+                            "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
                         }
+                      }),
+                      _vm._v(" "),
+                      _c("polyline", {
+                        attrs: { points: "7.5 4.21 12 6.81 16.5 4.21" }
+                      }),
+                      _vm._v(" "),
+                      _c("polyline", {
+                        attrs: { points: "7.5 19.79 7.5 14.6 3 12" }
+                      }),
+                      _vm._v(" "),
+                      _c("polyline", {
+                        attrs: { points: "21 12 16.5 14.6 16.5 19.79" }
+                      }),
+                      _vm._v(" "),
+                      _c("polyline", {
+                        attrs: { points: "3.27 6.96 12 12.01 20.73 6.96" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "12", y1: "22.08", x2: "12", y2: "12" }
                       })
                     ]
                   ),
@@ -23266,15 +24122,24 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-terminal",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
-                        }
+                      _c("polyline", { attrs: { points: "4 17 10 11 4 5" } }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "12", y1: "19", x2: "20", y2: "19" }
                       })
                     ]
                   ),
@@ -23296,95 +24161,34 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
+                      staticClass: "feather feather-git-pull-request",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
                     },
                     [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M23.3 11.9c0 .9-.6 1.4-1.4 1.4h-8.5v8.5c0 .9-.6 1.4-1.4 1.4s-1.4-.6-1.4-1.4v-8.5H2c-.9 0-1.4-.6-1.4-1.4 0-.9.6-1.4 1.4-1.4h8.5V1.9c0-.9.6-1.4 1.4-1.4s1.4.6 1.4 1.4v8.5h8.5c.9 0 1.5.6 1.5 1.5z"
-                        }
+                      _c("circle", { attrs: { cx: "18", cy: "18", r: "3" } }),
+                      _vm._v(" "),
+                      _c("circle", { attrs: { cx: "6", cy: "6", r: "3" } }),
+                      _vm._v(" "),
+                      _c("path", { attrs: { d: "M13 6h3a2 2 0 0 1 2 2v7" } }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "6", y1: "9", x2: "6", y2: "21" }
                       })
                     ]
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "tracking-wide pl-3" }, [
                     _vm._v("Activity Code")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass: "pt-12 text-gray-500 text-xs uppercase font-bold"
-                },
-                [_vm._v("General")]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/contacts" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        viewBox: "0 0 24 24"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        staticClass: "st0",
-                        attrs: {
-                          d:
-                            "M20 2h-1V1c0-.6-.4-1-1-1s-1 .4-1 1v1h-4V1c0-.6-.4-1-1-1s-1 .4-1 1v1H7V1c0-.6-.4-1-1-1S5 .4 5 1v1H4C1.8 2 0 3.8 0 6v14c0 2.2 1.8 4 4 4h16c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4zM4 4h1v1c0 .6.4 1 1 1s1-.4 1-1V4h4v1c0 .6.4 1 1 1s1-.4 1-1V4h4v1c0 .6.4 1 1 1s1-.4 1-1V4h1c1.1 0 2 .9 2 2v2H2V6c0-1.1.9-2 2-2zm16 18H4c-1.1 0-2-.9-2-2V10h20v10c0 1.1-.9 2-2 2zM8 14c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1s.4-1 1-1h2c.6 0 1 .4 1 1zm6 0c0 .6-.4 1-1 1h-2c-.6 0-1-.4-1-1s.4-1 1-1h2c.6 0 1 .4 1 1zm6 0c0 .6-.4 1-1 1h-2c-.6 0-1-.4-1-1s.4-1 1-1h2c.6 0 1 .4 1 1zM8 18c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1s.4-1 1-1h2c.6 0 1 .4 1 1zm6 0c0 .6-.4 1-1 1h-2c-.6 0-1-.4-1-1s.4-1 1-1h2c.6 0 1 .4 1 1zm6 0c0 .6-.4 1-1 1h-2c-.6 0-1-.4-1-1s.4-1 1-1h2c.6 0 1 .4 1 1z"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("Contacts")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/birthdays" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "fill-current text-blue-600 w-5 h-5",
-                      attrs: { viewBox: "0 0 24 24" }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          "fill-rule": "evenodd",
-                          d:
-                            "M12.1 6.8c1.2 0 2.1-1 2.1-2.1 0-.4-.1-.8-.3-1.1L12.1.5l-1.8 3.1c-.2.3-.3.6-.3 1 0 1.2 1 2.2 2.1 2.2zm6.4 3.1h-5.3V7.8h-2.1v2.1H5.8c-1.8 0-3.2 1.4-3.2 3.2v9.5c0 .6.5 1.1 1.1 1.1h16.9c.6 0 1.1-.5 1.1-1.1v-9.5c0-1.8-1.5-3.2-3.2-3.2zm1 11.7H4.7v-3.2c1 0 1.9-.4 2.5-1.1l1.2-1.1 1.1 1.1c1.4 1.4 3.8 1.4 5.2 0l1.1-1.1 1.1 1.1c.7.7 1.6 1.1 2.5 1.1v3.2h.1zm0-4.8c-.5 0-1-.2-1.4-.6l-2.3-2.3-2.3 2.3c-.8.8-2.1.8-2.9 0l-2.3-2.3L6 16.2c-.4.4-.9.6-1.4.6v-3.7c0-.6.5-1.1 1.1-1.1h12.7c.6 0 1.1.5 1.1 1.1v3.7z",
-                          "clip-rule": "evenodd"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("Birthdays")
                   ])
                 ]
               ),
@@ -23915,29 +24719,189 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", {
-        attrs: {
-          name: "account_relationship",
-          label: "Add Account Relationship"
-        }
-      }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter New Account Relationship")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.accrelationship.name,
+            expression: "accrelationship.name"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter Account Relationship",
+          name: "code"
         },
-        [_vm._v("Add")]
-      )
-    ],
-    1
-  )
+        domProps: { value: _vm.accrelationship.name },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.accrelationship, "name", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addAccrelationship()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.accrelationships, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.name))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editActcrelationship(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteAccrelationship(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Activity Code")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -24457,30 +25421,232 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", {
-        attrs: { name: "activity_codes", label: "Enter Activity Code" }
-      }),
-      _vm._v(" "),
-      _c("Inputfield", {
-        attrs: { name: "activity_description", label: "Description" }
-      }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Activity Code")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.activitycodeInput.code,
+            expression: "activitycodeInput.code"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter Activity code",
+          name: "code"
         },
-        [_vm._v("Add")]
-      )
-    ],
-    1
-  )
+        domProps: { value: _vm.activitycodeInput.code },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.activitycodeInput, "code", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Description")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.activitycodeInput.description,
+            expression: "activitycodeInput.description"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter description",
+          name: "description"
+        },
+        domProps: { value: _vm.activitycodeInput.description },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.activitycodeInput, "description", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addActivitycode()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.activitycodes, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.code))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.description))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editActivitycode(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteActivity(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Activity Code")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Activity Description")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -26670,26 +27836,185 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", {
-        attrs: { name: "paymethod", label: "Add Payment Method" }
-      }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
-        },
-        [_vm._v("Add")]
-      )
-    ],
-    1
-  )
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Payment Method")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.paymethodInput.name,
+            expression: "paymethodInput.name"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: { type: "text", placeholder: "Enter code", name: "name" },
+        domProps: { value: _vm.paymethodInput.name },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.paymethodInput, "name", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addPaymethod()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.paymethods, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.name))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editPaymethods(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deletePaymethod(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Payment Method")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 

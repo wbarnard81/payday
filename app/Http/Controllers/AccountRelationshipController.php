@@ -3,37 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Country;
-use App\Http\Resources\CountryResource;
+use App\AccountRelationship;
+use App\Http\Resources\AccountRelationshipResource;
 use Illuminate\Support\Facades\DB;
 
 class AccountRelationshipController extends Controller
 {
     public function index()
     {
-        $this->authorize('viewAny', Country::class);
-        return Country::all();
+        $this->authorize('viewAny', AccountRelationship::class);
+        return AccountRelationship::all();
     }
 
     public function store(Request $request)
     {
-        $this->authorize('store', Country::class);
-        $country = $request->isMethod('patch') ? Country::findOrFail($request->id) : new Country();
+        $this->authorize('store', AccountRelationship::class);
+        $accrelationship = $request->isMethod('patch') ? AccountRelationship::findOrFail($request->accrelationship_id) : new AccountRelationship();
 
-        $country->id = $request->input('country_id');
-        $country->code = $request->input('country_code');
-        $country->name = $request->input('country_name');
+        $accrelationship->id = $request->input('accrelationship_id');
+        $accrelationship->name = $request->input('name');
 
-        if ($country->save()) {
-            return new CountryResource($country);
+        if ($accrelationship->save()) {
+            return new AccountRelationshipResource($accrelationship);
         }
     }
 
-    public function destroy($country)
+    public function destroy($accrelationship)
     {
-        $this->authorize('delete', Country::class);
+        $this->authorize('delete', AccountRelationship::class);
 
-        DB::table('countries')->where('id', '=', $country)->delete();
+        DB::table('account_relationships')->where('id', '=', $accrelationship)->delete();
 
         return response()->json([
             'msg' => 'Deleted'

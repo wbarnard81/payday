@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->group(function () {
 
-    Route::get('/contacts', 'AccountRelationshipController@index');
-    Route::post('/contacts', 'AccountRelationshipController@store');
-    Route::get('/contacts/{contact}', 'AccountRelationshipController@show');
-    Route::patch('/contacts/{contact}', 'AccountRelationshipController@store');
-    Route::delete('/contacts/{contact}', 'AccountRelationshipController@destroy');
+    Route::get('/accrel', 'AccountRelationshipController@index');
+    Route::post('/accrel', 'AccountRelationshipController@store');
+    Route::get('/accrel/{contact}', 'AccountRelationshipController@show');
+    Route::patch('/accrel/{contact}', 'AccountRelationshipController@store');
+    Route::delete('/accrel/{contact}', 'AccountRelationshipController@destroy');
 
     Route::get('/country', 'CountryController@index');
     Route::post('/country', 'CountryController@store');

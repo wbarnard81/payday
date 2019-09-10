@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AccRelResource extends JsonResource
+class ActivityCodeResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
