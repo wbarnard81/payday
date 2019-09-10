@@ -98,7 +98,7 @@ export default {
           this.banknames = response.data;
         })
         .catch(error => {
-          console.log(error);
+          console.log(error.response);
         });
     },
     addBankName(bankname_id) {
@@ -112,7 +112,7 @@ export default {
               this.getBankNames();
             }
           })
-          .catch(err => console.log(err));
+          .catch(err => console.log(err.response));
       } else {
         axios
           .patch(
@@ -128,7 +128,7 @@ export default {
               this.getBankNames();
             }
           })
-          .catch(err => console.log(err));
+          .catch(err => console.log(err.response));
       }
     },
     editBankName(item) {

@@ -3389,7 +3389,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/bank/").then(function (response) {
         _this.banknames = response.data;
       })["catch"](function (error) {
-        console.log(error);
+        console.log(error.response);
       });
     },
     addBankName: function addBankName(bankname_id) {
@@ -3404,7 +3404,7 @@ __webpack_require__.r(__webpack_exports__);
             _this2.getBankNames();
           }
         })["catch"](function (err) {
-          return console.log(err);
+          return console.log(err.response);
         });
       } else {
         axios.patch("/api/bank/" + this.banknameInput.bankname_id, this.banknameInput).then(function (res) {
@@ -3417,7 +3417,7 @@ __webpack_require__.r(__webpack_exports__);
             _this2.getBankNames();
           }
         })["catch"](function (err) {
-          return console.log(err);
+          return console.log(err.response);
         });
       }
     },
