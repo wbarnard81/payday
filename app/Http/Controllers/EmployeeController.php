@@ -7,7 +7,7 @@ use App\Country;
 use App\Http\Resources\CountryResource;
 use Illuminate\Support\Facades\DB;
 
-class EmployeeController extends Controller
+class CountryController extends Controller
 {
     public function index()
     {
