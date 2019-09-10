@@ -2459,7 +2459,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -2469,11 +2468,145 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AccountType",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  data: function data() {
+    return {
+      acctype: null,
+      edit: false,
+      AccTypeInput: {
+        acctype_id: "",
+        acctype: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getAccountTypes();
+  },
+  methods: {
+    getAccountTypes: function getAccountTypes() {
+      var _this = this;
+
+      axios.get("/api/acctype/").then(function (response) {
+        _this.acctype = response.data;
+      })["catch"](function (error) {
+        console.log(error.response);
+      });
+    },
+    addAccountTypes: function addAccountTypes(acctype_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/acctype", this.AccTypeInput).then(function (res) {
+          if (res.status == 201) {
+            alert("Account Type Added.");
+            _this2.AccTypeInput.acctype = "";
+
+            _this2.getAccountTypes();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      } else {
+        axios.patch("/api/acctype/" + this.AccTypeInput.acctype_id, this.AccTypeInput).then(function (res) {
+          if (res.status == 200) {
+            alert("Account Type Updated.");
+            _this2.AccTypeInput.acctype_id = "";
+            _this2.AccTypeInput.acctype = "";
+            _this2.edit = false;
+
+            _this2.getAccountTypes();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      }
+    },
+    editAccountTypes: function editAccountTypes(item) {
+      this.edit = true;
+      this.AccTypeInput.acctype_id = item.id;
+      this.AccTypeInput.acctype = item.name;
+    },
+    deleteAccountType: function deleteAccountType(acctype_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this account type?")) {
+        axios["delete"]("/api/acctype/".concat(acctype_id)).then(function (response) {
+          alert("Account type deleted.");
+
+          _this3.getAccountTypes();
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
+    }
   }
 });
 
@@ -2488,7 +2621,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -2500,11 +2632,175 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Activity",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  name: "Activities",
+  data: function data() {
+    return {
+      activities: null,
+      edit: false,
+      activityInput: {
+        activity_id: "",
+        profit_code: "",
+        loss_code: "",
+        activity_description: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getActivities();
+  },
+  methods: {
+    getActivities: function getActivities() {
+      var _this = this;
+
+      axios.get("/api/activity/").then(function (response) {
+        _this.activities = response.data;
+      })["catch"](function (error) {
+        console.log(error.response);
+      });
+    },
+    addActivity: function addActivity(activity_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/activity", this.activityInput).then(function (res) {
+          if (res.status == 201) {
+            alert("Activity Added.");
+            _this2.activityInput.profit_code = "";
+            _this2.activityInput.loss_code = "";
+            _this2.activityInput.activity_description = "";
+
+            _this2.getActivities();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      } else {
+        axios.patch("/api/activity/" + this.activityInput.activity_id, this.activityInput).then(function (res) {
+          if (res.status == 200) {
+            alert("Activity Updated.");
+            _this2.activityInput.activity_id = "";
+            _this2.activityInput.profit_code = "";
+            _this2.activityInput.loss_code = "";
+            _this2.activityInput.activity_description = "";
+            _this2.edit = false;
+
+            _this2.getActivities();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      }
+    },
+    editActivity: function editActivity(item) {
+      this.edit = true;
+      this.activityInput.activity_id = item.id;
+      this.activityInput.profit_code = item.profit_code;
+      this.activityInput.loss_code = item.loss_code;
+      this.activityInput.activity_description = item.description;
+    },
+    deleteActivity: function deleteActivity(activity_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this activity?")) {
+        axios["delete"]("/api/activity/".concat(activity_id)).then(function (response) {
+          alert("Activity deleted.");
+
+          _this3.getActivities();
+        })["catch"](function (err) {
+          console.log(err.response);
+        });
+      }
+    }
   }
 });
 
@@ -2549,7 +2845,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -2559,11 +2854,145 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BankName",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  data: function data() {
+    return {
+      banknames: null,
+      edit: false,
+      banknameInput: {
+        bankname_id: "",
+        bankname: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getBankNames();
+  },
+  methods: {
+    getBankNames: function getBankNames() {
+      var _this = this;
+
+      axios.get("/api/bank/").then(function (response) {
+        _this.banknames = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    addBankName: function addBankName(bankname_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/bank", this.banknameInput).then(function (res) {
+          if (res.status == 201) {
+            alert("Bank Name Added.");
+            _this2.banknameInput.bankname = "";
+
+            _this2.getBankNames();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      } else {
+        axios.patch("/api/bank/" + this.banknameInput.bankname_id, this.banknameInput).then(function (res) {
+          if (res.status == 200) {
+            alert("Bank Name Updated.");
+            _this2.banknameInput.bankname_id = "";
+            _this2.banknameInput.bankname = "";
+            _this2.edit = false;
+
+            _this2.getBankNames();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      }
+    },
+    editBankName: function editBankName(item) {
+      this.edit = true;
+      this.banknameInput.bankname_id = item.id;
+      this.banknameInput.bankname = item.name;
+    },
+    deleteBankName: function deleteBankName(bankname_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this bank name?")) {
+        axios["delete"]("/api/bank/".concat(bankname_id)).then(function (response) {
+          alert("Bank name deleted.");
+
+          _this3.getBankNames();
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
+    }
   }
 });
 
@@ -2866,7 +3295,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -2919,12 +3347,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Country",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
   data: function data() {
     return {
       country: null,
@@ -3013,7 +3473,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -3023,11 +3482,145 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EmployeeType",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  data: function data() {
+    return {
+      employee: null,
+      edit: false,
+      employeeInput: {
+        empltype_id: "",
+        employee_type: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getEmployeeType();
+  },
+  methods: {
+    getEmployeeType: function getEmployeeType() {
+      var _this = this;
+
+      axios.get("/api/empltype/").then(function (response) {
+        _this.employee = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    addEmployeeType: function addEmployeeType(empltype_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/empltype", this.employeeInput).then(function (res) {
+          if (res.status == 201) {
+            alert("Employee Type Added.");
+            _this2.employeeInput.employee_type = "";
+
+            _this2.getEmployeeType();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      } else {
+        axios.patch("/api/empltype/" + this.employeeInput.empltype_id, this.employeeInput).then(function (res) {
+          if (res.status == 200) {
+            alert("Employee Type Updated.");
+            _this2.employeeInput.empltype_id = "";
+            _this2.employeeInput.employee_type = "";
+            _this2.edit = false;
+
+            _this2.getEmployeeType();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      }
+    },
+    editEmployeeType: function editEmployeeType(item) {
+      this.edit = true;
+      this.employeeInput.empltype_id = item.id;
+      this.employeeInput.employee_type = item.name;
+    },
+    deleteEmployeeType: function deleteEmployeeType(empltype_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this employee type?")) {
+        axios["delete"]("/api/empltype/".concat(empltype_id)).then(function (response) {
+          alert("Employee type deleted.");
+
+          _this3.getEmployeeType();
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
+    }
   }
 });
 
@@ -3257,7 +3850,6 @@ var _this = undefined;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -3267,11 +3859,145 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EmployerType",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  data: function data() {
+    return {
+      employer: null,
+      edit: false,
+      employerInput: {
+        emprtype_id: "",
+        employer_type: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getEmployerType();
+  },
+  methods: {
+    getEmployerType: function getEmployerType() {
+      var _this = this;
+
+      axios.get("/api/emprtype/").then(function (response) {
+        _this.employer = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    addEmployerType: function addEmployerType(emprtype_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/emprtype", this.employerInput).then(function (res) {
+          if (res.status == 201) {
+            alert("Employer Type Added.");
+            _this2.employerInput.employer_type = "";
+
+            _this2.getEmployerType();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      } else {
+        axios.patch("/api/emprtype/" + this.employerInput.emprtype_id, this.employerInput).then(function (res) {
+          if (res.status == 200) {
+            alert("Employer Type Updated.");
+            _this2.employerInput.emprtype_id = "";
+            _this2.employerInput.employer_type = "";
+            _this2.edit = false;
+
+            _this2.getEmployerType();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      }
+    },
+    editEmployerType: function editEmployerType(item) {
+      this.edit = true;
+      this.employerInput.emprtype_id = item.id;
+      this.employerInput.employer_type = item.name;
+    },
+    deleteEmployerType: function deleteEmployerType(emprtype_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this employer type?")) {
+        axios["delete"]("/api/emprtype/".concat(emprtype_id)).then(function (response) {
+          alert("Employer type deleted.");
+
+          _this3.getEmployerType();
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
+    }
   }
 });
 
@@ -3286,7 +4012,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -3296,11 +4021,145 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "IdTypes",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  name: "OtherIDTypes",
+  data: function data() {
+    return {
+      otheridtypes: null,
+      edit: false,
+      idtypeInput: {
+        idtype_id: "",
+        otheridtype: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getIDTypes();
+  },
+  methods: {
+    getIDTypes: function getIDTypes() {
+      var _this = this;
+
+      axios.get("/api/idtype/").then(function (response) {
+        _this.otheridtypes = response.data;
+      })["catch"](function (error) {
+        console.log(error.response);
+      });
+    },
+    addIdType: function addIdType(idtype_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/idtype", this.idtypeInput).then(function (res) {
+          if (res.status == 201) {
+            alert("Other ID Type Added.");
+            _this2.idtypeInput.otheridtype = "";
+
+            _this2.getIDTypes();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      } else {
+        axios.patch("/api/idtype/" + this.idtypeInput.idtype_id, this.idtypeInput).then(function (res) {
+          if (res.status == 200) {
+            alert("ID Type Updated.");
+            _this2.idtypeInput.idtype_id = "";
+            _this2.idtypeInput.otheridtype = "";
+            _this2.edit = false;
+
+            _this2.getIDTypes();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      }
+    },
+    editIDType: function editIDType(item) {
+      this.edit = true;
+      this.idtypeInput.idtype_id = item.id;
+      this.idtypeInput.otheridtype = item.name;
+    },
+    deleteIDType: function deleteIDType(idtype_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this ID type?")) {
+        axios["delete"]("/api/idtype/".concat(idtype_id)).then(function (response) {
+          alert("ID Type Deleted.");
+
+          _this3.getIDTypes();
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
+    }
   }
 });
 
@@ -3315,7 +4174,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -3326,11 +4184,160 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Irp5Codes",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  name: "IRP5Codes",
+  data: function data() {
+    return {
+      irp5codes: null,
+      edit: false,
+      irp5codesInput: {
+        irp5codes_id: "",
+        irp5codes_code: "",
+        irp5codes_description: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getIrp5codes();
+  },
+  methods: {
+    getIrp5codes: function getIrp5codes() {
+      var _this = this;
+
+      axios.get("/api/irp5/").then(function (response) {
+        _this.irp5codes = response.data;
+      })["catch"](function (error) {
+        c.responseonsole.log(error);
+      });
+    },
+    addIrp5codes: function addIrp5codes(irp5codes_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/irp5", this.irp5codesInput).then(function (res) {
+          if (res.status == 201) {
+            alert("IRP5 Code Added.");
+            _this2.irp5codesInput.irp5codes_code = "";
+            _this2.irp5codesInput.irp5codes_description = "";
+
+            _this2.getIrp5codes();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      } else {
+        axios.patch("/api/irp5/" + this.irp5codesInput.irp5codes_id, this.irp5codesInput).then(function (res) {
+          if (res.status == 200) {
+            alert("IRP5 Code Updated.");
+            _this2.irp5codesInput.irp5codes_id = "";
+            _this2.irp5codesInput.irp5codes_code = "";
+            _this2.irp5codesInput.irp5codes_description = "";
+            _this2.edit = false;
+
+            _this2.getIrp5codes();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      }
+    },
+    editIrp5codes: function editIrp5codes(item) {
+      this.edit = true;
+      this.irp5codesInput.irp5codes_id = item.id;
+      this.irp5codesInput.irp5codes_code = item.code;
+      this.irp5codesInput.irp5codes_description = item.description;
+    },
+    deleteIrp5codes: function deleteIrp5codes(irp5codes_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this IRP5 Code?")) {
+        axios["delete"]("/api/irp5/".concat(irp5codes_id)).then(function (response) {
+          alert("IRP5 Code deleted.");
+
+          _this3.getIrp5codes();
+        })["catch"](function (err) {
+          console.log(err.response);
+        });
+      }
+    }
   }
 });
 
@@ -3374,7 +4381,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -3384,11 +4390,145 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "RepPosition",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  name: "RepPositions",
+  data: function data() {
+    return {
+      reppositions: null,
+      edit: false,
+      reppositionInput: {
+        repposition_id: "",
+        repposition: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getRepPositions();
+  },
+  methods: {
+    getRepPositions: function getRepPositions() {
+      var _this = this;
+
+      axios.get("/api/reppos/").then(function (response) {
+        _this.reppositions = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    addRepPosition: function addRepPosition(repposition_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/reppos", this.reppositionInput).then(function (res) {
+          if (res.status == 201) {
+            alert("Rep Position Added.");
+            _this2.reppositionInput.repposition = "";
+
+            _this2.getRepPositions();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      } else {
+        axios.patch("/api/reppos/" + this.reppositionInput.repposition_id, this.reppositionInput).then(function (res) {
+          if (res.status == 200) {
+            alert("Rep Position Updated.");
+            _this2.reppositionInput.repposition_id = "";
+            _this2.reppositionInput.repposition = "";
+            _this2.edit = false;
+
+            _this2.getRepPositions();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      }
+    },
+    editRepPosition: function editRepPosition(item) {
+      this.edit = true;
+      this.reppositionInput.repposition_id = item.id;
+      this.reppositionInput.repposition = item.name;
+    },
+    deleteBankName: function deleteBankName(repposition_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this rep position?")) {
+        axios["delete"]("/api/reppos/".concat(repposition_id)).then(function (response) {
+          alert("Rep position deleted.");
+
+          _this3.getRepPositions();
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
+    }
   }
 });
 
@@ -3403,7 +4543,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -3414,11 +4553,160 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Sez",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  name: "SEZ",
+  data: function data() {
+    return {
+      sez: null,
+      edit: false,
+      sezInput: {
+        sez_id: "",
+        sez_code: "",
+        sez_description: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getSez();
+  },
+  methods: {
+    getSez: function getSez() {
+      var _this = this;
+
+      axios.get("/api/sez/").then(function (response) {
+        _this.sez = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    addSez: function addSez(sez_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/sez", this.sezInput).then(function (res) {
+          if (res.status == 201) {
+            alert("SEZ Added.");
+            _this2.sezInput.sez_code = "";
+            _this2.sezInput.sez_description = "";
+
+            _this2.getSez();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      } else {
+        axios.patch("/api/sez/" + this.sezInput.sez_id, this.sezInput).then(function (res) {
+          if (res.status == 200) {
+            alert("sez Updated.");
+            _this2.sezInput.sez_id = "";
+            _this2.sezInput.sez_code = "";
+            _this2.sezInput.sez_description = "";
+            _this2.edit = false;
+
+            _this2.getSez();
+          }
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      }
+    },
+    editSez: function editSez(item) {
+      this.edit = true;
+      this.sezInput.sez_id = item.id;
+      this.sezInput.sez_code = item.code;
+      this.sezInput.sez_description = item.description;
+    },
+    deleteSez: function deleteSez(sez_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this SEZ?")) {
+        axios["delete"]("/api/sez/".concat(sez_id)).then(function (response) {
+          alert("SEZ deleted.");
+
+          _this3.getSez();
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
+    }
   }
 });
 
@@ -3433,7 +4721,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
 //
 //
 //
@@ -3444,11 +4731,160 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Sic7",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
+  name: "SIC7",
+  data: function data() {
+    return {
+      sic7s: null,
+      edit: false,
+      sic7Input: {
+        sic7_id: "",
+        sic7_code: "",
+        sic7_description: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getSic7s();
+  },
+  methods: {
+    getSic7s: function getSic7s() {
+      var _this = this;
+
+      axios.get("/api/sic7/").then(function (response) {
+        _this.sic7s = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    addSic7: function addSic7(sic7_id) {
+      var _this2 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/sic7", this.sic7Input).then(function (res) {
+          if (res.status == 201) {
+            alert("SIC7 Code Added.");
+            _this2.sic7Input.sic7_code = "";
+            _this2.sic7Input.sic7_description = "";
+
+            _this2.getSic7s();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      } else {
+        axios.patch("/api/sic7/" + this.sic7Input.sic7_id, this.sic7Input).then(function (res) {
+          if (res.status == 200) {
+            alert("SIC7 Code Updated.");
+            _this2.sic7Input.sic7_id = "";
+            _this2.sic7Input.sic7_code = "";
+            _this2.sic7Input.sic7_description = "";
+            _this2.edit = false;
+
+            _this2.getSic7s();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      }
+    },
+    editSic7: function editSic7(item) {
+      this.edit = true;
+      this.sic7Input.sic7_id = item.id;
+      this.sic7Input.sic7_code = item.code;
+      this.sic7Input.sic7_description = item.description;
+    },
+    deleteSic7: function deleteSic7(sic7_id) {
+      var _this3 = this;
+
+      if (confirm("Are you sure you want to delete this SIC7 Code?")) {
+        axios["delete"]("/api/sic7/".concat(sic7_id)).then(function (response) {
+          alert("SIC7 Code deleted.");
+
+          _this3.getSic7s();
+        })["catch"](function (err) {
+          console.log(err.response);
+        });
+      }
+    }
   }
 });
 
@@ -3463,8 +4899,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
-/* harmony import */ var _components_Selectfield__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Selectfield */ "./resources/js/components/Selectfield.vue");
 //
 //
 //
@@ -3484,13 +4918,242 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Transaction",
-  components: {
-    Inputfield: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Selectfield: _components_Selectfield__WEBPACK_IMPORTED_MODULE_1__["default"]
+  name: "Transactions",
+  data: function data() {
+    return {
+      transactions: null,
+      irp5_codes: null,
+      edit: false,
+      transactionInput: {
+        transaction_id: "",
+        employee_name: "",
+        date: "",
+        irp5_code: "",
+        employer_name: "",
+        description: "",
+        amount: "",
+        note: ""
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getTransactions();
+    this.getIrp5Codes();
+  },
+  methods: {
+    getTransactions: function getTransactions() {
+      var _this = this;
+
+      axios.get("/api/transaction/").then(function (response) {
+        _this.transactions = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getIrp5Codes: function getIrp5Codes() {
+      var _this2 = this;
+
+      axios.get("/api/irp5/").then(function (response) {
+        _this2.irp5_codes = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    addTransaction: function addTransaction(transaction_id) {
+      var _this3 = this;
+
+      if (this.edit === false) {
+        axios.post("/api/transaction", this.transactionInput).then(function (res) {
+          if (res.status == 201) {
+            alert("Transaction Added.");
+            _this3.transactionInput.transaction_id = "";
+            _this3.transactionInput.employee_name = "";
+            _this3.transactionInput.date = "";
+            _this3.transactionInput.employer_name = "";
+            _this3.transactionInput.description = "";
+            _this3.transactionInput.amount = "";
+            _this3.transactionInput.note = "";
+
+            _this3.getTransactions();
+          }
+        })["catch"](function (err) {
+          return console.log(err.response);
+        });
+      } else {
+        console.log(this.transactionInput);
+        axios.patch("/api/transaction/" + this.transactionInput.transaction_id, this.transactionInput).then(function (res) {
+          if (res.status == 200) {
+            alert("Transaction Updated.");
+            _this3.transactionInput.transaction_id = "";
+            _this3.transactionInput.employee_name = "";
+            _this3.transactionInput.date = "";
+            _this3.transactionInput.employer_name = "";
+            _this3.transactionInput.description = "";
+            _this3.transactionInput.amount = "";
+            _this3.transactionInput.note = "";
+            _this3.edit = false;
+
+            _this3.getTransactions();
+          }
+        })["catch"](function (err) {
+          return console.log(err.resonse);
+        });
+      }
+    },
+    editTransaction: function editTransaction(item) {
+      this.edit = true;
+      this.transactionInput.transaction_id = item.id;
+      this.transactionInput.employee_name = item.employee;
+      this.transactionInput.date = item.date;
+      this.transactionInput.employer_name = item.employer;
+      this.transactionInput.description = item.description;
+      this.transactionInput.irp5_code = item.irp5_code;
+      this.transactionInput.amount = item.amount;
+      this.transactionInput.note = item.note;
+    },
+    deleteTransaction: function deleteTransaction(transaction_id) {
+      var _this4 = this;
+
+      if (confirm("Are you sure you want to delete this Transaction?")) {
+        axios["delete"]("/api/transaction/".concat(transaction_id)).then(function (response) {
+          alert("Transaction deleted.");
+
+          _this4.getTransactions();
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
+    }
   }
 });
 
@@ -22296,26 +23959,189 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", {
-        attrs: { name: "account_type", label: "Add Account Type" }
-      }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Account Type")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.AccTypeInput.acctype,
+            expression: "AccTypeInput.acctype"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter account type",
+          name: "acctype"
         },
-        [_vm._v("Add")]
-      )
-    ],
-    1
-  )
+        domProps: { value: _vm.AccTypeInput.acctype },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.AccTypeInput, "acctype", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addAccountTypes()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.acctype, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.name))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editAccountTypes(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteAccountType(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Account Type")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -22337,34 +24163,279 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", {
-        attrs: { name: "profit_code", label: "Enter Profit Code" }
-      }),
-      _vm._v(" "),
-      _c("Inputfield", {
-        attrs: { name: "loss_code", label: "Enter Loss Code" }
-      }),
-      _vm._v(" "),
-      _c("Inputfield", {
-        attrs: { name: "description", label: "Description" }
-      }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Profit Code")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.activityInput.profit_code,
+            expression: "activityInput.profit_code"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter SIC7 code",
+          name: "profit_code"
         },
-        [_vm._v("Add")]
-      )
-    ],
-    1
-  )
+        domProps: { value: _vm.activityInput.profit_code },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.activityInput, "profit_code", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Loss Code")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.activityInput.loss_code,
+            expression: "activityInput.loss_code"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter SIC7 code",
+          name: "loss_code"
+        },
+        domProps: { value: _vm.activityInput.loss_code },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.activityInput, "loss_code", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Description")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.activityInput.activity_description,
+            expression: "activityInput.activity_description"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter description",
+          name: "activity_description"
+        },
+        domProps: { value: _vm.activityInput.activity_description },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(
+              _vm.activityInput,
+              "activity_description",
+              $event.target.value
+            )
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addActivity()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.activities, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.profit_code))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.loss_code))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.description))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editActivity(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteActivity(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Profit Code")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Loss Code")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Activity Description")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -22431,24 +24502,189 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", { attrs: { name: "bankname", label: "Add Bank Name" } }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Bank Name")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.banknameInput.bankname,
+            expression: "banknameInput.bankname"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter bank name",
+          name: "bankname"
         },
-        [_vm._v("Add")]
-      )
-    ],
-    1
-  )
+        domProps: { value: _vm.banknameInput.bankname },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.banknameInput, "bankname", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addBankName()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.banknames, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.name))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editBankName(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteBankName(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Account Type")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -23066,28 +25302,97 @@ var render = function() {
                 "button",
                 {
                   staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 border border-yellow-700 rounded",
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
                   on: {
                     click: function($event) {
                       return _vm.editCountry(item)
                     }
                   }
                 },
-                [_vm._v("Edit")]
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
               ),
               _vm._v(" "),
               _c(
                 "button",
                 {
                   staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded",
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
                   on: {
                     click: function($event) {
                       return _vm.deleteCountry(item.id)
                     }
                   }
                 },
-                [_vm._v("Delete")]
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
               )
             ])
           ])
@@ -23136,26 +25441,189 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", {
-        attrs: { name: "employee_type", label: "Add Employee Type" }
-      }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Employee Type")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.employeeInput.employee_type,
+            expression: "employeeInput.employee_type"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter type",
+          name: "employee_type"
         },
-        [_vm._v("Add")]
-      )
-    ],
-    1
-  )
+        domProps: { value: _vm.employeeInput.employee_type },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.employeeInput, "employee_type", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addEmployeeType()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.employee, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.name))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editEmployeeType(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteEmployeeType(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Employee Type")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -23543,26 +26011,189 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", {
-        attrs: { name: "employer_type", label: "Add Employer Type" }
-      }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Employer Type")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.employerInput.employer_type,
+            expression: "employerInput.employer_type"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter type",
+          name: "employer_type"
         },
-        [_vm._v("Add")]
-      )
-    ],
-    1
-  )
+        domProps: { value: _vm.employerInput.employer_type },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.employerInput, "employer_type", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addEmployerType()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.employer, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.name))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editEmployerType(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteEmployerType(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Employer Type")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -23584,26 +26215,189 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", {
-        attrs: { name: "idtypes", label: "Add Other ID Types" }
-      }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Other ID Type")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.idtypeInput.otheridtype,
+            expression: "idtypeInput.otheridtype"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter other ID type",
+          name: "otheridtype"
         },
-        [_vm._v("Add")]
-      )
-    ],
-    1
-  )
+        domProps: { value: _vm.idtypeInput.otheridtype },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.idtypeInput, "otheridtype", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addIdType()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.otheridtypes, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.name))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editIDType(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteIDType(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Account Type")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -23625,30 +26419,236 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", {
-        attrs: { name: "irp5code", label: "Enter IRP5 Code" }
-      }),
-      _vm._v(" "),
-      _c("Inputfield", {
-        attrs: { name: "irp5description", label: "Enter Description" }
-      }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter IRP5 Code")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.irp5codesInput.irp5codes_code,
+            expression: "irp5codesInput.irp5codes_code"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter code",
+          name: "irp5codes_code"
         },
-        [_vm._v("Add")]
-      )
-    ],
-    1
-  )
+        domProps: { value: _vm.irp5codesInput.irp5codes_code },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.irp5codesInput, "irp5codes_code", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter IRP5 Name")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.irp5codesInput.irp5codes_description,
+            expression: "irp5codesInput.irp5codes_description"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter description",
+          name: "irp5codes_description"
+        },
+        domProps: { value: _vm.irp5codesInput.irp5codes_description },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(
+              _vm.irp5codesInput,
+              "irp5codes_description",
+              $event.target.value
+            )
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addIrp5codes()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.irp5codes, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.code))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.description))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editIrp5codes(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteIrp5codes(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("IRP5 Code")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("IRP5 Description")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -23711,26 +26711,189 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", {
-        attrs: { name: "rep_position", label: "Add Rep Position" }
-      }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Rep Position")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.reppositionInput.repposition,
+            expression: "reppositionInput.repposition"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter rep position",
+          name: "repposition"
         },
-        [_vm._v("Add")]
-      )
-    ],
-    1
-  )
+        domProps: { value: _vm.reppositionInput.repposition },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.reppositionInput, "repposition", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addRepPosition()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.reppositions, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.name))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editRepPosition(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteBankName(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Account Type")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -23752,30 +26915,228 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", {
-        attrs: { name: "sez_code", label: "Enter SEZ Code" }
-      }),
-      _vm._v(" "),
-      _c("Inputfield", {
-        attrs: { name: "sez_description", label: "Enter Description" }
-      }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter SEZ Code")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.sezInput.sez_code,
+            expression: "sezInput.sez_code"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: { type: "text", placeholder: "Enter code", name: "sez_code" },
+        domProps: { value: _vm.sezInput.sez_code },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.sezInput, "sez_code", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter SEZ Name")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.sezInput.sez_description,
+            expression: "sezInput.sez_description"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter description",
+          name: "sez_description"
         },
-        [_vm._v("Add")]
-      )
-    ],
-    1
-  )
+        domProps: { value: _vm.sezInput.sez_description },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.sezInput, "sez_description", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addSez()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.sez, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.code))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.description))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editSez(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteSez(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("SEZ Code")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("SEZ Description")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -23797,30 +27158,232 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", {
-        attrs: { name: "sic7_code", label: "Enter SIC7 Code" }
-      }),
-      _vm._v(" "),
-      _c("Inputfield", {
-        attrs: { name: "sic7_description", label: "Enter Description" }
-      }),
-      _vm._v(" "),
+  return _c("div", [
+    _c("div", [
       _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter SIC7 Code")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.sic7Input.sic7_code,
+            expression: "sic7Input.sic7_code"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter SIC7 code",
+          name: "sic7_code"
         },
-        [_vm._v("Add")]
-      )
-    ],
-    1
-  )
+        domProps: { value: _vm.sic7Input.sic7_code },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.sic7Input, "sic7_code", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter SIC7 Name")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.sic7Input.sic7_description,
+            expression: "sic7Input.sic7_description"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter description",
+          name: "sic7_description"
+        },
+        domProps: { value: _vm.sic7Input.sic7_description },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.sic7Input, "sic7_description", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addSic7()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.sic7s, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.code))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.description))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editSic7(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteSic7(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("SIC7 Code")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("SIC7 Description")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -23842,45 +27405,446 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("Inputfield", { attrs: { name: "employee", label: "Employee Name" } }),
+  return _c("div", [
+    _c("div", [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Employee Name")]
+      ),
       _vm._v(" "),
-      _c("Inputfield", { attrs: { name: "date", label: "Date" } }),
-      _vm._v(" "),
-      _c("Inputfield", { attrs: { name: "employer", label: "Employer Name" } }),
-      _vm._v(" "),
-      _c("Inputfield", {
-        attrs: { name: "description", label: "Description" }
-      }),
-      _vm._v(" "),
-      _c("Selectfield", {
-        attrs: { name: "irp5_code", label: "Select IRP5 Code" },
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.transactionInput.employee_name,
+            expression: "transactionInput.employee_name"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter name",
+          name: "employee_name"
+        },
+        domProps: { value: _vm.transactionInput.employee_name },
         on: {
-          "update:field": function($event) {
-            _vm.form.employer_type = $event
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.transactionInput, "employee_name", $event.target.value)
           }
         }
-      }),
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Date")]
+      ),
       _vm._v(" "),
-      _c("Inputfield", { attrs: { name: "amount", label: "Enter Amount" } }),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.transactionInput.date,
+            expression: "transactionInput.date"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: { type: "text", placeholder: "DD-MM-YYYY", name: "date" },
+        domProps: { value: _vm.transactionInput.date },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.transactionInput, "date", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Employer Name")]
+      ),
       _vm._v(" "),
-      _c("Inputfield", { attrs: { name: "notes", label: "Enter Notes" } }),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.transactionInput.employer_name,
+            expression: "transactionInput.employer_name"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter employer name",
+          name: "employer_name"
+        },
+        domProps: { value: _vm.transactionInput.employer_name },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.transactionInput, "employer_name", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Description")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.transactionInput.description,
+            expression: "transactionInput.description"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: {
+          type: "text",
+          placeholder: "Enter description",
+          name: "description"
+        },
+        domProps: { value: _vm.transactionInput.description },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.transactionInput, "description", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", {}, [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Select IRP5 Code")]
+      ),
       _vm._v(" "),
       _c(
-        "button",
+        "select",
         {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.transactionInput.irp5_code,
+              expression: "transactionInput.irp5_code"
+            }
+          ],
           staticClass:
-            "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+            "block appearance-none w-1/4 bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+          attrs: { id: "irp5_code" },
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.$set(
+                _vm.transactionInput,
+                "irp5_code",
+                $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+              )
+            }
+          }
         },
-        [_vm._v("Submit")]
+        [
+          _c("option", { attrs: { value: "", disabled: "", selected: "" } }, [
+            _vm._v("Select the IRP5 Code")
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.irp5_codes, function(item) {
+            return _c("option", { key: item.id }, [
+              _vm._v(_vm._s(item.code) + " - " + _vm._s(item.description))
+            ])
+          })
+        ],
+        2
       )
-    ],
-    1
-  )
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Amount")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.transactionInput.amount,
+            expression: "transactionInput.amount"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: { type: "text", placeholder: "Enter amount", name: "amount" },
+        domProps: { value: _vm.transactionInput.amount },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.transactionInput, "amount", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "label",
+        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
+        [_vm._v("Enter Notes")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.transactionInput.note,
+            expression: "transactionInput.note"
+          }
+        ],
+        staticClass:
+          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+        attrs: { type: "text", placeholder: "Enter notes", name: "note" },
+        domProps: { value: _vm.transactionInput.note },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.transactionInput, "note", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+        on: {
+          click: function($event) {
+            return _vm.addTransaction()
+          }
+        }
+      },
+      [_vm._v("Submit")]
+    ),
+    _vm._v(" "),
+    _c("hr", { staticClass: "border-2 border-black" }),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "text-center mt-4" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.transactions, function(item) {
+          return _c("tr", { key: item.id }, [
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.employee))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.date))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.employer))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.description))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.irp5_code))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v("R " + _vm._s(item.amount))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _vm._v(_vm._s(item.note))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "border border-black" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.editTransaction(item)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-edit",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteTransaction(item.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "feather feather-trash-2",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "24",
+                        height: "24",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round"
+                      }
+                    },
+                    [
+                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                      }),
+                      _vm._v(" "),
+                      _c("line", {
+                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Employee Name")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Date")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Employer")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("Description")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [
+        _vm._v("IRP5 Code")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Amount")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Note")])
+    ])
+  }
+]
 render._withStripped = true
 
 

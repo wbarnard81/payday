@@ -3,37 +3,43 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Country;
-use App\Http\Resources\CountryResource;
+use App\Transaction;
+use App\Http\Resources\TransactionResource;
 use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
 {
     public function index()
     {
-        $this->authorize('viewAny', Country::class);
-        return Country::all();
+        $this->authorize('viewAny', Transaction::class);
+        return Transaction::all();
     }
 
     public function store(Request $request)
     {
-        $this->authorize('store', Country::class);
-        $country = $request->isMethod('patch') ? Country::findOrFail($request->id) : new Country();
+        $this->authorize('store', Transaction::class);
 
-        $country->id = $request->input('country_id');
-        $country->code = $request->input('country_code');
-        $country->name = $request->input('country_name');
+        $transaction = $request->isMethod('patch') ? Transaction::findOrFail($request->transaction_id) : new Transaction();
 
-        if ($country->save()) {
-            return new CountryResource($country);
+        $transaction->id = $request->input('transaction_id');
+        $transaction->employee = $request->input('employee_name');
+        $transaction->date = $request->input('date');
+        $transaction->employer = $request->input('employer_name');
+        $transaction->description = $request->input('description');
+        $transaction->irp5_code = $request->input('irp5_code');
+        $transaction->amount = $request->input('amount');
+        $transaction->note = $request->input('note');
+
+        if ($transaction->save()) {
+            return new TransactionResource($transaction);
         }
     }
 
-    public function destroy($country)
+    public function destroy($transaction)
     {
-        $this->authorize('delete', Country::class);
+        $this->authorize('delete', Transaction::class);
 
-        DB::table('countries')->where('id', '=', $country)->delete();
+        DB::table('transactions')->where('id', '=', $transaction)->delete();
 
         return response()->json([
             'msg' => 'Deleted'

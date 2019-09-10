@@ -3,37 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Country;
-use App\Http\Resources\CountryResource;
+use App\EmployerType;
+use App\Http\Resources\EmployerTypeResource;
 use Illuminate\Support\Facades\DB;
 
 class EmployerTypeController extends Controller
 {
     public function index()
     {
-        $this->authorize('viewAny', Country::class);
-        return Country::all();
+        $this->authorize('viewAny', EmployerType::class);
+        return EmployerType::all();
     }
 
     public function store(Request $request)
     {
-        $this->authorize('store', Country::class);
-        $country = $request->isMethod('patch') ? Country::findOrFail($request->id) : new Country();
+        $this->authorize('store', EmployerType::class);
+        $employerType = $request->isMethod('patch') ? EmployerType::findOrFail($request->id) : new EmployerType();
 
-        $country->id = $request->input('country_id');
-        $country->code = $request->input('country_code');
-        $country->name = $request->input('country_name');
+        $employerType->id = $request->input('emprtype_id');
+        $employerType->name = $request->input('employer_type');
 
-        if ($country->save()) {
-            return new CountryResource($country);
+        if ($employerType->save()) {
+            return new EmployerTypeResource($employerType);
         }
     }
 
-    public function destroy($country)
+    public function destroy($employerType)
     {
-        $this->authorize('delete', Country::class);
+        $this->authorize('delete', EmployerType::class);
 
-        DB::table('countries')->where('id', '=', $country)->delete();
+        DB::table('employer_types')->where('id', '=', $employerType)->delete();
 
         return response()->json([
             'msg' => 'Deleted'

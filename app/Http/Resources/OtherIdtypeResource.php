@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Irp5CodesResource extends JsonResource
+class OtherIdtypeResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

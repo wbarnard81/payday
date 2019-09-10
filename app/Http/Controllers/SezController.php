@@ -3,37 +3,37 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Country;
-use App\Http\Resources\CountryResource;
+use App\Sez;
+use App\Http\Resources\SezResource;
 use Illuminate\Support\Facades\DB;
 
 class SezController extends Controller
 {
     public function index()
     {
-        $this->authorize('viewAny', Country::class);
-        return Country::all();
+        $this->authorize('viewAny', Sez::class);
+        return Sez::all();
     }
 
     public function store(Request $request)
     {
-        $this->authorize('store', Country::class);
-        $country = $request->isMethod('patch') ? Country::findOrFail($request->id) : new Country();
+        $this->authorize('store', Sez::class);
+        $sez = $request->isMethod('patch') ? Sez::findOrFail($request->id) : new Sez();
 
-        $country->id = $request->input('country_id');
-        $country->code = $request->input('country_code');
-        $country->name = $request->input('country_name');
+        $sez->id = $request->input('sez_id');
+        $sez->code = $request->input('sez_code');
+        $sez->description = $request->input('sez_description');
 
-        if ($country->save()) {
-            return new CountryResource($country);
+        if ($sez->save()) {
+            return new SezResource($sez);
         }
     }
 
-    public function destroy($country)
+    public function destroy($sez)
     {
-        $this->authorize('delete', Country::class);
+        $this->authorize('delete', Sez::class);
 
-        DB::table('countries')->where('id', '=', $country)->delete();
+        DB::table('sezs')->where('id', '=', $sez)->delete();
 
         return response()->json([
             'msg' => 'Deleted'

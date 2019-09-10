@@ -3,37 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Country;
-use App\Http\Resources\CountryResource;
+use App\AccountType;
+use App\Http\Resources\AccountTypeResource;
 use Illuminate\Support\Facades\DB;
 
 class AccountTypeController extends Controller
 {
     public function index()
     {
-        $this->authorize('viewAny', Country::class);
-        return Country::all();
+        $this->authorize('viewAny', AccountType::class);
+        return AccountType::all();
     }
 
     public function store(Request $request)
     {
-        $this->authorize('store', Country::class);
-        $country = $request->isMethod('patch') ? Country::findOrFail($request->id) : new Country();
+        $this->authorize('store', AccountType::class);
+        $accountType = $request->isMethod('patch') ? AccountType::findOrFail($request->acctype_id) : new AccountType();
 
-        $country->id = $request->input('country_id');
-        $country->code = $request->input('country_code');
-        $country->name = $request->input('country_name');
+        $accountType->id = $request->input('acctype_id');
+        $accountType->name = $request->input('acctype');
 
-        if ($country->save()) {
-            return new CountryResource($country);
+        if ($accountType->save()) {
+            return new AccountTypeResource($accountType);
         }
     }
 
-    public function destroy($country)
+    public function destroy($accountType)
     {
-        $this->authorize('delete', Country::class);
+        $this->authorize('delete', AccountType::class);
 
-        DB::table('countries')->where('id', '=', $country)->delete();
+        DB::table('employee_types')->where('id', '=', $accountType)->delete();
 
         return response()->json([
             'msg' => 'Deleted'

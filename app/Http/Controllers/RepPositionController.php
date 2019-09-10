@@ -3,37 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Country;
-use App\Http\Resources\CountryResource;
+use App\RepPosition;
+use App\Http\Resources\RepPositionResource;
 use Illuminate\Support\Facades\DB;
 
 class RepPositionController extends Controller
 {
     public function index()
     {
-        $this->authorize('viewAny', Country::class);
-        return Country::all();
+        $this->authorize('viewAny', RepPosition::class);
+        return RepPosition::all();
     }
 
     public function store(Request $request)
     {
-        $this->authorize('store', Country::class);
-        $country = $request->isMethod('patch') ? Country::findOrFail($request->id) : new Country();
+        $this->authorize('store', RepPosition::class);
+        $repposition = $request->isMethod('patch') ? RepPosition::findOrFail($request->id) : new RepPosition();
 
-        $country->id = $request->input('country_id');
-        $country->code = $request->input('country_code');
-        $country->name = $request->input('country_name');
+        $repposition->id = $request->input('repposition_id');
+        $repposition->name = $request->input('repposition');
 
-        if ($country->save()) {
-            return new CountryResource($country);
+        if ($repposition->save()) {
+            return new RepPositionResource($repposition);
         }
     }
 
-    public function destroy($country)
+    public function destroy($repposition)
     {
-        $this->authorize('delete', Country::class);
+        $this->authorize('delete', RepPosition::class);
 
-        DB::table('countries')->where('id', '=', $country)->delete();
+        DB::table('rep_positions')->where('id', '=', $repposition)->delete();
 
         return response()->json([
             'msg' => 'Deleted'

@@ -3,37 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Country;
-use App\Http\Resources\CountryResource;
+use App\OtherIdtype;
+use App\Http\Resources\OtherIdtypeResource;
 use Illuminate\Support\Facades\DB;
 
 class OtherIdtypeController extends Controller
 {
     public function index()
     {
-        $this->authorize('viewAny', Country::class);
-        return Country::all();
+        $this->authorize('viewAny', OtherIdtype::class);
+        return OtherIdtype::all();
     }
 
     public function store(Request $request)
     {
-        $this->authorize('store', Country::class);
-        $country = $request->isMethod('patch') ? Country::findOrFail($request->id) : new Country();
+        $this->authorize('store', OtherIdtype::class);
+        $idtype = $request->isMethod('patch') ? OtherIdtype::findOrFail($request->idtype_id) : new OtherIdtype();
 
-        $country->id = $request->input('country_id');
-        $country->code = $request->input('country_code');
-        $country->name = $request->input('country_name');
+        $idtype->id = $request->input('idtype_id');
+        $idtype->name = $request->input('otheridtype');
 
-        if ($country->save()) {
-            return new CountryResource($country);
+        if ($idtype->save()) {
+            return new OtherIdtypeResource($idtype);
         }
     }
 
-    public function destroy($country)
+    public function destroy($idtype)
     {
-        $this->authorize('delete', Country::class);
+        $this->authorize('delete', OtherIdtype::class);
 
-        DB::table('countries')->where('id', '=', $country)->delete();
+        DB::table('other_idtypes')->where('id', '=', $idtype)->delete();
 
         return response()->json([
             'msg' => 'Deleted'
