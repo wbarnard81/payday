@@ -78,11 +78,11 @@ Route::middleware('auth:api')->group(function () {
     Route::patch('/irp5/{id}', 'Irp5CodeController@store');
     Route::delete('/irp5/{id}', 'Irp5CodeController@destroy');
 
-    Route::get('/idtype', 'OtherIdTypeController@index');
-    Route::post('/idtype', 'OtherIdTypeController@store');
-    Route::get('/idtype/{id}', 'OtherIdTypeController@show');
-    Route::patch('/idtype/{id}', 'OtherIdTypeController@store');
-    Route::delete('/idtype/{id}', 'OtherIdTypeController@destroy');
+    Route::get('/idtype', 'OtherIdtypeController@index');
+    Route::post('/idtype', 'OtherIdtypeController@store');
+    Route::get('/idtype/{id}', 'OtherIdtypeController@show');
+    Route::patch('/idtype/{id}', 'OtherIdtypeController@store');
+    Route::delete('/idtype/{id}', 'OtherIdtypeController@destroy');
 
     Route::get('/paymethod', 'PaymentMethodController@index');
     Route::post('/paymethod', 'PaymentMethodController@store');
