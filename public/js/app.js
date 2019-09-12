@@ -4061,8 +4061,263 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _this3 = undefined;
+var _this4 = undefined;
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4152,10 +4407,13 @@ var _this3 = undefined;
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EmployerCreate",
   data: function data() {
+    var _form;
+
     return {
       employertypes: null,
+      countries: null,
       idtypes: null,
-      form: {
+      form: (_form = {
         first_name: "",
         last_name: "",
         initials: "",
@@ -4174,17 +4432,12 @@ var _this3 = undefined;
         street_name: "",
         suburb: "",
         city_name: "",
-        country: "",
-        same_address: "",
-        employer_type: ""
-      },
+        country: ""
+      }, _defineProperty(_form, "email", ""), _defineProperty(_form, "postal_unit_number", ""), _defineProperty(_form, "postal_complex_name", ""), _defineProperty(_form, "postal_street_number", ""), _defineProperty(_form, "postal_street_name", ""), _defineProperty(_form, "postal_suburb", ""), _defineProperty(_form, "postal_city_name", ""), _defineProperty(_form, "postal_country", ""), _defineProperty(_form, "employer_type", ""), _defineProperty(_form, "same_address", false), _form),
       user: ""
     };
   },
   methods: {
-    procede: function procede() {
-      this.progress = this.progress + 10;
-    },
     getEmployerType: function getEmployerType() {
       var _this = this;
 
@@ -4194,23 +4447,33 @@ var _this3 = undefined;
         console.log(error.response);
       });
     },
-    getIdtypes: function getIdtypes() {
+    getCountries: function getCountries() {
       var _this2 = this;
 
+      axios.get("/api/country/").then(function (response) {
+        _this2.countries = response.data;
+      })["catch"](function (error) {
+        console.log(error.response);
+      });
+    },
+    getIdtypes: function getIdtypes() {
+      var _this3 = this;
+
       axios.get("/api/idtype/").then(function (response) {
-        _this2.idtypes = response.data;
+        _this3.idtypes = response.data;
       })["catch"](function (error) {
         console.log(error.response);
       });
     },
     submitData: function submitData() {
-      console.log(_this3.form);
+      console.log(_this4.form);
     }
   },
   mounted: function mounted() {
     this.user = "Werner Barnard";
     this.getEmployerType();
     this.getIdtypes();
+    this.getCountries();
   }
 });
 
@@ -26907,7 +27170,7 @@ var render = function() {
                 staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
                 attrs: { for: "employer_type" }
               },
-              [_vm._v("Employer Type")]
+              [_vm._v("ID Type")]
             ),
             _vm._v(" "),
             _c(
@@ -26996,6 +27259,849 @@ var render = function() {
               }
             })
           ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.form.id_type === "Passport"
+      ? _c("div", [
+          _c("div", {}, [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "idnumber" }
+              },
+              [_vm._v("Passport Number")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.passport_number,
+                  expression: "form.passport_number"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "passport_number", type: "text" },
+              domProps: { value: _vm.form.passport_number },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "passport_number", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "employer_type" }
+              },
+              [_vm._v("Country")]
+            ),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.ppcountry,
+                    expression: "form.ppcountry"
+                  }
+                ],
+                staticClass:
+                  "block appearance-none w-1/4 bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+                attrs: { id: "employer_type" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "ppcountry",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c(
+                  "option",
+                  { attrs: { value: "", disabled: "", selected: "" } },
+                  [_vm._v("Select country")]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.countries, function(item) {
+                  return _c("option", { key: item.id }, [
+                    _vm._v(_vm._s(item.name))
+                  ])
+                })
+              ],
+              2
+            )
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.form.idnumber.length === 10 || _vm.form.ppcountry
+      ? _c("div", [
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "business_number" }
+              },
+              [_vm._v("Business Number")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.business_number,
+                  expression: "form.business_number"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "business_number", type: "text" },
+              domProps: { value: _vm.form.business_number },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "business_number", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "telephone" }
+              },
+              [_vm._v("Telephone Number")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.telephone,
+                  expression: "form.telephone"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "telephone", type: "text" },
+              domProps: { value: _vm.form.telephone },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "telephone", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "cellphone" }
+              },
+              [_vm._v("Cellphone Number")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.cellphone,
+                  expression: "form.cellphone"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "cellphone", type: "text" },
+              domProps: { value: _vm.form.cellphone },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "cellphone", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "email" }
+              },
+              [_vm._v("Email Address")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.email,
+                  expression: "form.email"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "email", type: "text" },
+              domProps: { value: _vm.form.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "email", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "unit_number" }
+              },
+              [_vm._v("Unit Number")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.unit_number,
+                  expression: "form.unit_number"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "unit_number", type: "text" },
+              domProps: { value: _vm.form.unit_number },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "unit_number", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "complex_name" }
+              },
+              [_vm._v("Complex Name")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.complex_name,
+                  expression: "form.complex_name"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "complex_name", type: "text" },
+              domProps: { value: _vm.form.complex_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "complex_name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "street_number" }
+              },
+              [_vm._v("Street Number")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.street_number,
+                  expression: "form.street_number"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "street_number", type: "text" },
+              domProps: { value: _vm.form.street_number },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "street_number", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "street_name" }
+              },
+              [_vm._v("Street Name")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.street_name,
+                  expression: "form.street_name"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "street_name", type: "text" },
+              domProps: { value: _vm.form.street_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "street_name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "suburb" }
+              },
+              [_vm._v("Suburb Name")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.suburb,
+                  expression: "form.suburb"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "suburb", type: "text" },
+              domProps: { value: _vm.form.suburb },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "suburb", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "city_name" }
+              },
+              [_vm._v("City Name")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.city_name,
+                  expression: "form.city_name"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "city_name", type: "text" },
+              domProps: { value: _vm.form.city_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "city_name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "country" }
+              },
+              [_vm._v("Country")]
+            ),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.country,
+                    expression: "form.country"
+                  }
+                ],
+                staticClass:
+                  "block appearance-none w-1/4 bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+                attrs: { id: "country" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "country",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c(
+                  "option",
+                  { attrs: { value: "", disabled: "", selected: "" } },
+                  [_vm._v("Select country")]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.countries, function(item) {
+                  return _c("option", { key: item.id }, [
+                    _vm._v(_vm._s(item.name))
+                  ])
+                })
+              ],
+              2
+            )
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.form.country
+      ? _c("div", { staticClass: "md:flex md:items-center my-3" }, [
+          _c("div", { staticClass: "md:w-1/3" }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "md:w-2/3 block text-gray-500 font-bold" },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.same_address,
+                    expression: "form.same_address"
+                  }
+                ],
+                staticClass: "mr-2 leading-tight",
+                attrs: { type: "checkbox" },
+                domProps: {
+                  checked: Array.isArray(_vm.form.same_address)
+                    ? _vm._i(_vm.form.same_address, null) > -1
+                    : _vm.form.same_address
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.form.same_address,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = null,
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 &&
+                          _vm.$set(_vm.form, "same_address", $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          _vm.$set(
+                            _vm.form,
+                            "same_address",
+                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                          )
+                      }
+                    } else {
+                      _vm.$set(_vm.form, "same_address", $$c)
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "text-sm" }, [
+                _vm._v("Postal address is not the same as Street Address.")
+              ])
+            ]
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.form.same_address
+      ? _c("div", [
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "postal_unit_number" }
+              },
+              [_vm._v("Postal Address Unit Number")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.postal_unit_number,
+                  expression: "form.postal_unit_number"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "postal_unit_number", type: "text" },
+              domProps: { value: _vm.form.postal_unit_number },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "postal_unit_number", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "postal_complex_name" }
+              },
+              [_vm._v("Postal Address Complex Name")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.postal_complex_name,
+                  expression: "form.postal_complex_name"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "postal_complex_name", type: "text" },
+              domProps: { value: _vm.form.postal_complex_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "postal_complex_name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "postal_street_number" }
+              },
+              [_vm._v("Postal Address Street Number")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.postal_street_number,
+                  expression: "form.postal_street_number"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "postal_street_number", type: "text" },
+              domProps: { value: _vm.form.postal_street_number },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.form,
+                    "postal_street_number",
+                    $event.target.value
+                  )
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "postal_street_name" }
+              },
+              [_vm._v("Postal AddressStreet Name")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.postal_street_name,
+                  expression: "form.postal_street_name"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "postal_street_name", type: "text" },
+              domProps: { value: _vm.form.postal_street_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "postal_street_name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "postal_suburb" }
+              },
+              [_vm._v("Postal Address Suburb Name")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.postal_suburb,
+                  expression: "form.postal_suburb"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "postal_suburb", type: "text" },
+              domProps: { value: _vm.form.postal_suburb },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "postal_suburb", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "postal_city_name" }
+              },
+              [_vm._v("Postal Address City Name")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.postal_city_name,
+                  expression: "form.postal_city_name"
+                }
+              ],
+              staticClass:
+                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
+              attrs: { id: "postal_city_name", type: "text" },
+              domProps: { value: _vm.form.postal_city_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "postal_city_name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "label",
+              {
+                staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
+                attrs: { for: "postal_country" }
+              },
+              [_vm._v("Postal Address Country")]
+            ),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.postal_country,
+                    expression: "form.postal_country"
+                  }
+                ],
+                staticClass:
+                  "block appearance-none w-1/4 bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+                attrs: { id: "postal_country" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "postal_country",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c(
+                  "option",
+                  { attrs: { value: "", disabled: "", selected: "" } },
+                  [_vm._v("Select country")]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.countries, function(item) {
+                  return _c("option", { key: item.id }, [
+                    _vm._v(_vm._s(item.name))
+                  ])
+                })
+              ],
+              2
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+              on: {
+                click: function($event) {
+                  return _vm.addEmployer()
+                }
+              }
+            },
+            [_vm._v("Submit")]
+          )
         ])
       : _vm._e()
   ])
