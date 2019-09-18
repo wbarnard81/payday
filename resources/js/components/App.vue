@@ -395,7 +395,7 @@
       </div>
       <div class="flex flex-col flex-1 h-screen overflow-y-hidden">
         <div class="h-16 px-6 border-b border-gray-400 flex items-center justify-between">
-          <div>{{ title }}</div>
+          <div class="text-3xl text-green-700 uppercase">{{ title }}</div>
 
           <div class="flex items-center">
             <SearchBar />

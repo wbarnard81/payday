@@ -2325,66 +2325,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ContactsList.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ContactsList.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _UserCircle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserCircle */ "./resources/js/components/UserCircle.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ContactsList",
-  components: {
-    UserCircle: _UserCircle__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  props: ['endpoint'],
-  mounted: function mounted() {
-    var _this = this;
-
-    axios.get(this.endpoint).then(function (response) {
-      _this.contacts = response.data.data;
-      _this.loading = false;
-    })["catch"](function (error) {
-      _this.loading = false;
-      alert('Unable to fetch contacts.');
-    });
-  },
-  data: function data() {
-    return {
-      loading: true,
-      contacts: null
-    };
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -2411,47 +2351,6 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.user = "Werner Barnard";
     console.log("Component mounted.");
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InputField.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/InputField.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "InputField",
-  props: ["name", "label", "placeholder"],
-  data: function data() {
-    return {
-      value: ""
-    };
-  },
-  computed: {},
-  methods: {
-    updateField: function updateField() {
-      this.$emit("update:field", this.value);
-    }
   }
 });
 
@@ -2572,6 +2471,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2810,6 +2717,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AccountType",
   data: function data() {
@@ -2896,6 +2811,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3178,6 +3101,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ActivityCode",
   data: function data() {
@@ -3347,6 +3278,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BankName",
   data: function data() {
@@ -3433,281 +3372,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_ContactsList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/ContactsList */ "./resources/js/components/ContactsList.vue");
 //
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ContactsIndex",
-  components: {
-    ContactsList: _components_ContactsList__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsCreate.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ContactsCreate.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ContactsCreate",
-  components: {
-    InputField: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  data: function data() {
-    return {
-      form: {
-        'name': '',
-        'email': '',
-        'company': '',
-        'birthday': ''
-      },
-      errors: null
-    };
-  },
-  methods: {
-    submitForm: function submitForm() {
-      var _this = this;
-
-      axios.post('/api/contacts', this.form).then(function (response) {
-        _this.$router.push(response.data.links.self);
-      })["catch"](function (errors) {
-        _this.errors = errors.response.data.errors;
-      });
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsEdit.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ContactsEdit.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_InputField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/InputField */ "./resources/js/components/InputField.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ContactsCreate",
-  components: {
-    InputField: _components_InputField__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios.get('/api/contacts/' + this.$route.params.id).then(function (response) {
-      _this.form = response.data.data;
-      _this.loading = false;
-    })["catch"](function (error) {
-      _this.loading = false;
-
-      if (error.response.status === 404) {
-        _this.$router.push('/contacts');
-      }
-    });
-  },
-  data: function data() {
-    return {
-      form: {
-        'name': '',
-        'email': '',
-        'company': '',
-        'birthday': ''
-      },
-      errors: null,
-      loading: true
-    };
-  },
-  methods: {
-    submitForm: function submitForm() {
-      var _this2 = this;
-
-      axios.patch('/api/contacts/' + this.$route.params.id, this.form).then(function (response) {
-        _this2.$router.push(response.data.links.self);
-      })["catch"](function (errors) {
-        _this2.errors = errors.response.data.errors;
-      });
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsIndex.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ContactsIndex.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_ContactsList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/ContactsList */ "./resources/js/components/ContactsList.vue");
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ContactsIndex",
-  components: {
-    ContactsList: _components_ContactsList__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsShow.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ContactsShow.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_UserCircle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/UserCircle */ "./resources/js/components/UserCircle.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ContactsShow",
-  components: {
-    UserCircle: _components_UserCircle__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios.get('/api/contacts/' + this.$route.params.id).then(function (response) {
-      _this.contact = response.data.data;
-      _this.loading = false;
-    })["catch"](function (error) {
-      _this.loading = false;
-
-      if (error.response.status === 404) {
-        _this.$router.push('/contacts');
-      }
-    });
-  },
-  data: function data() {
-    return {
-      loading: true,
-      modal: false,
-      contact: null
-    };
-  },
-  methods: {
-    destroy: function destroy() {
-      var _this2 = this;
-
-      axios["delete"]('/api/contacts/' + this.$route.params.id).then(function (response) {
-        _this2.$router.push('/contacts');
-      })["catch"](function (error) {
-        alert('Internal Error. Unable to delete contact.');
-      });
-    }
-  }
+  name: "Birthdays",
+  components: {}
 });
 
 /***/ }),
@@ -3721,6 +3392,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3899,6 +3578,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4564,6 +4252,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EmployerType",
   data: function data() {
@@ -4726,6 +4422,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "OtherIDTypes",
   data: function data() {
@@ -4812,6 +4516,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5066,6 +4778,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PayMethod",
   data: function data() {
@@ -5228,6 +4948,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RepPositions",
   data: function data() {
@@ -5314,6 +5042,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5580,6 +5316,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SIC7",
   data: function data() {
@@ -5670,6 +5415,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -24486,7 +24245,9 @@ var render = function() {
                 "h-16 px-6 border-b border-gray-400 flex items-center justify-between"
             },
             [
-              _c("div", [_vm._v(_vm._s(_vm.title))]),
+              _c("div", { staticClass: "text-3xl text-green-700 uppercase" }, [
+                _vm._v(_vm._s(_vm.title))
+              ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -24519,84 +24280,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ContactsList.vue?vue&type=template&id=484f3208&scoped=true&":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ContactsList.vue?vue&type=template&id=484f3208&scoped=true& ***!
-  \***************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm.loading
-      ? _c("div", [_vm._v("Loading...")])
-      : _c(
-          "div",
-          [
-            _vm.contacts.length === 0
-              ? _c("div", [
-                  _c(
-                    "p",
-                    [
-                      _vm._v("No contacts yet. "),
-                      _c("router-link", { attrs: { to: "/contact/create" } }, [
-                        _vm._v("Get Started >")
-                      ])
-                    ],
-                    1
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm._l(_vm.contacts, function(contact) {
-              return _c(
-                "div",
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "flex items-center border-b border-gray-400 p-4 hover:bg-gray-100",
-                      attrs: { to: "/contacts/" + contact.data.contact_id }
-                    },
-                    [
-                      _c("UserCircle", { attrs: { name: contact.data.name } }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "pl-4" }, [
-                        _c("p", { staticClass: "text-blue-400 font-bold" }, [
-                          _vm._v(_vm._s(contact.data.name))
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "text-gray-600" }, [
-                          _vm._v(_vm._s(contact.data.company))
-                        ])
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            })
-          ],
-          2
-        )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -24616,67 +24299,6 @@ var render = function() {
     _c("h1", {}, [_vm._v("Good day, " + _vm._s(_vm.user))]),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2" })
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InputField.vue?vue&type=template&id=eb71a80a&scoped=true&":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/InputField.vue?vue&type=template&id=eb71a80a&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", {}, [
-    _c(
-      "label",
-      {
-        staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2",
-        attrs: { for: _vm.name }
-      },
-      [_vm._v(_vm._s(_vm.label))]
-    ),
-    _vm._v(" "),
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.value,
-          expression: "value"
-        }
-      ],
-      staticClass:
-        "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-      attrs: { id: _vm.name, type: "text", placeholder: _vm.placeholder },
-      domProps: { value: _vm.value },
-      on: {
-        input: [
-          function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.value = $event.target.value
-          },
-          function($event) {
-            return _vm.updateField()
-          }
-        ]
-      }
-    })
   ])
 }
 var staticRenderFns = []
@@ -24878,172 +24500,180 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter New Account Relationship")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.accrelationship.name,
-            expression: "accrelationship.name"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter Account Relationship",
-          name: "code"
-        },
-        domProps: { value: _vm.accrelationship.name },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter New Account Relationship")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.accrelationship.name,
+                expression: "accrelationship.name"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter Account Relationship",
+              name: "code"
+            },
+            domProps: { value: _vm.accrelationship.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.accrelationship, "name", $event.target.value)
+              }
             }
-            _vm.$set(_vm.accrelationship, "name", $event.target.value)
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addAccrelationship()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addAccrelationship()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.accrelationships, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.name))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editActcrelationship(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.accrelationships, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.name))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteAccrelationship(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editActcrelationship(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteAccrelationship(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -25054,9 +24684,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("Activity Code")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -25082,172 +24710,180 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Account Type")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.AccTypeInput.acctype,
-            expression: "AccTypeInput.acctype"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter account type",
-          name: "acctype"
-        },
-        domProps: { value: _vm.AccTypeInput.acctype },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Account Type")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.AccTypeInput.acctype,
+                expression: "AccTypeInput.acctype"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter account type",
+              name: "acctype"
+            },
+            domProps: { value: _vm.AccTypeInput.acctype },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.AccTypeInput, "acctype", $event.target.value)
+              }
             }
-            _vm.$set(_vm.AccTypeInput, "acctype", $event.target.value)
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addAccountTypes()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addAccountTypes()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.acctype, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.name))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editAccountTypes(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.acctype, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.name))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteAccountType(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editAccountTypes(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteAccountType(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -25258,9 +24894,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("Account Type")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -25286,254 +24920,262 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Profit Code")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.activityInput.profit_code,
-            expression: "activityInput.profit_code"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter SIC7 code",
-          name: "profit_code"
-        },
-        domProps: { value: _vm.activityInput.profit_code },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Profit Code")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.activityInput.profit_code,
+                expression: "activityInput.profit_code"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter SIC7 code",
+              name: "profit_code"
+            },
+            domProps: { value: _vm.activityInput.profit_code },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.activityInput, "profit_code", $event.target.value)
+              }
             }
-            _vm.$set(_vm.activityInput, "profit_code", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Loss Code")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.activityInput.loss_code,
-            expression: "activityInput.loss_code"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter SIC7 code",
-          name: "loss_code"
-        },
-        domProps: { value: _vm.activityInput.loss_code },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Loss Code")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.activityInput.loss_code,
+                expression: "activityInput.loss_code"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter SIC7 code",
+              name: "loss_code"
+            },
+            domProps: { value: _vm.activityInput.loss_code },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.activityInput, "loss_code", $event.target.value)
+              }
             }
-            _vm.$set(_vm.activityInput, "loss_code", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Description")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.activityInput.activity_description,
-            expression: "activityInput.activity_description"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter description",
-          name: "activity_description"
-        },
-        domProps: { value: _vm.activityInput.activity_description },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Description")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.activityInput.activity_description,
+                expression: "activityInput.activity_description"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter description",
+              name: "activity_description"
+            },
+            domProps: { value: _vm.activityInput.activity_description },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.activityInput,
+                  "activity_description",
+                  $event.target.value
+                )
+              }
             }
-            _vm.$set(
-              _vm.activityInput,
-              "activity_description",
-              $event.target.value
-            )
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addActivity()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addActivity()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.activities, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.profit_code))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.loss_code))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.description))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editActivity(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.activities, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.profit_code))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteActivity(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.loss_code))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.description))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editActivity(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteActivity(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -25552,9 +25194,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("Activity Description")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -25580,211 +25220,223 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Activity Code")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.activitycodeInput.code,
-            expression: "activitycodeInput.code"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter Activity code",
-          name: "code"
-        },
-        domProps: { value: _vm.activitycodeInput.code },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Activity Code")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.activitycodeInput.code,
+                expression: "activitycodeInput.code"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter Activity code",
+              name: "code"
+            },
+            domProps: { value: _vm.activitycodeInput.code },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.activitycodeInput, "code", $event.target.value)
+              }
             }
-            _vm.$set(_vm.activitycodeInput, "code", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Description")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.activitycodeInput.description,
-            expression: "activitycodeInput.description"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter description",
-          name: "description"
-        },
-        domProps: { value: _vm.activitycodeInput.description },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Description")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.activitycodeInput.description,
+                expression: "activitycodeInput.description"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter description",
+              name: "description"
+            },
+            domProps: { value: _vm.activitycodeInput.description },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.activitycodeInput,
+                  "description",
+                  $event.target.value
+                )
+              }
             }
-            _vm.$set(_vm.activitycodeInput, "description", $event.target.value)
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addActivitycode()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addActivitycode()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.activitycodes, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.code))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.description))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editActivitycode(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.activitycodes, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.code))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteActivity(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.description))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editActivitycode(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteActivity(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -25799,9 +25451,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("Activity Description")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -25827,172 +25477,180 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Bank Name")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.banknameInput.bankname,
-            expression: "banknameInput.bankname"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter bank name",
-          name: "bankname"
-        },
-        domProps: { value: _vm.banknameInput.bankname },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Bank Name")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.banknameInput.bankname,
+                expression: "banknameInput.bankname"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter bank name",
+              name: "bankname"
+            },
+            domProps: { value: _vm.banknameInput.bankname },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.banknameInput, "bankname", $event.target.value)
+              }
             }
-            _vm.$set(_vm.banknameInput, "bankname", $event.target.value)
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addBankName()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addBankName()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.banknames, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.name))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editBankName(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.banknames, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.name))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteBankName(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editBankName(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteBankName(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -26003,9 +25661,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("Account Type")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -26039,470 +25695,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsCreate.vue?vue&type=template&id=3beb12e4&scoped=true&":
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ContactsCreate.vue?vue&type=template&id=3beb12e4&scoped=true& ***!
-  \************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "form",
-      {
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.submitForm($event)
-          }
-        }
-      },
-      [
-        _c("InputField", {
-          attrs: {
-            name: "name",
-            label: "Contact Name",
-            errors: _vm.errors,
-            placeholder: "Contact Name"
-          },
-          on: {
-            "update:field": function($event) {
-              _vm.form.name = $event
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("InputField", {
-          attrs: {
-            name: "email",
-            label: "Contact Email",
-            errors: _vm.errors,
-            placeholder: "Contact Email"
-          },
-          on: {
-            "update:field": function($event) {
-              _vm.form.email = $event
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("InputField", {
-          attrs: {
-            name: "company",
-            label: "Company",
-            errors: _vm.errors,
-            placeholder: "Company"
-          },
-          on: {
-            "update:field": function($event) {
-              _vm.form.company = $event
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("InputField", {
-          attrs: {
-            name: "birthday",
-            label: "Birthday",
-            errors: _vm.errors,
-            placeholder: "MM/DD/YYYY"
-          },
-          on: {
-            "update:field": function($event) {
-              _vm.form.birthday = $event
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm._m(0)
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex justify-end" }, [
-      _c(
-        "button",
-        {
-          staticClass:
-            "py-2 px-4 rounded text-red-700 border mr-5 hover:border-red-700"
-        },
-        [_vm._v("Cancel")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 py-2 px-4 text-white rounded hover:bg-blue-400"
-        },
-        [_vm._v("Add New Contact")]
-      )
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsEdit.vue?vue&type=template&id=e869f9c8&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ContactsEdit.vue?vue&type=template&id=e869f9c8&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "flex justify-between" }, [
-      _c(
-        "a",
-        {
-          staticClass: "text-blue-400",
-          attrs: { href: "#" },
-          on: {
-            click: function($event) {
-              return _vm.$router.back()
-            }
-          }
-        },
-        [_vm._v("\n            < Back\n        ")]
-      )
-    ]),
-    _vm._v(" "),
-    _c(
-      "form",
-      {
-        staticClass: "pt-6",
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.submitForm($event)
-          }
-        }
-      },
-      [
-        _c("InputField", {
-          attrs: {
-            name: "name",
-            label: "Contact Name",
-            errors: _vm.errors,
-            placeholder: "Contact Name",
-            data: _vm.form.name
-          },
-          on: {
-            "update:field": function($event) {
-              _vm.form.name = $event
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("InputField", {
-          attrs: {
-            name: "email",
-            label: "Contact Email",
-            errors: _vm.errors,
-            placeholder: "Contact Email",
-            data: _vm.form.email
-          },
-          on: {
-            "update:field": function($event) {
-              _vm.form.email = $event
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("InputField", {
-          attrs: {
-            name: "company",
-            label: "Company",
-            errors: _vm.errors,
-            placeholder: "Company",
-            data: _vm.form.company
-          },
-          on: {
-            "update:field": function($event) {
-              _vm.form.company = $event
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("InputField", {
-          attrs: {
-            name: "birthday",
-            label: "Birthday",
-            errors: _vm.errors,
-            placeholder: "MM/DD/YYYY",
-            data: _vm.form.birthday
-          },
-          on: {
-            "update:field": function($event) {
-              _vm.form.birthday = $event
-            }
-          }
-        }),
-        _vm._v(" "),
-        _vm._m(0)
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex justify-end" }, [
-      _c(
-        "button",
-        {
-          staticClass:
-            "py-2 px-4 rounded text-red-700 border mr-5 hover:border-red-700"
-        },
-        [_vm._v("Cancel")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue-500 py-2 px-4 text-white rounded hover:bg-blue-400"
-        },
-        [_vm._v("Save")]
-      )
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsIndex.vue?vue&type=template&id=2f4d1a30&scoped=true&":
-/*!***********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ContactsIndex.vue?vue&type=template&id=2f4d1a30&scoped=true& ***!
-  \***********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("ContactsList", { attrs: { endpoint: "/api/contacts" } })
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsShow.vue?vue&type=template&id=181bbe8f&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/ContactsShow.vue?vue&type=template&id=181bbe8f&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm.loading
-      ? _c("div", [_vm._v("Loading...")])
-      : _c("div", [
-          _c("div", { staticClass: "flex justify-between" }, [
-            _c(
-              "a",
-              {
-                staticClass: "text-blue-400",
-                attrs: { href: "#" },
-                on: {
-                  click: function($event) {
-                    return _vm.$router.back()
-                  }
-                }
-              },
-              [_vm._v("\n                < Back\n            ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "relative" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass:
-                      "px-4 py-2 rounded text-green-500 border border-green-500 text-sm font-bold mr-2",
-                    attrs: {
-                      to: "/contacts/" + _vm.contact.contact_id + "/edit"
-                    }
-                  },
-                  [_vm._v("Edit")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "px-4 py-2 border border-red-500 rounded text-sm font-bold text-red-500",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        _vm.modal = !_vm.modal
-                      }
-                    }
-                  },
-                  [_vm._v("Delete")]
-                ),
-                _vm._v(" "),
-                _vm.modal
-                  ? _c(
-                      "div",
-                      {
-                        staticClass:
-                          "absolute bg-blue-900 text-white rounded-lg z-20 p-8 w-64 right-0 mt-2 mr-6"
-                      },
-                      [
-                        _c("p", [
-                          _vm._v("Are you sure you want to delete this record?")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "flex items-center mt-6 justify-end" },
-                          [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "text-white pr-4",
-                                on: {
-                                  click: function($event) {
-                                    _vm.modal = !_vm.modal
-                                  }
-                                }
-                              },
-                              [_vm._v("Cancel")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "px-4 py-2 bg-red-500 rounded text-sm font-bold text-white",
-                                on: { click: _vm.destroy }
-                              },
-                              [_vm._v("Delete")]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm.modal
-              ? _c("div", {
-                  staticClass:
-                    "bg-black opacity-25 absolute right-0 left-0 top-0 bottom-0 z-10",
-                  on: {
-                    click: function($event) {
-                      _vm.modal = !_vm.modal
-                    }
-                  }
-                })
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "flex items-center pt-6" },
-            [
-              _c("UserCircle", { attrs: { name: _vm.contact.name } }),
-              _vm._v(" "),
-              _c("p", { staticClass: "pl-5 text-xl" }, [
-                _vm._v(_vm._s(_vm.contact.name))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "p",
-            { staticClass: "pt-6 text-gray-600 font-bold uppercase text-sm" },
-            [_vm._v("Contact")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "pt-2 text-blue-400" }, [
-            _vm._v(_vm._s(_vm.contact.email))
-          ]),
-          _vm._v(" "),
-          _c(
-            "p",
-            { staticClass: "pt-6 text-gray-600 font-bold uppercase text-sm" },
-            [_vm._v("Company")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "pt-2 text-blue-400" }, [
-            _vm._v(_vm._s(_vm.contact.company))
-          ]),
-          _vm._v(" "),
-          _c(
-            "p",
-            { staticClass: "pt-6 text-gray-600 font-bold uppercase text-sm" },
-            [_vm._v("Birthday")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "pt-2 text-blue-400" }, [
-            _vm._v(_vm._s(_vm.contact.birthday))
-          ])
-        ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Country.vue?vue&type=template&id=79c19e72&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Country.vue?vue&type=template&id=79c19e72&scoped=true& ***!
@@ -26519,211 +25711,219 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Country Code")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.countryInput.country_code,
-            expression: "countryInput.country_code"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter code",
-          name: "country_code"
-        },
-        domProps: { value: _vm.countryInput.country_code },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Country Code")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.countryInput.country_code,
+                expression: "countryInput.country_code"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter code",
+              name: "country_code"
+            },
+            domProps: { value: _vm.countryInput.country_code },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.countryInput, "country_code", $event.target.value)
+              }
             }
-            _vm.$set(_vm.countryInput, "country_code", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Country Name")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.countryInput.country_name,
-            expression: "countryInput.country_name"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter name",
-          name: "country_name"
-        },
-        domProps: { value: _vm.countryInput.country_name },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Country Name")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.countryInput.country_name,
+                expression: "countryInput.country_name"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter name",
+              name: "country_name"
+            },
+            domProps: { value: _vm.countryInput.country_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.countryInput, "country_name", $event.target.value)
+              }
             }
-            _vm.$set(_vm.countryInput, "country_name", $event.target.value)
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addCountry()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addCountry()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.country, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.code))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.name))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editCountry(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.country, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.code))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteCountry(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.name))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editCountry(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteCountry(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -26738,9 +25938,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("Country Name")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -26765,173 +25963,185 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Employee Type")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.employeeInput.employee_type,
-            expression: "employeeInput.employee_type"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter type",
-          name: "employee_type"
-        },
-        domProps: { value: _vm.employeeInput.employee_type },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+  return _c("div", {}, [
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Employee Type")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.employeeInput.employee_type,
+                expression: "employeeInput.employee_type"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter type",
+              name: "employee_type"
+            },
+            domProps: { value: _vm.employeeInput.employee_type },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.employeeInput,
+                  "employee_type",
+                  $event.target.value
+                )
+              }
             }
-            _vm.$set(_vm.employeeInput, "employee_type", $event.target.value)
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addEmployeeType()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addEmployeeType()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.employee, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.name))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editEmployeeType(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.employee, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.name))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteEmployeeType(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editEmployeeType(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteEmployeeType(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -26942,9 +26152,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("Employee Type")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -28129,172 +27337,184 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Employer Type")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.employerInput.employer_type,
-            expression: "employerInput.employer_type"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter type",
-          name: "employer_type"
-        },
-        domProps: { value: _vm.employerInput.employer_type },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Employer Type")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.employerInput.employer_type,
+                expression: "employerInput.employer_type"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter type",
+              name: "employer_type"
+            },
+            domProps: { value: _vm.employerInput.employer_type },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.employerInput,
+                  "employer_type",
+                  $event.target.value
+                )
+              }
             }
-            _vm.$set(_vm.employerInput, "employer_type", $event.target.value)
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addEmployerType()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addEmployerType()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.employer, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.name))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editEmployerType(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.employer, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.name))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteEmployerType(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editEmployerType(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteEmployerType(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -28305,9 +27525,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("Employer Type")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -28333,172 +27551,180 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Other ID Type")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.idtypeInput.otheridtype,
-            expression: "idtypeInput.otheridtype"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter other ID type",
-          name: "otheridtype"
-        },
-        domProps: { value: _vm.idtypeInput.otheridtype },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Other ID Type")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.idtypeInput.otheridtype,
+                expression: "idtypeInput.otheridtype"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter other ID type",
+              name: "otheridtype"
+            },
+            domProps: { value: _vm.idtypeInput.otheridtype },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.idtypeInput, "otheridtype", $event.target.value)
+              }
             }
-            _vm.$set(_vm.idtypeInput, "otheridtype", $event.target.value)
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addIdType()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addIdType()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.otheridtypes, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.name))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editIDType(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.otheridtypes, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.name))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteIDType(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editIDType(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteIDType(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -28509,9 +27735,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("Account Type")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -28537,215 +27761,227 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter IRP5 Code")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.irp5codesInput.irp5codes_code,
-            expression: "irp5codesInput.irp5codes_code"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter code",
-          name: "irp5codes_code"
-        },
-        domProps: { value: _vm.irp5codesInput.irp5codes_code },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter IRP5 Code")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.irp5codesInput.irp5codes_code,
+                expression: "irp5codesInput.irp5codes_code"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter code",
+              name: "irp5codes_code"
+            },
+            domProps: { value: _vm.irp5codesInput.irp5codes_code },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.irp5codesInput,
+                  "irp5codes_code",
+                  $event.target.value
+                )
+              }
             }
-            _vm.$set(_vm.irp5codesInput, "irp5codes_code", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter IRP5 Name")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.irp5codesInput.irp5codes_description,
-            expression: "irp5codesInput.irp5codes_description"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter description",
-          name: "irp5codes_description"
-        },
-        domProps: { value: _vm.irp5codesInput.irp5codes_description },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter IRP5 Name")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.irp5codesInput.irp5codes_description,
+                expression: "irp5codesInput.irp5codes_description"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter description",
+              name: "irp5codes_description"
+            },
+            domProps: { value: _vm.irp5codesInput.irp5codes_description },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.irp5codesInput,
+                  "irp5codes_description",
+                  $event.target.value
+                )
+              }
             }
-            _vm.$set(
-              _vm.irp5codesInput,
-              "irp5codes_description",
-              $event.target.value
-            )
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addIrp5codes()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addIrp5codes()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.irp5codes, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.code))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.description))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editIrp5codes(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.irp5codes, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.code))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteIrp5codes(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.description))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editIrp5codes(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteIrp5codes(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -28760,9 +27996,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("IRP5 Description")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -28788,168 +28022,176 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Payment Method")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.paymethodInput.name,
-            expression: "paymethodInput.name"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: { type: "text", placeholder: "Enter code", name: "name" },
-        domProps: { value: _vm.paymethodInput.name },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Payment Method")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.paymethodInput.name,
+                expression: "paymethodInput.name"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: { type: "text", placeholder: "Enter code", name: "name" },
+            domProps: { value: _vm.paymethodInput.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.paymethodInput, "name", $event.target.value)
+              }
             }
-            _vm.$set(_vm.paymethodInput, "name", $event.target.value)
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addPaymethod()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addPaymethod()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.paymethods, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.name))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editPaymethods(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.paymethods, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.name))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deletePaymethod(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editPaymethods(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deletePaymethod(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -28960,9 +28202,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("Payment Method")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -28988,172 +28228,184 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Rep Position")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.reppositionInput.repposition,
-            expression: "reppositionInput.repposition"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter rep position",
-          name: "repposition"
-        },
-        domProps: { value: _vm.reppositionInput.repposition },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Rep Position")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.reppositionInput.repposition,
+                expression: "reppositionInput.repposition"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter rep position",
+              name: "repposition"
+            },
+            domProps: { value: _vm.reppositionInput.repposition },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.reppositionInput,
+                  "repposition",
+                  $event.target.value
+                )
+              }
             }
-            _vm.$set(_vm.reppositionInput, "repposition", $event.target.value)
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addRepPosition()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addRepPosition()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.reppositions, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.name))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editRepPosition(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.reppositions, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.name))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteBankName(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editRepPosition(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteBankName(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -29164,9 +28416,7 @@ var staticRenderFns = [
     return _c("tr", [
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("Account Type")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -29191,208 +28441,220 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter SEZ Code")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.sezInput.sez_code,
-            expression: "sezInput.sez_code"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: { type: "text", placeholder: "Enter code", name: "sez_code" },
-        domProps: { value: _vm.sezInput.sez_code },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+  return _c("div", {}, [
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter SEZ Code")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.sezInput.sez_code,
+                expression: "sezInput.sez_code"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter code",
+              name: "sez_code"
+            },
+            domProps: { value: _vm.sezInput.sez_code },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.sezInput, "sez_code", $event.target.value)
+              }
             }
-            _vm.$set(_vm.sezInput, "sez_code", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter SEZ Name")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.sezInput.sez_description,
-            expression: "sezInput.sez_description"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter description",
-          name: "sez_description"
-        },
-        domProps: { value: _vm.sezInput.sez_description },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter SEZ Name")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.sezInput.sez_description,
+                expression: "sezInput.sez_description"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter description",
+              name: "sez_description"
+            },
+            domProps: { value: _vm.sezInput.sez_description },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.sezInput, "sez_description", $event.target.value)
+              }
             }
-            _vm.$set(_vm.sezInput, "sez_description", $event.target.value)
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addSez()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addSez()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.sez, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.code))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.description))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editSez(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.sez, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.code))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteSez(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.description))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editSez(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteSez(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -29407,9 +28669,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("SEZ Description")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -29434,212 +28694,220 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter SIC7 Code")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.sic7Input.sic7_code,
-            expression: "sic7Input.sic7_code"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter SIC7 code",
-          name: "sic7_code"
-        },
-        domProps: { value: _vm.sic7Input.sic7_code },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+  return _c("div", {}, [
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter SIC7 Code")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.sic7Input.sic7_code,
+                expression: "sic7Input.sic7_code"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter SIC7 code",
+              name: "sic7_code"
+            },
+            domProps: { value: _vm.sic7Input.sic7_code },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.sic7Input, "sic7_code", $event.target.value)
+              }
             }
-            _vm.$set(_vm.sic7Input, "sic7_code", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter SIC7 Name")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.sic7Input.sic7_description,
-            expression: "sic7Input.sic7_description"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter description",
-          name: "sic7_description"
-        },
-        domProps: { value: _vm.sic7Input.sic7_description },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter SIC7 Name")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.sic7Input.sic7_description,
+                expression: "sic7Input.sic7_description"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter description",
+              name: "sic7_description"
+            },
+            domProps: { value: _vm.sic7Input.sic7_description },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.sic7Input, "sic7_description", $event.target.value)
+              }
             }
-            _vm.$set(_vm.sic7Input, "sic7_description", $event.target.value)
-          }
-        }
-      })
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addSic7()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addSic7()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.sic7s, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.code))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.description))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editSic7(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
-                  )
-                ]
-              ),
+    _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "table",
+        { staticClass: "text-center mt-4" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.sic7s, function(item) {
+            return _c("tr", { key: item.id }, [
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.code))
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteSic7(item.id)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _vm._v(_vm._s(item.description))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "border border-black px-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.editSic7(item)
                       }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-edit",
                         attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
-                    ]
-                  )
-                ]
-              )
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteSic7(item.id)
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "feather feather-trash-2",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "24",
+                          height: "24",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round"
+                        }
+                      },
+                      [
+                        _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                        }),
+                        _vm._v(" "),
+                        _c("line", {
+                          attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
             ])
-          ])
-        })
-      ],
-      2
-    )
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -29654,9 +28922,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("th", { staticClass: "border border-black px-3" }, [
         _vm._v("SIC7 Description")
-      ]),
-      _vm._v(" "),
-      _c("th", { staticClass: "border border-black px-3" }, [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -29682,413 +28948,443 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Employee Name")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.transactionInput.employee_name,
-            expression: "transactionInput.employee_name"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter name",
-          name: "employee_name"
-        },
-        domProps: { value: _vm.transactionInput.employee_name },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.transactionInput, "employee_name", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Date")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.transactionInput.date,
-            expression: "transactionInput.date"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: { type: "text", placeholder: "DD-MM-YYYY", name: "date" },
-        domProps: { value: _vm.transactionInput.date },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.transactionInput, "date", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Employer Name")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.transactionInput.employer_name,
-            expression: "transactionInput.employer_name"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter employer name",
-          name: "employer_name"
-        },
-        domProps: { value: _vm.transactionInput.employer_name },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.transactionInput, "employer_name", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Description")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.transactionInput.description,
-            expression: "transactionInput.description"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: {
-          type: "text",
-          placeholder: "Enter description",
-          name: "description"
-        },
-        domProps: { value: _vm.transactionInput.description },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.transactionInput, "description", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", {}, [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Select IRP5 Code")]
-      ),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.transactionInput.irp5_code,
-              expression: "transactionInput.irp5_code"
-            }
-          ],
-          staticClass:
-            "block appearance-none w-1/4 bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
-          attrs: { id: "irp5_code" },
-          on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.$set(
-                _vm.transactionInput,
-                "irp5_code",
-                $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-              )
-            }
-          }
-        },
-        [
-          _c("option", { attrs: { value: "", disabled: "", selected: "" } }, [
-            _vm._v("Select the IRP5 Code")
-          ]),
+    _c("div", { staticClass: "p-5 bg-gray-100" }, [
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Employee Name")]
+          ),
           _vm._v(" "),
-          _vm._l(_vm.irp5_codes, function(item) {
-            return _c("option", { key: item.id }, [
-              _vm._v(_vm._s(item.code) + " - " + _vm._s(item.description))
-            ])
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.transactionInput.employee_name,
+                expression: "transactionInput.employee_name"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter name",
+              name: "employee_name"
+            },
+            domProps: { value: _vm.transactionInput.employee_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.transactionInput,
+                  "employee_name",
+                  $event.target.value
+                )
+              }
+            }
           })
-        ],
-        2
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Amount")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.transactionInput.amount,
-            expression: "transactionInput.amount"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: { type: "text", placeholder: "Enter amount", name: "amount" },
-        domProps: { value: _vm.transactionInput.amount },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.transactionInput, "amount", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "label",
-        { staticClass: "block w-1/4 text-gray-700 text-sm font-bold my-2" },
-        [_vm._v("Enter Notes")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.transactionInput.note,
-            expression: "transactionInput.note"
-          }
-        ],
-        staticClass:
-          "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-1/4 appearance-none leading-normal",
-        attrs: { type: "text", placeholder: "Enter notes", name: "note" },
-        domProps: { value: _vm.transactionInput.note },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.transactionInput, "note", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass:
-          "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-        on: {
-          click: function($event) {
-            return _vm.addTransaction()
-          }
-        }
-      },
-      [_vm._v("Submit")]
-    ),
-    _vm._v(" "),
-    _c("hr", { staticClass: "border-2 border-black" }),
-    _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "text-center mt-4" },
-      [
-        _vm._m(0),
+        ]),
         _vm._v(" "),
-        _vm._l(_vm.transactions, function(item) {
-          return _c("tr", { key: item.id }, [
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.employee))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.date))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.employer))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.description))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.irp5_code))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v("R " + _vm._s(item.amount))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _vm._v(_vm._s(item.note))
-            ]),
-            _vm._v(" "),
-            _c("td", { staticClass: "border border-black" }, [
-              _c(
-                "button",
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Date")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.transactionInput.date,
+                expression: "transactionInput.date"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: { type: "text", placeholder: "DD-MM-YYYY", name: "date" },
+            domProps: { value: _vm.transactionInput.date },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.transactionInput, "date", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/3" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Employer Name")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.transactionInput.employer_name,
+                expression: "transactionInput.employer_name"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter employer name",
+              name: "employer_name"
+            },
+            domProps: { value: _vm.transactionInput.employer_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.transactionInput,
+                  "employer_name",
+                  $event.target.value
+                )
+              }
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "w-1/4" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Description")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.transactionInput.description,
+                expression: "transactionInput.description"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter description",
+              name: "description"
+            },
+            domProps: { value: _vm.transactionInput.description },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.transactionInput,
+                  "description",
+                  $event.target.value
+                )
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/4" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Select IRP5 Code")]
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
                 {
-                  staticClass:
-                    "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2 border border-yellow-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.editTransaction(item)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-edit",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                        }
-                      })
-                    ]
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.transactionInput.irp5_code,
+                  expression: "transactionInput.irp5_code"
+                }
+              ],
+              staticClass:
+                "block appearance-none w-3/4 bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500",
+              attrs: { id: "irp5_code" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.transactionInput,
+                    "irp5_code",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                   )
-                ]
+                }
+              }
+            },
+            [
+              _c(
+                "option",
+                { attrs: { value: "", disabled: "", selected: "" } },
+                [_vm._v("Select the IRP5 Code")]
               ),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 border border-red-700 rounded-full",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteTransaction(item.id)
-                    }
-                  }
-                },
-                [
+              _vm._l(_vm.irp5_codes, function(item) {
+                return _c("option", { key: item.id }, [
+                  _vm._v(_vm._s(item.code) + " - " + _vm._s(item.description))
+                ])
+              })
+            ],
+            2
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/4" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Amount")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.transactionInput.amount,
+                expression: "transactionInput.amount"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: {
+              type: "text",
+              placeholder: "Enter amount",
+              name: "amount"
+            },
+            domProps: { value: _vm.transactionInput.amount },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.transactionInput, "amount", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-1/4" }, [
+          _c(
+            "label",
+            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+            [_vm._v("Enter Notes")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.transactionInput.note,
+                expression: "transactionInput.note"
+              }
+            ],
+            staticClass:
+              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+            attrs: { type: "text", placeholder: "Enter notes", name: "note" },
+            domProps: { value: _vm.transactionInput.note },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.transactionInput, "note", $event.target.value)
+              }
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-end" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            on: {
+              click: function($event) {
+                return _vm.addTransaction()
+              }
+            }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c("hr", { staticClass: "border-2 border-black" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-center" }, [
+        _c(
+          "table",
+          { staticClass: "text-center mt-4" },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._l(_vm.transactions, function(item) {
+              return _c("tr", { key: item.id }, [
+                _c("td", { staticClass: "border border-black px-4" }, [
+                  _vm._v(_vm._s(item.employee))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "border border-black px-4" }, [
+                  _vm._v(_vm._s(item.date))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "border border-black px-4" }, [
+                  _vm._v(_vm._s(item.employer))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "border border-black px-4" }, [
+                  _vm._v(_vm._s(item.description))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "border border-black px-4" }, [
+                  _vm._v(_vm._s(item.irp5_code))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "border border-black px-4" }, [
+                  _vm._v("R " + _vm._s(item.amount))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "border border-black px-4" }, [
+                  _vm._v(_vm._s(item.note))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "border border-black px-4" }, [
                   _c(
-                    "svg",
+                    "button",
                     {
-                      staticClass: "feather feather-trash-2",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
+                      staticClass:
+                        "bg-yellow-300 text-grey-700 font-bold py-2 px-2 m-2",
+                      on: {
+                        click: function($event) {
+                          return _vm.editTransaction(item)
+                        }
                       }
                     },
                     [
-                      _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-edit",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "bg-red-300 text-grey-700 font-bold py-2 px-2 m-2",
+                      on: {
+                        click: function($event) {
+                          return _vm.deleteTransaction(item.id)
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
-                      })
+                      }
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "feather feather-trash-2",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "24",
+                            height: "24",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round"
+                          }
+                        },
+                        [
+                          _c("polyline", { attrs: { points: "3 6 5 6 21 6" } }),
+                          _vm._v(" "),
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("line", {
+                            attrs: { x1: "10", y1: "11", x2: "10", y2: "17" }
+                          }),
+                          _vm._v(" "),
+                          _c("line", {
+                            attrs: { x1: "14", y1: "11", x2: "14", y2: "17" }
+                          })
+                        ]
+                      )
                     ]
                   )
-                ]
-              )
-            ])
-          ])
-        })
-      ],
-      2
-    )
+                ])
+              ])
+            })
+          ],
+          2
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
@@ -45162,75 +44458,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/ContactsList.vue":
-/*!**************************************************!*\
-  !*** ./resources/js/components/ContactsList.vue ***!
-  \**************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ContactsList_vue_vue_type_template_id_484f3208_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactsList.vue?vue&type=template&id=484f3208&scoped=true& */ "./resources/js/components/ContactsList.vue?vue&type=template&id=484f3208&scoped=true&");
-/* harmony import */ var _ContactsList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContactsList.vue?vue&type=script&lang=js& */ "./resources/js/components/ContactsList.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ContactsList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ContactsList_vue_vue_type_template_id_484f3208_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ContactsList_vue_vue_type_template_id_484f3208_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "484f3208",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/ContactsList.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/ContactsList.vue?vue&type=script&lang=js&":
-/*!***************************************************************************!*\
-  !*** ./resources/js/components/ContactsList.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ContactsList.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/ContactsList.vue?vue&type=template&id=484f3208&scoped=true&":
-/*!*********************************************************************************************!*\
-  !*** ./resources/js/components/ContactsList.vue?vue&type=template&id=484f3208&scoped=true& ***!
-  \*********************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsList_vue_vue_type_template_id_484f3208_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsList.vue?vue&type=template&id=484f3208&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ContactsList.vue?vue&type=template&id=484f3208&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsList_vue_vue_type_template_id_484f3208_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsList_vue_vue_type_template_id_484f3208_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/components/ExampleComponent.vue":
 /*!******************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue ***!
@@ -45295,75 +44522,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/InputField.vue":
-/*!************************************************!*\
-  !*** ./resources/js/components/InputField.vue ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _InputField_vue_vue_type_template_id_eb71a80a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputField.vue?vue&type=template&id=eb71a80a&scoped=true& */ "./resources/js/components/InputField.vue?vue&type=template&id=eb71a80a&scoped=true&");
-/* harmony import */ var _InputField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InputField.vue?vue&type=script&lang=js& */ "./resources/js/components/InputField.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _InputField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _InputField_vue_vue_type_template_id_eb71a80a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _InputField_vue_vue_type_template_id_eb71a80a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "eb71a80a",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/InputField.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/InputField.vue?vue&type=script&lang=js&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/components/InputField.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./InputField.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InputField.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputField_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/InputField.vue?vue&type=template&id=eb71a80a&scoped=true&":
-/*!*******************************************************************************************!*\
-  !*** ./resources/js/components/InputField.vue?vue&type=template&id=eb71a80a&scoped=true& ***!
-  \*******************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputField_vue_vue_type_template_id_eb71a80a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./InputField.vue?vue&type=template&id=eb71a80a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/InputField.vue?vue&type=template&id=eb71a80a&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputField_vue_vue_type_template_id_eb71a80a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputField_vue_vue_type_template_id_eb71a80a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -45520,32 +44678,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
-/* harmony import */ var _views_ContactsCreate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/ContactsCreate */ "./resources/js/views/ContactsCreate.vue");
-/* harmony import */ var _views_ContactsShow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/ContactsShow */ "./resources/js/views/ContactsShow.vue");
-/* harmony import */ var _views_ContactsEdit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/ContactsEdit */ "./resources/js/views/ContactsEdit.vue");
-/* harmony import */ var _views_ContactsIndex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/ContactsIndex */ "./resources/js/views/ContactsIndex.vue");
-/* harmony import */ var _views_BirthdaysIndex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/BirthdaysIndex */ "./resources/js/views/BirthdaysIndex.vue");
-/* harmony import */ var _views_EmployerType__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/EmployerType */ "./resources/js/views/EmployerType.vue");
-/* harmony import */ var _views_EmployeeType__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/EmployeeType */ "./resources/js/views/EmployeeType.vue");
-/* harmony import */ var _views_Sez__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/Sez */ "./resources/js/views/Sez.vue");
-/* harmony import */ var _views_EmployerCreate__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/EmployerCreate */ "./resources/js/views/EmployerCreate.vue");
-/* harmony import */ var _views_AccountType__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/AccountType */ "./resources/js/views/AccountType.vue");
-/* harmony import */ var _views_AccountRelationship__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/AccountRelationship */ "./resources/js/views/AccountRelationship.vue");
-/* harmony import */ var _views_BankName__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/BankName */ "./resources/js/views/BankName.vue");
-/* harmony import */ var _views_RepPosition__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/RepPosition */ "./resources/js/views/RepPosition.vue");
-/* harmony import */ var _views_IdTypes__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/IdTypes */ "./resources/js/views/IdTypes.vue");
-/* harmony import */ var _views_Transaction__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./views/Transaction */ "./resources/js/views/Transaction.vue");
-/* harmony import */ var _views_PaymentMethod__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./views/PaymentMethod */ "./resources/js/views/PaymentMethod.vue");
-/* harmony import */ var _views_Irp5Codes__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./views/Irp5Codes */ "./resources/js/views/Irp5Codes.vue");
-/* harmony import */ var _views_Country__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./views/Country */ "./resources/js/views/Country.vue");
-/* harmony import */ var _views_Sic7__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./views/Sic7 */ "./resources/js/views/Sic7.vue");
-/* harmony import */ var _views_Activity__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./views/Activity */ "./resources/js/views/Activity.vue");
-/* harmony import */ var _views_ActivityCodes__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./views/ActivityCodes */ "./resources/js/views/ActivityCodes.vue");
-/* harmony import */ var _Actions_Logout__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./Actions/Logout */ "./resources/js/Actions/Logout.vue");
-
-
-
-
+/* harmony import */ var _views_BirthdaysIndex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/BirthdaysIndex */ "./resources/js/views/BirthdaysIndex.vue");
+/* harmony import */ var _views_EmployerType__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/EmployerType */ "./resources/js/views/EmployerType.vue");
+/* harmony import */ var _views_EmployeeType__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/EmployeeType */ "./resources/js/views/EmployeeType.vue");
+/* harmony import */ var _views_Sez__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/Sez */ "./resources/js/views/Sez.vue");
+/* harmony import */ var _views_EmployerCreate__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/EmployerCreate */ "./resources/js/views/EmployerCreate.vue");
+/* harmony import */ var _views_AccountType__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/AccountType */ "./resources/js/views/AccountType.vue");
+/* harmony import */ var _views_AccountRelationship__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/AccountRelationship */ "./resources/js/views/AccountRelationship.vue");
+/* harmony import */ var _views_BankName__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/BankName */ "./resources/js/views/BankName.vue");
+/* harmony import */ var _views_RepPosition__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/RepPosition */ "./resources/js/views/RepPosition.vue");
+/* harmony import */ var _views_IdTypes__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/IdTypes */ "./resources/js/views/IdTypes.vue");
+/* harmony import */ var _views_Transaction__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/Transaction */ "./resources/js/views/Transaction.vue");
+/* harmony import */ var _views_PaymentMethod__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/PaymentMethod */ "./resources/js/views/PaymentMethod.vue");
+/* harmony import */ var _views_Irp5Codes__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/Irp5Codes */ "./resources/js/views/Irp5Codes.vue");
+/* harmony import */ var _views_Country__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/Country */ "./resources/js/views/Country.vue");
+/* harmony import */ var _views_Sic7__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./views/Sic7 */ "./resources/js/views/Sic7.vue");
+/* harmony import */ var _views_Activity__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./views/Activity */ "./resources/js/views/Activity.vue");
+/* harmony import */ var _views_ActivityCodes__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./views/ActivityCodes */ "./resources/js/views/ActivityCodes.vue");
+/* harmony import */ var _Actions_Logout__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./Actions/Logout */ "./resources/js/Actions/Logout.vue");
 
 
 
@@ -45576,131 +44726,107 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
       title: "Welcome"
     }
   }, {
-    path: "/contacts",
-    component: _views_ContactsIndex__WEBPACK_IMPORTED_MODULE_6__["default"],
-    meta: {
-      title: "Contacts"
-    }
-  }, {
-    path: "/contacts/create",
-    component: _views_ContactsCreate__WEBPACK_IMPORTED_MODULE_3__["default"],
-    meta: {
-      title: "Add New Contact"
-    }
-  }, {
-    path: "/contacts/:id",
-    component: _views_ContactsShow__WEBPACK_IMPORTED_MODULE_4__["default"],
-    meta: {
-      title: "Details for Contact"
-    }
-  }, {
-    path: "/contacts/:id/edit",
-    component: _views_ContactsEdit__WEBPACK_IMPORTED_MODULE_5__["default"],
-    meta: {
-      title: "Edit Contact"
-    }
-  }, {
     path: "/birthdays",
-    component: _views_BirthdaysIndex__WEBPACK_IMPORTED_MODULE_7__["default"],
+    component: _views_BirthdaysIndex__WEBPACK_IMPORTED_MODULE_3__["default"],
     meta: {
       title: "This Month's Birthdays"
     }
   }, {
     path: "/logout",
-    component: _Actions_Logout__WEBPACK_IMPORTED_MODULE_24__["default"]
+    component: _Actions_Logout__WEBPACK_IMPORTED_MODULE_20__["default"]
   }, {
     path: "/employertype",
-    component: _views_EmployerType__WEBPACK_IMPORTED_MODULE_8__["default"],
+    component: _views_EmployerType__WEBPACK_IMPORTED_MODULE_4__["default"],
     meta: {
       title: "Employer Type"
     }
   }, {
     path: "/employeetype",
-    component: _views_EmployeeType__WEBPACK_IMPORTED_MODULE_9__["default"],
+    component: _views_EmployeeType__WEBPACK_IMPORTED_MODULE_5__["default"],
     meta: {
       title: "Employee Type"
     }
   }, {
     path: "/sez",
-    component: _views_Sez__WEBPACK_IMPORTED_MODULE_10__["default"],
+    component: _views_Sez__WEBPACK_IMPORTED_MODULE_6__["default"],
     meta: {
       title: "Special Economic Zone"
     }
   }, {
     path: "/employer/create",
-    component: _views_EmployerCreate__WEBPACK_IMPORTED_MODULE_11__["default"],
+    component: _views_EmployerCreate__WEBPACK_IMPORTED_MODULE_7__["default"],
     meta: {
       title: "Add New Employer"
     }
   }, {
     path: "/accounttype",
-    component: _views_AccountType__WEBPACK_IMPORTED_MODULE_12__["default"],
+    component: _views_AccountType__WEBPACK_IMPORTED_MODULE_8__["default"],
     meta: {
       title: "Add New Account Type"
     }
   }, {
     path: "/accountrelationship",
-    component: _views_AccountRelationship__WEBPACK_IMPORTED_MODULE_13__["default"],
+    component: _views_AccountRelationship__WEBPACK_IMPORTED_MODULE_9__["default"],
     meta: {
       title: "Add New Account Relationship"
     }
   }, {
     path: "/bankname",
-    component: _views_BankName__WEBPACK_IMPORTED_MODULE_14__["default"],
+    component: _views_BankName__WEBPACK_IMPORTED_MODULE_10__["default"],
     meta: {
       title: "Add New Bank Name"
     }
   }, {
     path: "/repposition",
-    component: _views_RepPosition__WEBPACK_IMPORTED_MODULE_15__["default"],
+    component: _views_RepPosition__WEBPACK_IMPORTED_MODULE_11__["default"],
     meta: {
       title: "Add New Rep Position"
     }
   }, {
     path: "/idtypes",
-    component: _views_IdTypes__WEBPACK_IMPORTED_MODULE_16__["default"],
+    component: _views_IdTypes__WEBPACK_IMPORTED_MODULE_12__["default"],
     meta: {
       title: "Add Other ID Types"
     }
   }, {
     path: "/transaction",
-    component: _views_Transaction__WEBPACK_IMPORTED_MODULE_17__["default"],
+    component: _views_Transaction__WEBPACK_IMPORTED_MODULE_13__["default"],
     meta: {
       title: "Add Transaction"
     }
   }, {
     path: "/paymethod",
-    component: _views_PaymentMethod__WEBPACK_IMPORTED_MODULE_18__["default"],
+    component: _views_PaymentMethod__WEBPACK_IMPORTED_MODULE_14__["default"],
     meta: {
       title: "Add Payment Method"
     }
   }, {
     path: "/irp5codes",
-    component: _views_Irp5Codes__WEBPACK_IMPORTED_MODULE_19__["default"],
+    component: _views_Irp5Codes__WEBPACK_IMPORTED_MODULE_15__["default"],
     meta: {
       title: "Add IRP5 Codes"
     }
   }, {
     path: "/country",
-    component: _views_Country__WEBPACK_IMPORTED_MODULE_20__["default"],
+    component: _views_Country__WEBPACK_IMPORTED_MODULE_16__["default"],
     meta: {
       title: "Add Country"
     }
   }, {
     path: "/sic7",
-    component: _views_Sic7__WEBPACK_IMPORTED_MODULE_21__["default"],
+    component: _views_Sic7__WEBPACK_IMPORTED_MODULE_17__["default"],
     meta: {
       title: "Add SIC7"
     }
   }, {
     path: "/activity",
-    component: _views_Activity__WEBPACK_IMPORTED_MODULE_22__["default"],
+    component: _views_Activity__WEBPACK_IMPORTED_MODULE_18__["default"],
     meta: {
       title: "Add Activity"
     }
   }, {
     path: "/activitycodes",
-    component: _views_ActivityCodes__WEBPACK_IMPORTED_MODULE_23__["default"],
+    component: _views_ActivityCodes__WEBPACK_IMPORTED_MODULE_19__["default"],
     meta: {
       title: "Add Activity Codes"
     }
@@ -46119,282 +45245,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BirthdaysIndex_vue_vue_type_template_id_02650dbb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BirthdaysIndex_vue_vue_type_template_id_02650dbb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/views/ContactsCreate.vue":
-/*!***********************************************!*\
-  !*** ./resources/js/views/ContactsCreate.vue ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ContactsCreate_vue_vue_type_template_id_3beb12e4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactsCreate.vue?vue&type=template&id=3beb12e4&scoped=true& */ "./resources/js/views/ContactsCreate.vue?vue&type=template&id=3beb12e4&scoped=true&");
-/* harmony import */ var _ContactsCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContactsCreate.vue?vue&type=script&lang=js& */ "./resources/js/views/ContactsCreate.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ContactsCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ContactsCreate_vue_vue_type_template_id_3beb12e4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ContactsCreate_vue_vue_type_template_id_3beb12e4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "3beb12e4",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/views/ContactsCreate.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/views/ContactsCreate.vue?vue&type=script&lang=js&":
-/*!************************************************************************!*\
-  !*** ./resources/js/views/ContactsCreate.vue?vue&type=script&lang=js& ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsCreate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsCreate.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/views/ContactsCreate.vue?vue&type=template&id=3beb12e4&scoped=true&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/views/ContactsCreate.vue?vue&type=template&id=3beb12e4&scoped=true& ***!
-  \******************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsCreate_vue_vue_type_template_id_3beb12e4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsCreate.vue?vue&type=template&id=3beb12e4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsCreate.vue?vue&type=template&id=3beb12e4&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsCreate_vue_vue_type_template_id_3beb12e4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsCreate_vue_vue_type_template_id_3beb12e4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/views/ContactsEdit.vue":
-/*!*********************************************!*\
-  !*** ./resources/js/views/ContactsEdit.vue ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ContactsEdit_vue_vue_type_template_id_e869f9c8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactsEdit.vue?vue&type=template&id=e869f9c8&scoped=true& */ "./resources/js/views/ContactsEdit.vue?vue&type=template&id=e869f9c8&scoped=true&");
-/* harmony import */ var _ContactsEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContactsEdit.vue?vue&type=script&lang=js& */ "./resources/js/views/ContactsEdit.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ContactsEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ContactsEdit_vue_vue_type_template_id_e869f9c8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ContactsEdit_vue_vue_type_template_id_e869f9c8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "e869f9c8",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/views/ContactsEdit.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/views/ContactsEdit.vue?vue&type=script&lang=js&":
-/*!**********************************************************************!*\
-  !*** ./resources/js/views/ContactsEdit.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsEdit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsEdit.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/views/ContactsEdit.vue?vue&type=template&id=e869f9c8&scoped=true&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/views/ContactsEdit.vue?vue&type=template&id=e869f9c8&scoped=true& ***!
-  \****************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsEdit_vue_vue_type_template_id_e869f9c8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsEdit.vue?vue&type=template&id=e869f9c8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsEdit.vue?vue&type=template&id=e869f9c8&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsEdit_vue_vue_type_template_id_e869f9c8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsEdit_vue_vue_type_template_id_e869f9c8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/views/ContactsIndex.vue":
-/*!**********************************************!*\
-  !*** ./resources/js/views/ContactsIndex.vue ***!
-  \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ContactsIndex_vue_vue_type_template_id_2f4d1a30_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactsIndex.vue?vue&type=template&id=2f4d1a30&scoped=true& */ "./resources/js/views/ContactsIndex.vue?vue&type=template&id=2f4d1a30&scoped=true&");
-/* harmony import */ var _ContactsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContactsIndex.vue?vue&type=script&lang=js& */ "./resources/js/views/ContactsIndex.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ContactsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ContactsIndex_vue_vue_type_template_id_2f4d1a30_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ContactsIndex_vue_vue_type_template_id_2f4d1a30_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "2f4d1a30",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/views/ContactsIndex.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/views/ContactsIndex.vue?vue&type=script&lang=js&":
-/*!***********************************************************************!*\
-  !*** ./resources/js/views/ContactsIndex.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsIndex.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsIndex.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsIndex_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/views/ContactsIndex.vue?vue&type=template&id=2f4d1a30&scoped=true&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/views/ContactsIndex.vue?vue&type=template&id=2f4d1a30&scoped=true& ***!
-  \*****************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsIndex_vue_vue_type_template_id_2f4d1a30_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsIndex.vue?vue&type=template&id=2f4d1a30&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsIndex.vue?vue&type=template&id=2f4d1a30&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsIndex_vue_vue_type_template_id_2f4d1a30_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsIndex_vue_vue_type_template_id_2f4d1a30_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/views/ContactsShow.vue":
-/*!*********************************************!*\
-  !*** ./resources/js/views/ContactsShow.vue ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ContactsShow_vue_vue_type_template_id_181bbe8f_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactsShow.vue?vue&type=template&id=181bbe8f&scoped=true& */ "./resources/js/views/ContactsShow.vue?vue&type=template&id=181bbe8f&scoped=true&");
-/* harmony import */ var _ContactsShow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContactsShow.vue?vue&type=script&lang=js& */ "./resources/js/views/ContactsShow.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ContactsShow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ContactsShow_vue_vue_type_template_id_181bbe8f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ContactsShow_vue_vue_type_template_id_181bbe8f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "181bbe8f",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/views/ContactsShow.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/views/ContactsShow.vue?vue&type=script&lang=js&":
-/*!**********************************************************************!*\
-  !*** ./resources/js/views/ContactsShow.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsShow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsShow.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsShow.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsShow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/views/ContactsShow.vue?vue&type=template&id=181bbe8f&scoped=true&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/views/ContactsShow.vue?vue&type=template&id=181bbe8f&scoped=true& ***!
-  \****************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsShow_vue_vue_type_template_id_181bbe8f_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ContactsShow.vue?vue&type=template&id=181bbe8f&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/ContactsShow.vue?vue&type=template&id=181bbe8f&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsShow_vue_vue_type_template_id_181bbe8f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactsShow_vue_vue_type_template_id_181bbe8f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -1,19 +1,14 @@
 <template>
-    <ContactsList endpoint="/api/birthdays" />
+  <ContactsList endpoint="/api/birthdays" />
 </template>
 
 <script>
-    import ContactsList from '../components/ContactsList';
+export default {
+  name: "Birthdays",
 
-    export default {
-        name: "ContactsIndex",
-
-        components: {
-            ContactsList
-        }
-    }
+  components: {}
+};
 </script>
 
 <style scoped>
-
 </style>
