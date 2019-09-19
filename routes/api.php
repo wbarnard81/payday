@@ -123,4 +123,6 @@ Route::middleware('auth:api')->group(function () {
     Route::get('birthdays', 'BirthdaysController@index');
 
     Route::post('search', 'SearchController@index');
+
+    Route::get('/news', 'SearchController@news');
 });

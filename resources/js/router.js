@@ -1,11 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import ExampleComponent from "./components/ExampleComponent";
+import Welcome from "./components/Welcome";
 import BirthdaysIndex from "./views/BirthdaysIndex";
 import EmployerType from "./views/EmployerType";
 import EmployeeType from "./views/EmployeeType";
 import Sez from "./views/Sez";
 import EmployerCreate from "./views/EmployerCreate";
+import EmployeeCreate from "./views/EmployeeCreate";
 import AccountType from "./views/AccountType";
 import AccountRelationship from "./views/AccountRelationship";
 import BankName from "./views/BankName";
@@ -26,7 +27,7 @@ export default new VueRouter({
     routes: [
         {
             path: "/",
-            component: ExampleComponent,
+            component: Welcome,
             meta: { title: "Welcome" }
         },
         {
@@ -57,6 +58,11 @@ export default new VueRouter({
             path: "/employer/create",
             component: EmployerCreate,
             meta: { title: "Add New Employer" }
+        },
+        {
+            path: "/employee/create",
+            component: EmployeeCreate,
+            meta: { title: "Add New Employee" }
         },
         {
             path: "/accounttype",
