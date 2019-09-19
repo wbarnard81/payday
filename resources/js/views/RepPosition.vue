@@ -17,6 +17,7 @@
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addRepPosition()"
+          :disabled="isDisabled"
         >Submit</button>
       </div>
     </div>
@@ -26,7 +27,7 @@
     <div class="flex justify-center">
       <table class="text-center mt-4">
         <tr>
-          <th class="border border-black px-3">Account Type</th>
+          <th class="border border-black px-3">Rep Positions</th>
         </tr>
         <tr v-for="item in reppositions" :key="item.id">
           <td class="border border-black px-4">{{ item.name }}</td>
@@ -97,6 +98,11 @@ export default {
   },
   mounted() {
     this.getRepPositions();
+  },
+  computed: {
+    isDisabled: function() {
+      return !this.reppositionInput.repposition;
+    }
   },
   methods: {
     getRepPositions() {

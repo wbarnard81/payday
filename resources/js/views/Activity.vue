@@ -37,6 +37,7 @@
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addActivity()"
+          :disabled="isDisabled"
         >Submit</button>
       </div>
     </div>
@@ -124,6 +125,11 @@ export default {
   mounted() {
     this.getActivities();
   },
+  computed: {
+    isDisabled: function() {
+      return !this.activityInput.activity_description;
+    }
+  },
   methods: {
     getActivities() {
       axios
@@ -148,7 +154,9 @@ export default {
               this.getActivities();
             }
           })
-          .catch(err => console.log(err.response));
+          .catch(error => {
+            console.log(error.response);
+          });
       } else {
         axios
           .patch(

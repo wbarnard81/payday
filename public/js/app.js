@@ -2599,8 +2599,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ActivityCode",
+  name: "AccRelationship",
   data: function data() {
     return {
       accrelationships: null,
@@ -2613,6 +2614,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getAccrelationships();
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.accrelationship.name;
+    }
   },
   methods: {
     getAccrelationships: function getAccrelationships() {
@@ -2769,6 +2775,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AccountType",
   data: function data() {
@@ -2783,6 +2790,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getAccountTypes();
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.AccTypeInput.acctype;
+    }
   },
   methods: {
     getAccountTypes: function getAccountTypes() {
@@ -2963,6 +2975,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Activities",
   data: function data() {
@@ -2979,6 +2992,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getActivities();
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.activityInput.activity_description;
+    }
   },
   methods: {
     getActivities: function getActivities() {
@@ -3003,8 +3021,8 @@ __webpack_require__.r(__webpack_exports__);
 
             _this2.getActivities();
           }
-        })["catch"](function (err) {
-          return console.log(err.response);
+        })["catch"](function (error) {
+          console.log(error.response);
         });
       } else {
         axios.patch("/api/activity/" + this.activityInput.activity_id, this.activityInput).then(function (res) {
@@ -3153,6 +3171,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ActivityCode",
   data: function data() {
@@ -3162,13 +3181,17 @@ __webpack_require__.r(__webpack_exports__);
       activitycodeInput: {
         activitycode_id: "",
         code: "",
-        loss_code: "",
         description: ""
       }
     };
   },
   mounted: function mounted() {
     this.getActivitycodes();
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.activitycodeInput.description;
+    }
   },
   methods: {
     getActivitycodes: function getActivitycodes() {
@@ -3330,6 +3353,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BankName",
   data: function data() {
@@ -3344,6 +3368,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getBankNames();
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.banknameInput.bankname;
+    }
   },
   methods: {
     getBankNames: function getBankNames() {
@@ -3532,6 +3561,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Country",
   data: function data() {
@@ -3547,6 +3577,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getCountries();
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.countryInput.country_name;
+    }
   },
   methods: {
     getCountries: function getCountries() {
@@ -3757,6 +3792,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EmployeeType",
   data: function data() {
@@ -3769,6 +3805,11 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.employeeInput.employee_type;
+    }
+  },
   mounted: function mounted() {
     this.getEmployeeType();
   },
@@ -3779,7 +3820,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/empltype/").then(function (response) {
         _this.employee = response.data;
       })["catch"](function (error) {
-        console.log(error);
+        console.log(error.response);
       });
     },
     addEmployeeType: function addEmployeeType(empltype_id) {
@@ -3793,8 +3834,8 @@ __webpack_require__.r(__webpack_exports__);
 
             _this2.getEmployeeType();
           }
-        })["catch"](function (err) {
-          return console.log(err);
+        })["catch"](function (error) {
+          return console.log(error.response);
         });
       } else {
         axios.patch("/api/empltype/" + this.employeeInput.empltype_id, this.employeeInput).then(function (res) {
@@ -3806,8 +3847,8 @@ __webpack_require__.r(__webpack_exports__);
 
             _this2.getEmployeeType();
           }
-        })["catch"](function (err) {
-          return console.log(err);
+        })["catch"](function (error) {
+          return console.log(error.response);
         });
       }
     },
@@ -3824,8 +3865,8 @@ __webpack_require__.r(__webpack_exports__);
           alert("Employee type deleted.");
 
           _this3.getEmployeeType();
-        })["catch"](function (err) {
-          console.log(err);
+        })["catch"](function (error) {
+          console.log(error.response);
         });
       }
     }
@@ -4354,6 +4395,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EmployerType",
   data: function data() {
@@ -4368,6 +4410,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getEmployerType();
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.employerInput.employer_type;
+    }
   },
   methods: {
     getEmployerType: function getEmployerType() {
@@ -4524,6 +4571,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "OtherIDTypes",
   data: function data() {
@@ -4538,6 +4586,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getIDTypes();
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.idtypeInput.otheridtype;
+    }
   },
   methods: {
     getIDTypes: function getIDTypes() {
@@ -4706,6 +4759,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "IRP5Codes",
   data: function data() {
@@ -4718,6 +4772,11 @@ __webpack_require__.r(__webpack_exports__);
         irp5codes_description: ""
       }
     };
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.irp5codesInput.irp5codes_description;
+    }
   },
   mounted: function mounted() {
     this.getIrp5codes();
@@ -4880,6 +4939,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PayMethod",
   data: function data() {
@@ -4894,6 +4954,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getPaymethods();
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.paymethodInput.name;
+    }
   },
   methods: {
     getPaymethods: function getPaymethods() {
@@ -5050,6 +5115,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RepPositions",
   data: function data() {
@@ -5064,6 +5130,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getRepPositions();
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.reppositionInput.repposition;
+    }
   },
   methods: {
     getRepPositions: function getRepPositions() {
@@ -5232,6 +5303,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SEZ",
   data: function data() {
@@ -5247,6 +5319,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getSez();
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.sezInput.sez_description;
+    }
   },
   methods: {
     getSez: function getSez() {
@@ -5419,6 +5496,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SIC7",
   data: function data() {
@@ -5434,6 +5512,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getSic7s();
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.sic7Input.sic7_description;
+    }
   },
   methods: {
     getSic7s: function getSic7s() {
@@ -5671,6 +5754,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Transactions",
   data: function data() {
@@ -5693,6 +5778,11 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.getTransactions();
     this.getIrp5Codes();
+  },
+  computed: {
+    isDisabled: function isDisabled() {
+      return !this.transactionInput.note;
+    }
   },
   methods: {
     getTransactions: function getTransactions() {
@@ -42272,7 +42362,7 @@ var render = function() {
             attrs: {
               type: "text",
               placeholder: "Enter Account Relationship",
-              name: "code"
+              name: "name"
             },
             domProps: { value: _vm.accrelationship.name },
             on: {
@@ -42293,6 +42383,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addAccrelationship()
@@ -42432,7 +42523,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("tr", [
       _c("th", { staticClass: "border border-black px-3" }, [
-        _vm._v("Activity Code")
+        _vm._v("Account Relationship")
       ])
     ])
   }
@@ -42503,6 +42594,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addAccountTypes()
@@ -42787,6 +42879,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addActivity()
@@ -43006,7 +43099,7 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("div", [
+        _c("div", { staticClass: "w-1/3" }, [
           _c(
             "label",
             { staticClass: "block text-gray-700 text-sm font-bold my-2" },
@@ -43052,6 +43145,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addActivitycode()
@@ -43270,6 +43364,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addBankName()
@@ -43539,6 +43634,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addCountry()
@@ -43785,6 +43881,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addEmployeeType()
@@ -45158,6 +45255,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addEmployerType()
@@ -45368,6 +45466,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addIdType()
@@ -45579,7 +45678,7 @@ var render = function() {
           _c(
             "label",
             { staticClass: "block text-gray-700 text-sm font-bold my-2" },
-            [_vm._v("Enter IRP5 Name")]
+            [_vm._v("Enter IRP5 Description")]
           ),
           _vm._v(" "),
           _c("input", {
@@ -45621,6 +45720,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addIrp5codes()
@@ -45835,6 +45935,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addPaymethod()
@@ -46049,6 +46150,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addRepPosition()
@@ -46188,7 +46290,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("tr", [
       _c("th", { staticClass: "border border-black px-3" }, [
-        _vm._v("Account Type")
+        _vm._v("Rep Positions")
       ])
     ])
   }
@@ -46256,7 +46358,7 @@ var render = function() {
           _c(
             "label",
             { staticClass: "block text-gray-700 text-sm font-bold my-2" },
-            [_vm._v("Enter SEZ Name")]
+            [_vm._v("Enter SEZ Description")]
           ),
           _vm._v(" "),
           _c("input", {
@@ -46294,6 +46396,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addSez()
@@ -46509,7 +46612,7 @@ var render = function() {
           _c(
             "label",
             { staticClass: "block text-gray-700 text-sm font-bold my-2" },
-            [_vm._v("Enter SIC7 Name")]
+            [_vm._v("Enter SIC7 Description")]
           ),
           _vm._v(" "),
           _c("input", {
@@ -46547,6 +46650,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addSic7()
@@ -47002,6 +47106,7 @@ var render = function() {
           {
             staticClass:
               "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
+            attrs: { disabled: _vm.isDisabled },
             on: {
               click: function($event) {
                 return _vm.addTransaction()

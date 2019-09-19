@@ -8,7 +8,7 @@
             class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
             type="text"
             placeholder="Enter Account Relationship"
-            name="code"
+            name="name"
             v-model="accrelationship.name"
           />
         </div>
@@ -17,6 +17,7 @@
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addAccrelationship()"
+          :disabled="isDisabled"
         >Submit</button>
       </div>
     </div>
@@ -26,7 +27,7 @@
     <div class="flex justify-center">
       <table class="text-center mt-4">
         <tr>
-          <th class="border border-black px-3">Activity Code</th>
+          <th class="border border-black px-3">Account Relationship</th>
         </tr>
         <tr v-for="item in accrelationships" :key="item.id">
           <td class="border border-black px-4">{{ item.name }}</td>
@@ -84,7 +85,7 @@
 
 <script>
 export default {
-  name: "ActivityCode",
+  name: "AccRelationship",
   data: () => {
     return {
       accrelationships: null,
@@ -97,6 +98,11 @@ export default {
   },
   mounted() {
     this.getAccrelationships();
+  },
+  computed: {
+    isDisabled: function() {
+      return !this.accrelationship.name;
+    }
   },
   methods: {
     getAccrelationships() {

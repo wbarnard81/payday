@@ -17,6 +17,7 @@
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addAccountTypes()"
+          :disabled="isDisabled"
         >Submit</button>
       </div>
     </div>
@@ -97,6 +98,11 @@ export default {
   },
   mounted() {
     this.getAccountTypes();
+  },
+  computed: {
+    isDisabled: function() {
+      return !this.AccTypeInput.acctype;
+    }
   },
   methods: {
     getAccountTypes() {

@@ -13,7 +13,7 @@
           />
         </div>
         <div class="w-1/3">
-          <label class="block text-gray-700 text-sm font-bold my-2">Enter SIC7 Name</label>
+          <label class="block text-gray-700 text-sm font-bold my-2">Enter SIC7 Description</label>
           <input
             class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
             type="text"
@@ -28,6 +28,7 @@
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addSic7()"
+          :disabled="isDisabled"
         >Submit</button>
       </div>
     </div>
@@ -111,6 +112,11 @@ export default {
   },
   mounted() {
     this.getSic7s();
+  },
+  computed: {
+    isDisabled: function() {
+      return !this.sic7Input.sic7_description;
+    }
   },
   methods: {
     getSic7s() {

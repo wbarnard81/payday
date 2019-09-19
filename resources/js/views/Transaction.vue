@@ -83,11 +83,13 @@
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addTransaction()"
+          :disabled="isDisabled"
         >Submit</button>
       </div>
     </div>
     <div>
       <hr class="border-2 border-black" />
+
       <div class="flex justify-center">
         <table class="text-center mt-4">
           <tr>
@@ -183,6 +185,11 @@ export default {
   mounted() {
     this.getTransactions();
     this.getIrp5Codes();
+  },
+  computed: {
+    isDisabled: function() {
+      return !this.transactionInput.note;
+    }
   },
   methods: {
     getTransactions() {

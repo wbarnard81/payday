@@ -18,6 +18,7 @@
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addEmployeeType()"
+          :disabled="isDisabled"
         >Submit</button>
       </div>
     </div>
@@ -96,6 +97,11 @@ export default {
       }
     };
   },
+  computed: {
+    isDisabled: function() {
+      return !this.employeeInput.employee_type;
+    }
+  },
   mounted() {
     this.getEmployeeType();
   },
@@ -107,7 +113,7 @@ export default {
           this.employee = response.data;
         })
         .catch(error => {
-          console.log(error);
+          console.log(error.response);
         });
     },
     addEmployeeType(empltype_id) {
@@ -121,7 +127,7 @@ export default {
               this.getEmployeeType();
             }
           })
-          .catch(err => console.log(err));
+          .catch(error => console.log(error.response));
       } else {
         axios
           .patch(
@@ -137,7 +143,7 @@ export default {
               this.getEmployeeType();
             }
           })
-          .catch(err => console.log(err));
+          .catch(error => console.log(error.response));
       }
     },
     editEmployeeType(item) {
@@ -153,8 +159,8 @@ export default {
             alert("Employee type deleted.");
             this.getEmployeeType();
           })
-          .catch(err => {
-            console.log(err);
+          .catch(error => {
+            console.log(error.response);
           });
       }
     }

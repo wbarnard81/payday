@@ -13,7 +13,7 @@
           />
         </div>
         <div class="w-1/3">
-          <label class="block text-gray-700 text-sm font-bold my-2">Enter IRP5 Name</label>
+          <label class="block text-gray-700 text-sm font-bold my-2">Enter IRP5 Description</label>
           <input
             class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
             type="text"
@@ -27,6 +27,7 @@
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addIrp5codes()"
+          :disabled="isDisabled"
         >Submit</button>
       </div>
     </div>
@@ -107,6 +108,11 @@ export default {
         irp5codes_description: ""
       }
     };
+  },
+  computed: {
+    isDisabled: function() {
+      return !this.irp5codesInput.irp5codes_description;
+    }
   },
   mounted() {
     this.getIrp5codes();
