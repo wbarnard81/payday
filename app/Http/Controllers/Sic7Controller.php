@@ -29,6 +29,22 @@ class Sic7Controller extends Controller
         }
     }
 
+    public function update(Sic7 $sic7)
+    {
+        $this->authorize('update', $sic7);
+
+        $data = request()->validate([
+            'sic7_code' => 'required',
+            'sic7_description' => 'required|min:4',
+        ]);
+
+        $sic7->update($data);
+
+        return (new TransactionResource($sic7))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
+    }
+
     public function destroy($sic7)
     {
         $this->authorize('delete', Sic7::class);
@@ -38,5 +54,15 @@ class Sic7Controller extends Controller
         return response()->json([
             'msg' => 'Deleted'
         ]);
+    }
+
+    public function create()
+    {
+        return null;
+    }
+
+    public function edit()
+    {
+        return null;
     }
 }

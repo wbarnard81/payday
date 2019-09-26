@@ -1,25 +1,32 @@
 <template>
   <div class>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter SIC7 Code</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.sic7Input.sic7_code.numeric}"
             type="text"
             placeholder="Enter SIC7 code"
             name="sic7_code"
-            v-model="sic7Input.sic7_code"
+            v-model.trim="$v.sic7Input.sic7_code.$model"
           />
         </div>
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter SIC7 Description</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.sic7Input.sic7_description.minLength}"
             type="text"
             placeholder="Enter description"
             name="sic7_description"
-            v-model="sic7Input.sic7_description"
+            v-model.trim="$v.sic7Input.sic7_description.$model"
           />
         </div>
       </div>
@@ -97,18 +104,32 @@
 </template>
 
 <script>
+import { required, minLength, numeric } from "vuelidate/lib/validators";
 export default {
   name: "SIC7",
   data: () => {
     return {
       sic7s: null,
       edit: false,
+      errors: [],
       sic7Input: {
         sic7_id: "",
         sic7_code: "",
         sic7_description: ""
       }
     };
+  },
+  validations: {
+    sic7Input: {
+      sic7_code: {
+        required,
+        numeric
+      },
+      sic7_description: {
+        required,
+        minLength: minLength(4)
+      }
+    }
   },
   mounted() {
     this.getSic7s();
@@ -182,4 +203,8 @@ export default {
 </script>
 
 <style scoped>
+.invalid {
+  border: 1px solid rgb(250, 169, 169);
+  color: red;
+}
 </style>
