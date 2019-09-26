@@ -1,11 +1,11 @@
 module.exports = {
-  theme: {
-    extend: {
-        width: {
-            '96': '24rem'
+    theme: {
+        extend: {
+            width: {
+                "96": "24rem"
+            }
         }
-    }
-  },
-  variants: {},
-  plugins: []
-}
+    },
+    variants: {},
+    plugins: []
+};

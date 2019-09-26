@@ -1,35 +1,40 @@
 <template>
   <div>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Employee Name</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 focus:outline-none bg-white border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.transactionInput.employee_name.minLength}"
             type="text"
             placeholder="Enter name"
             name="employee_name"
-            v-model="transactionInput.employee_name"
+            v-model.trim="$v.transactionInput.employee_name.$model"
           />
         </div>
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Date</label>
-          <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
-            type="text"
-            placeholder="DD-MM-YYYY"
-            name="date"
+          <flat-pickr
             v-model="transactionInput.date"
-          />
+            placeholder="YYYY-MM-DD"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+          ></flat-pickr>
         </div>
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Employer Name</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white border focus:outline-none border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.transactionInput.employer_name.minLength}"
             type="text"
             placeholder="Enter employer name"
             name="employer_name"
-            v-model="transactionInput.employer_name"
+            v-model.trim="$v.transactionInput.employer_name.$model"
           />
         </div>
       </div>
@@ -37,17 +42,18 @@
         <div class="w-1/4">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Description</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white border focus:outline-none border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.transactionInput.description.minLength}"
             type="text"
             placeholder="Enter description"
             name="description"
-            v-model="transactionInput.description"
+            v-model.trim="$v.transactionInput.description.$model"
           />
         </div>
         <div class="w-1/4">
           <label class="block text-gray-700 text-sm font-bold my-2">Select IRP5 Code</label>
           <select
-            class="block appearance-none w-3/4 bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            class="block appearance-none w-3/4 focus:outline-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:bg-white focus:border-gray-500"
             id="irp5_code"
             v-model="transactionInput.irp5_code"
           >
@@ -61,17 +67,19 @@
         <div class="w-1/4">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Amount</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white border focus:outline-none border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.transactionInput.amount.decimal}"
             type="text"
             placeholder="Enter amount"
             name="amount"
-            v-model="transactionInput.amount"
+            v-model.trim="$v.transactionInput.amount.$model"
           />
         </div>
         <div class="w-1/4">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Notes</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white border focus:outline-none border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.transactionInput.note.minLength}"
             type="text"
             placeholder="Enter notes"
             name="note"
@@ -81,12 +89,13 @@
       </div>
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+          class="bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addTransaction()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
+
     <div>
       <hr class="border-2 border-black" />
 
@@ -102,9 +111,9 @@
             <th class="border border-black px-3">Note</th>
           </tr>
           <tr v-for="item in transactions" :key="item.id">
-            <td class="border border-black px-4">{{ item.employee }}</td>
+            <td class="border border-black px-4">{{ item.employee_name }}</td>
             <td class="border border-black px-4">{{ item.date }}</td>
-            <td class="border border-black px-4">{{ item.employer }}</td>
+            <td class="border border-black px-4">{{ item.employer_name }}</td>
             <td class="border border-black px-4">{{ item.description }}</td>
             <td class="border border-black px-4">{{ item.irp5_code }}</td>
             <td class="border border-black px-4">R {{ item.amount }}</td>
@@ -163,6 +172,10 @@
 </template>
 
 <script>
+import { required, minLength, decimal } from "vuelidate/lib/validators";
+import flatPickr from "vue-flatpickr-component";
+import "flatpickr/dist/flatpickr.css";
+require("flatpickr/dist/themes/airbnb.css");
 export default {
   name: "Transactions",
   data: () => {
@@ -170,6 +183,7 @@ export default {
       transactions: null,
       irp5_codes: null,
       edit: false,
+      errors: null,
       transactionInput: {
         transaction_id: "",
         employee_name: "",
@@ -181,6 +195,33 @@ export default {
         note: ""
       }
     };
+  },
+  components: {
+    flatPickr
+  },
+  validations: {
+    transactionInput: {
+      employee_name: {
+        required,
+        minLength: minLength(4)
+      },
+      description: {
+        required,
+        minLength: minLength(4)
+      },
+      amount: {
+        required,
+        decimal
+      },
+      employer_name: {
+        required,
+        minLength: minLength(4)
+      },
+      note: {
+        required,
+        minLength: minLength(4)
+      }
+    }
   },
   mounted() {
     this.getTransactions();
@@ -217,7 +258,7 @@ export default {
         axios
           .post("/api/transaction", this.transactionInput)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("Transaction Added.");
               this.transactionInput.transaction_id = "";
               this.transactionInput.employee_name = "";
@@ -226,12 +267,14 @@ export default {
               this.transactionInput.description = "";
               this.transactionInput.amount = "";
               this.transactionInput.note = "";
+              this.errors = null;
               this.getTransactions();
             }
           })
-          .catch(err => console.log(err.response));
+          .catch(error => {
+            this.errors = error.response.data.errors;
+          });
       } else {
-        console.log(this.transactionInput);
         axios
           .patch(
             `/api/transaction/` + this.transactionInput.transaction_id,
@@ -248,6 +291,7 @@ export default {
               this.transactionInput.amount = "";
               this.transactionInput.note = "";
               this.edit = false;
+              this.errors = null;
               this.getTransactions();
             }
           })
@@ -257,9 +301,9 @@ export default {
     editTransaction(item) {
       this.edit = true;
       this.transactionInput.transaction_id = item.id;
-      this.transactionInput.employee_name = item.employee;
+      this.transactionInput.employee_name = item.employee_name;
       this.transactionInput.date = item.date;
-      this.transactionInput.employer_name = item.employer;
+      this.transactionInput.employer_name = item.employer_name;
       this.transactionInput.description = item.description;
       this.transactionInput.irp5_code = item.irp5_code;
       this.transactionInput.amount = item.amount;
@@ -283,4 +327,8 @@ export default {
 </script>
 
 <style scoped>
+.invalid {
+  border: 1px solid rgb(250, 169, 169);
+  color: red;
+}
 </style>

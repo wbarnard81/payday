@@ -9,12 +9,6 @@ class CountryPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Determine whether the user can view any Countrys.
-     *
-     * @param  \App\User  $user
-     * @return mixed
-     */
     public function viewAny(User $user)
     {
         return true;
@@ -25,13 +19,11 @@ class CountryPolicy
         return true;
     }
 
-    /**
-     * Determine whether the user can delete the Country.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Country  $country
-     * @return mixed
-     */
+    public function update(User $user)
+    {
+        return true;
+    }
+
     public function delete(User $user)
     {
         return true;

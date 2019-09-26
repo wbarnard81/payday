@@ -19,6 +19,11 @@ class Sic7Policy
         return true;
     }
 
+    public function update(User $user)
+    {
+        return true;
+    }
+
     public function delete(User $user)
     {
         return true;

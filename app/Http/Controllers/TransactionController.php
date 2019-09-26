@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Transaction;
 use App\Http\Resources\TransactionResource;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
 class TransactionController extends Controller
 {
@@ -15,24 +16,44 @@ class TransactionController extends Controller
         return Transaction::all();
     }
 
-    public function store(Request $request)
+    public function store(Transaction $transaction)
     {
-        $this->authorize('store', Transaction::class);
+        $this->authorize('store', $transaction);
 
-        $transaction = $request->isMethod('patch') ? Transaction::findOrFail($request->transaction_id) : new Transaction();
+        $data = request()->validate([
+            'employee_name' => 'required|min:3',
+            'date' => 'required|date',
+            'employer_name' => 'required|min:3',
+            'description' => 'required|min:4',
+            'irp5_code' => 'required',
+            'amount' => 'required|numeric',
+            'note' => 'required|min:4',
+        ]);
+        Transaction::create($data);
+        return response()->json([
+            'status' => '201'
+        ]);
+    }
 
-        $transaction->id = $request->input('transaction_id');
-        $transaction->employee = $request->input('employee_name');
-        $transaction->date = $request->input('date');
-        $transaction->employer = $request->input('employer_name');
-        $transaction->description = $request->input('description');
-        $transaction->irp5_code = $request->input('irp5_code');
-        $transaction->amount = $request->input('amount');
-        $transaction->note = $request->input('note');
+    public function update(Transaction $transaction)
+    {
+        $this->authorize('update', $transaction);
 
-        if ($transaction->save()) {
-            return new TransactionResource($transaction);
-        }
+        $data = request()->validate([
+            'employee_name' => 'required|min:3',
+            'date' => 'required|date',
+            'employer_name' => 'required|min:3',
+            'description' => 'required|min:4',
+            'irp5_code' => 'required',
+            'amount' => 'required|numeric',
+            'note' => 'required|min:4',
+        ]);
+
+        $transaction->update($data);
+
+        return (new TransactionResource($transaction))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 
     public function destroy($transaction)
@@ -44,5 +65,15 @@ class TransactionController extends Controller
         return response()->json([
             'msg' => 'Deleted'
         ]);
+    }
+
+    public function create()
+    {
+        return null;
+    }
+
+    public function edit()
+    {
+        return null;
     }
 }

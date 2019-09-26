@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Irp5Code extends Model
 {
-    //
+    protected $fillable = [
+        'code',
+        'description',
+    ];
 }
