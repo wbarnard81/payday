@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.invalid {
+    color: red;
+    border: 1px solid rgb(250, 169, 169);
+}

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Sic7;
 use App\Http\Resources\Sic7Resource;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
 class Sic7Controller extends Controller
 {
@@ -15,18 +16,18 @@ class Sic7Controller extends Controller
         return Sic7::all();
     }
 
-    public function store(Request $request)
+    public function store(Sic7 $sic7)
     {
-        $this->authorize('store', Sic7::class);
-        $sic7 = $request->isMethod('patch') ? Sic7::findOrFail($request->sic7_id) : new Sic7();
+        $this->authorize('store', $sic7);
 
-        $sic7->id = $request->input('sic7_id');
-        $sic7->code = $request->input('sic7_code');
-        $sic7->description = $request->input('sic7_description');
-
-        if ($sic7->save()) {
-            return new Sic7Resource($sic7);
-        }
+        $data = request()->validate([
+            'code' => 'required|min:3',
+            'description' => 'required|min:4',
+        ]);
+        Sic7::create($data);
+        return response()->json([
+            'status' => '201'
+        ]);
     }
 
     public function update(Sic7 $sic7)
@@ -34,13 +35,13 @@ class Sic7Controller extends Controller
         $this->authorize('update', $sic7);
 
         $data = request()->validate([
-            'sic7_code' => 'required',
-            'sic7_description' => 'required|min:4',
+            'code' => 'required',
+            'description' => 'required|min:4',
         ]);
 
         $sic7->update($data);
 
-        return (new TransactionResource($sic7))
+        return (new Sic7Resource($sic7))
             ->response()
             ->setStatusCode(Response::HTTP_OK);
     }

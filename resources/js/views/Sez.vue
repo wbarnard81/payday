@@ -1,25 +1,32 @@
 <template>
   <div class>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter SEZ Code</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.sezInput.code.minLength}"
             type="text"
             placeholder="Enter code"
-            name="sez_code"
-            v-model="sezInput.sez_code"
+            name="code"
+            v-model.trim="$v.sezInput.code.$model"
           />
         </div>
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter SEZ Description</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.sezInput.description.minLength}"
             type="text"
             placeholder="Enter description"
-            name="sez_description"
-            v-model="sezInput.sez_description"
+            name="description"
+            v-model.trim="$v.sezInput.description.$model"
           />
         </div>
       </div>
@@ -27,7 +34,7 @@
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addSez()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
@@ -96,25 +103,34 @@
 </template>
 
 <script>
+import { required, minLength } from "vuelidate/lib/validators";
 export default {
   name: "SEZ",
   data: () => {
     return {
       sez: null,
       edit: false,
+      errors: [],
       sezInput: {
-        sez_id: "",
-        sez_code: "",
-        sez_description: ""
+        id: "",
+        code: "",
+        description: ""
       }
     };
   },
   mounted() {
     this.getSez();
   },
-  computed: {
-    isDisabled: function() {
-      return !this.sezInput.sez_description;
+  validations: {
+    sezInput: {
+      code: {
+        required,
+        minLength: minLength(3)
+      },
+      description: {
+        required,
+        minLength: minLength(4)
+      }
     }
   },
   methods: {
@@ -128,29 +144,30 @@ export default {
           console.log(error);
         });
     },
-    addSez(sez_id) {
+    addSez(id) {
       if (this.edit === false) {
         axios
           .post("/api/sez", this.sezInput)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("SEZ Added.");
-              this.sezInput.sez_code = "";
-              this.sezInput.sez_description = "";
+              this.sezInput.code = "";
+              this.sezInput.description = "";
               this.getSez();
             }
           })
           .catch(err => console.log(err));
       } else {
         axios
-          .patch(`/api/sez/` + this.sezInput.sez_id, this.sezInput)
+          .patch(`/api/sez/` + this.sezInput.id, this.sezInput)
           .then(res => {
             if (res.status == 200) {
               alert("sez Updated.");
-              this.sezInput.sez_id = "";
-              this.sezInput.sez_code = "";
-              this.sezInput.sez_description = "";
+              this.sezInput.id = "";
+              this.sezInput.code = "";
+              this.sezInput.description = "";
               this.edit = false;
+              this.errors = null;
               this.getSez();
             }
           })
@@ -159,14 +176,14 @@ export default {
     },
     editSez(item) {
       this.edit = true;
-      this.sezInput.sez_id = item.id;
-      this.sezInput.sez_code = item.code;
-      this.sezInput.sez_description = item.description;
+      this.sezInput.id = item.id;
+      this.sezInput.code = item.code;
+      this.sezInput.description = item.description;
     },
-    deleteSez(sez_id) {
+    deleteSez(id) {
       if (confirm("Are you sure you want to delete this SEZ?")) {
         axios
-          .delete(`/api/sez/${sez_id}`)
+          .delete(`/api/sez/${id}`)
           .then(response => {
             alert("SEZ deleted.");
             this.getSez();

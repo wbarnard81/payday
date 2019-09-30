@@ -7555,6 +7555,11 @@ video {
   z-index: auto;
 }
 
+.invalid {
+  color: red;
+  border: 1px solid #faa9a9;
+}
+
 @media (min-width: 640px) {
   .sm\:appearance-none {
     -webkit-appearance: none;

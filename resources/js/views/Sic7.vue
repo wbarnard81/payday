@@ -11,22 +11,22 @@
           <label class="block text-gray-700 text-sm font-bold my-2">Enter SIC7 Code</label>
           <input
             class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
-            :class="{invalid: !$v.sic7Input.sic7_code.numeric}"
+            :class="{invalid: !$v.sic7Input.code.numeric}"
             type="text"
             placeholder="Enter SIC7 code"
-            name="sic7_code"
-            v-model.trim="$v.sic7Input.sic7_code.$model"
+            name="code"
+            v-model.trim="$v.sic7Input.code.$model"
           />
         </div>
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter SIC7 Description</label>
           <input
             class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
-            :class="{invalid: !$v.sic7Input.sic7_description.minLength}"
+            :class="{invalid: !$v.sic7Input.description.minLength}"
             type="text"
             placeholder="Enter description"
-            name="sic7_description"
-            v-model.trim="$v.sic7Input.sic7_description.$model"
+            name="description"
+            v-model.trim="$v.sic7Input.description.$model"
           />
         </div>
       </div>
@@ -35,7 +35,7 @@
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addSic7()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
@@ -113,19 +113,19 @@ export default {
       edit: false,
       errors: [],
       sic7Input: {
-        sic7_id: "",
-        sic7_code: "",
-        sic7_description: ""
+        id: "",
+        code: "",
+        description: ""
       }
     };
   },
   validations: {
     sic7Input: {
-      sic7_code: {
+      code: {
         required,
         numeric
       },
-      sic7_description: {
+      description: {
         required,
         minLength: minLength(4)
       }
@@ -136,7 +136,7 @@ export default {
   },
   computed: {
     isDisabled: function() {
-      return !this.sic7Input.sic7_description;
+      return !this.sic7Input.description;
     }
   },
   methods: {
@@ -150,29 +150,30 @@ export default {
           console.log(error);
         });
     },
-    addSic7(sic7_id) {
+    addSic7(id) {
       if (this.edit === false) {
         axios
           .post("/api/sic7", this.sic7Input)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("SIC7 Code Added.");
-              this.sic7Input.sic7_code = "";
-              this.sic7Input.sic7_description = "";
+              this.sic7Input.code = "";
+              this.sic7Input.description = "";
               this.getSic7s();
             }
           })
           .catch(err => console.log(err.response));
       } else {
         axios
-          .patch(`/api/sic7/` + this.sic7Input.sic7_id, this.sic7Input)
+          .patch(`/api/sic7/` + this.sic7Input.id, this.sic7Input)
           .then(res => {
             if (res.status == 200) {
               alert("SIC7 Code Updated.");
-              this.sic7Input.sic7_id = "";
-              this.sic7Input.sic7_code = "";
-              this.sic7Input.sic7_description = "";
+              this.sic7Input.id = "";
+              this.sic7Input.code = "";
+              this.sic7Input.description = "";
               this.edit = false;
+              this.errors = null;
               this.getSic7s();
             }
           })
@@ -181,14 +182,14 @@ export default {
     },
     editSic7(item) {
       this.edit = true;
-      this.sic7Input.sic7_id = item.id;
-      this.sic7Input.sic7_code = item.code;
-      this.sic7Input.sic7_description = item.description;
+      this.sic7Input.id = item.id;
+      this.sic7Input.code = item.code;
+      this.sic7Input.description = item.description;
     },
-    deleteSic7(sic7_id) {
+    deleteSic7(id) {
       if (confirm("Are you sure you want to delete this SIC7 Code?")) {
         axios
-          .delete(`/api/sic7/${sic7_id}`)
+          .delete(`/api/sic7/${id}`)
           .then(response => {
             alert("SIC7 Code deleted.");
             this.getSic7s();
@@ -203,8 +204,4 @@ export default {
 </script>
 
 <style scoped>
-.invalid {
-  border: 1px solid rgb(250, 169, 169);
-  color: red;
-}
 </style>
