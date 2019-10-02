@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\AccountRelationship;
 use App\Http\Resources\AccountRelationshipResource;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
 class AccountRelationshipController extends Controller
 {
@@ -15,17 +16,32 @@ class AccountRelationshipController extends Controller
         return AccountRelationship::all();
     }
 
-    public function store(Request $request)
+    public function store(AccountRelationship $accrelationship)
     {
-        $this->authorize('store', AccountRelationship::class);
-        $accrelationship = $request->isMethod('patch') ? AccountRelationship::findOrFail($request->accrelationship_id) : new AccountRelationship();
+        $this->authorize('store', $accrelationship);
 
-        $accrelationship->id = $request->input('accrelationship_id');
-        $accrelationship->name = $request->input('name');
+        $data = request()->validate([
+            'name' => 'required|min:3',
+        ]);
+        AccountRelationship::create($data);
+        return response()->json([
+            'status' => '201'
+        ]);
+    }
 
-        if ($accrelationship->save()) {
-            return new AccountRelationshipResource($accrelationship);
-        }
+    public function update(AccountRelationship $accrelationship)
+    {
+        $this->authorize('update', $accrelationship);
+
+        $accrelationship = AccountRelationship::find(request()->id);
+
+        $accrelationship->name = request()->name;
+
+        $accrelationship->save();
+
+        return (new AccountRelationshipResource($accrelationship))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 
     public function destroy($accrelationship)
@@ -37,5 +53,15 @@ class AccountRelationshipController extends Controller
         return response()->json([
             'msg' => 'Deleted'
         ]);
+    }
+
+    public function create()
+    {
+        return null;
+    }
+
+    public function edit()
+    {
+        return null;
     }
 }

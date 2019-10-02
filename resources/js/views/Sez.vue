@@ -32,7 +32,7 @@
       </div>
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+          class="bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addSez()"
           :disabled="$v.$invalid"
         >Submit</button>

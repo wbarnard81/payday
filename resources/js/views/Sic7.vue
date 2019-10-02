@@ -33,7 +33,7 @@
 
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+          class="bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addSic7()"
           :disabled="$v.$invalid"
         >Submit</button>
@@ -133,11 +133,6 @@ export default {
   },
   mounted() {
     this.getSic7s();
-  },
-  computed: {
-    isDisabled: function() {
-      return !this.sic7Input.description;
-    }
   },
   methods: {
     getSic7s() {

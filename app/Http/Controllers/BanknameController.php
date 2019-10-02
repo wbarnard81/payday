@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Bankname;
 use App\Http\Resources\BankNameResource;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
 class BanknameController extends Controller
 {
@@ -15,17 +16,32 @@ class BanknameController extends Controller
         return Bankname::all();
     }
 
-    public function store(Request $request)
+    public function store(Bankname $bankname)
     {
-        $this->authorize('store', Bankname::class);
-        $bankname = $request->isMethod('patch') ? Bankname::findOrFail($request->id) : new Bankname();
+        $this->authorize('store', $bankname);
 
-        $bankname->id = $request->input('bankname_id');
-        $bankname->name = $request->input('bankname');
+        $data = request()->validate([
+            'name' => 'required|min:3',
+        ]);
+        Bankname::create($data);
+        return response()->json([
+            'status' => '201'
+        ]);
+    }
 
-        if ($bankname->save()) {
-            return new BankNameResource($bankname);
-        }
+    public function update(Bankname $bankname)
+    {
+        $this->authorize('update', $bankname);
+
+        $bankname = Bankname::find(request()->id);
+
+        $bankname->name = request()->name;
+
+        $bankname->save();
+
+        return (new BanknameResource($bankname))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 
     public function destroy($bankname)
@@ -37,5 +53,15 @@ class BanknameController extends Controller
         return response()->json([
             'msg' => 'Deleted'
         ]);
+    }
+
+    public function create()
+    {
+        return null;
+    }
+
+    public function edit()
+    {
+        return null;
     }
 }

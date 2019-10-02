@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Country;
 use App\Http\Resources\CountryResource;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
 class CountryController extends Controller
 {
@@ -15,18 +16,34 @@ class CountryController extends Controller
         return Country::all();
     }
 
-    public function store(Request $request)
+    public function store(Country $country)
     {
-        $this->authorize('store', Country::class);
-        $country = $request->isMethod('patch') ? Country::findOrFail($request->id) : new Country();
+        $this->authorize('store', $country);
 
-        $country->id = $request->input('country_id');
-        $country->code = $request->input('country_code');
-        $country->name = $request->input('country_name');
+        $data = request()->validate([
+            'code' => 'required|min:3',
+            'name' => 'required|min:4',
+        ]);
+        Country::create($data);
+        return response()->json([
+            'status' => '201'
+        ]);
+    }
 
-        if ($country->save()) {
-            return new CountryResource($country);
-        }
+    public function update(Country $country)
+    {
+        $this->authorize('update', $country);
+
+        $data = request()->validate([
+            'code' => 'required|min:3',
+            'name' => 'required|min:4',
+        ]);
+
+        $country->update($data);
+
+        return (new CountryResource($country))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 
     public function destroy($country)
@@ -38,5 +55,15 @@ class CountryController extends Controller
         return response()->json([
             'msg' => 'Deleted'
         ]);
+    }
+
+    public function create()
+    {
+        return null;
+    }
+
+    public function edit()
+    {
+        return null;
     }
 }

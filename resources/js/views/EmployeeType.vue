@@ -1,24 +1,30 @@
 <template>
   <div class>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Employee Type</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.employeeInput.name.minLength}"
             type="text"
             placeholder="Enter type"
-            name="employee_type"
-            v-model="employeeInput.employee_type"
+            name="type"
+            v-model.trim="$v.employeeInput.name.$model"
           />
         </div>
       </div>
 
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+          class="bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addEmployeeType()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
@@ -85,21 +91,26 @@
 </template>
 
 <script>
+import { required, minLength } from "vuelidate/lib/validators";
 export default {
   name: "EmployeeType",
   data: () => {
     return {
       employee: null,
       edit: false,
+      errors: [],
       employeeInput: {
-        empltype_id: "",
-        employee_type: ""
+        id: "",
+        name: ""
       }
     };
   },
-  computed: {
-    isDisabled: function() {
-      return !this.employeeInput.employee_type;
+  validations: {
+    employeeInput: {
+      name: {
+        required,
+        minLength: minLength(3)
+      }
     }
   },
   mounted() {
@@ -116,30 +127,28 @@ export default {
           console.log(error.response);
         });
     },
-    addEmployeeType(empltype_id) {
+    addEmployeeType(id) {
       if (this.edit === false) {
         axios
           .post("/api/empltype", this.employeeInput)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("Employee Type Added.");
-              this.employeeInput.employee_type = "";
+              this.employeeInput.name = "";
               this.getEmployeeType();
             }
           })
           .catch(error => console.log(error.response));
       } else {
         axios
-          .patch(
-            `/api/empltype/` + this.employeeInput.empltype_id,
-            this.employeeInput
-          )
+          .patch(`/api/empltype/` + this.employeeInput.id, this.employeeInput)
           .then(res => {
             if (res.status == 200) {
               alert("Employee Type Updated.");
-              this.employeeInput.empltype_id = "";
-              this.employeeInput.employee_type = "";
+              this.employeeInput.id = "";
+              this.employeeInput.name = "";
               this.edit = false;
+              this.erros = [];
               this.getEmployeeType();
             }
           })
@@ -148,13 +157,13 @@ export default {
     },
     editEmployeeType(item) {
       this.edit = true;
-      this.employeeInput.empltype_id = item.id;
-      this.employeeInput.employee_type = item.name;
+      this.employeeInput.id = item.id;
+      this.employeeInput.name = item.name;
     },
-    deleteEmployeeType(empltype_id) {
+    deleteEmployeeType(id) {
       if (confirm("Are you sure you want to delete this employee type?")) {
         axios
-          .delete(`/api/empltype/${empltype_id}`)
+          .delete(`/api/empltype/${id}`)
           .then(response => {
             alert("Employee type deleted.");
             this.getEmployeeType();

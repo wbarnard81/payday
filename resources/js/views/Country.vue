@@ -1,33 +1,40 @@
 <template>
   <div>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Country Code</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.countryInput.code.minLength}"
             type="text"
             placeholder="Enter code"
-            name="country_code"
-            v-model="countryInput.country_code"
+            name="code"
+            v-model.trim="$v.countryInput.code.$model"
           />
         </div>
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Country Name</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.countryInput.name.minLength}"
             type="text"
             placeholder="Enter name"
-            name="country_name"
-            v-model="countryInput.country_name"
+            name="name"
+            v-model.trim="$v.countryInput.name.$model"
           />
         </div>
       </div>
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+          class="bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addCountry()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
@@ -96,16 +103,18 @@
 </template>
 
 <script>
+import { required, minLength } from "vuelidate/lib/validators";
 export default {
   name: "Country",
   data: () => {
     return {
       country: null,
       edit: false,
+      errors: [],
       countryInput: {
-        country_id: "",
-        country_code: "",
-        country_name: ""
+        id: "",
+        code: "",
+        name: ""
       }
     };
   },
@@ -114,7 +123,19 @@ export default {
   },
   computed: {
     isDisabled: function() {
-      return !this.countryInput.country_name;
+      return !this.countryInput.name;
+    }
+  },
+  validations: {
+    countryInput: {
+      code: {
+        required,
+        minLength: minLength(3)
+      },
+      name: {
+        required,
+        minLength: minLength(4)
+      }
     }
   },
   methods: {
@@ -128,33 +149,30 @@ export default {
           console.log(error);
         });
     },
-    addCountry(country_id) {
+    addCountry(id) {
       if (this.edit === false) {
         axios
           .post("/api/country", this.countryInput)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("Country Added.");
-              this.countryInput.country_code = "";
-              this.countryInput.country_name = "";
+              this.countryInput.code = "";
+              this.countryInput.name = "";
               this.getCountries();
             }
           })
           .catch(err => console.log(err));
       } else {
         axios
-          .patch(
-            `/api/country/` + this.countryInput.country_id,
-            this.countryInput
-          )
+          .patch(`/api/country/` + this.countryInput.id, this.countryInput)
           .then(res => {
             if (res.status == 200) {
               alert("Country Updated.");
-              this.countryInput.country_id = "";
-              this.countryInput.country_code = "";
-              this.countryInput.country_name = "";
+              this.countryInput.id = "";
+              this.countryInput.code = "";
+              this.countryInput.name = "";
               this.edit = false;
-              this.getCountries();
+              (this.errors = []), this.getCountries();
             }
           })
           .catch(err => console.log(err));
@@ -162,14 +180,14 @@ export default {
     },
     editCountry(item) {
       this.edit = true;
-      this.countryInput.country_id = item.id;
-      this.countryInput.country_code = item.code;
-      this.countryInput.country_name = item.name;
+      this.countryInput.id = item.id;
+      this.countryInput.code = item.code;
+      this.countryInput.name = item.name;
     },
-    deleteCountry(country_id) {
+    deleteCountry(id) {
       if (confirm("Are you sure you want to delete this country?")) {
         axios
-          .delete(`/api/country/${country_id}`)
+          .delete(`/api/country/${id}`)
           .then(response => {
             alert("Country deleted.");
             this.getCountries();

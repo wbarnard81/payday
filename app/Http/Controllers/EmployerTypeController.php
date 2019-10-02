@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\EmployerType;
 use App\Http\Resources\EmployerTypeResource;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
 class EmployerTypeController extends Controller
 {
@@ -15,17 +16,32 @@ class EmployerTypeController extends Controller
         return EmployerType::all();
     }
 
-    public function store(Request $request)
+    public function store(EmployerType $employerType)
     {
-        $this->authorize('store', EmployerType::class);
-        $employerType = $request->isMethod('patch') ? EmployerType::findOrFail($request->id) : new EmployerType();
+        $this->authorize('store', $employerType);
 
-        $employerType->id = $request->input('emprtype_id');
-        $employerType->name = $request->input('employer_type');
+        $data = request()->validate([
+            'name' => 'required|min:3',
+        ]);
+        EmployerType::create($data);
+        return response()->json([
+            'status' => '201'
+        ]);
+    }
 
-        if ($employerType->save()) {
-            return new EmployerTypeResource($employerType);
-        }
+    public function update(EmployerType $employerType)
+    {
+        $this->authorize('update', $employerType);
+
+        $employerType = EmployerType::find(request()->id);
+
+        $employerType->name = request()->name;
+
+        $employerType->save();
+
+        return (new EmployerTypeResource($employerType))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 
     public function destroy($employerType)
@@ -37,5 +53,15 @@ class EmployerTypeController extends Controller
         return response()->json([
             'msg' => 'Deleted'
         ]);
+    }
+
+    public function create()
+    {
+        return null;
+    }
+
+    public function edit()
+    {
+        return null;
     }
 }

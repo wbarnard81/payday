@@ -1,23 +1,29 @@
 <template>
   <div>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Account Type</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.AccTypeInput.name.minLength}"
             type="text"
             placeholder="Enter account type"
             name="acctype"
-            v-model="AccTypeInput.acctype"
+            v-model.trim="$v.AccTypeInput.name.$model"
           />
         </div>
       </div>
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+          class="bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addAccountTypes()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
@@ -84,24 +90,29 @@
 </template>
 
 <script>
+import { required, minLength } from "vuelidate/lib/validators";
 export default {
   name: "AccountType",
   data: () => {
     return {
       acctype: null,
       edit: false,
+      errors: [],
       AccTypeInput: {
-        acctype_id: "",
-        acctype: ""
+        id: "",
+        name: ""
       }
     };
   },
   mounted() {
     this.getAccountTypes();
   },
-  computed: {
-    isDisabled: function() {
-      return !this.AccTypeInput.acctype;
+  validations: {
+    AccTypeInput: {
+      name: {
+        required,
+        minLength: minLength(3)
+      }
     }
   },
   methods: {
@@ -115,30 +126,28 @@ export default {
           console.log(error.response);
         });
     },
-    addAccountTypes(acctype_id) {
+    addAccountTypes(id) {
       if (this.edit === false) {
         axios
           .post("/api/acctype", this.AccTypeInput)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("Account Type Added.");
-              this.AccTypeInput.acctype = "";
+              this.AccTypeInput.name = "";
               this.getAccountTypes();
             }
           })
           .catch(err => console.log(err.response));
       } else {
         axios
-          .patch(
-            `/api/acctype/` + this.AccTypeInput.acctype_id,
-            this.AccTypeInput
-          )
+          .patch(`/api/acctype/` + this.AccTypeInput.id, this.AccTypeInput)
           .then(res => {
             if (res.status == 200) {
               alert("Account Type Updated.");
-              this.AccTypeInput.acctype_id = "";
-              this.AccTypeInput.acctype = "";
+              this.AccTypeInput.id = "";
+              this.AccTypeInput.name = "";
               this.edit = false;
+              this.errors = [];
               this.getAccountTypes();
             }
           })
@@ -147,13 +156,13 @@ export default {
     },
     editAccountTypes(item) {
       this.edit = true;
-      this.AccTypeInput.acctype_id = item.id;
-      this.AccTypeInput.acctype = item.name;
+      this.AccTypeInput.id = item.id;
+      this.AccTypeInput.name = item.name;
     },
-    deleteAccountType(acctype_id) {
+    deleteAccountType(id) {
       if (confirm("Are you sure you want to delete this account type?")) {
         axios
-          .delete(`/api/acctype/${acctype_id}`)
+          .delete(`/api/acctype/${id}`)
           .then(response => {
             alert("Account type deleted.");
             this.getAccountTypes();

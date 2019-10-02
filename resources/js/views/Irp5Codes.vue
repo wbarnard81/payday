@@ -1,33 +1,40 @@
 <template>
   <div>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter IRP5 Code</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.irp5codesInput.code.numeric}"
             type="text"
             placeholder="Enter code"
-            name="irp5codes_code"
-            v-model="irp5codesInput.irp5codes_code"
+            name="code"
+            v-model.trim="$v.irp5codesInput.code.$model"
           />
         </div>
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter IRP5 Description</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.irp5codesInput.description.minLength}"
             type="text"
             placeholder="Enter description"
-            name="irp5codes_description"
-            v-model="irp5codesInput.irp5codes_description"
+            name="description"
+            v-model.trim="$v.irp5codesInput.description.$model"
           />
         </div>
       </div>
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+          class="bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addIrp5codes()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
@@ -96,22 +103,32 @@
 </template>
 
 <script>
+import { required, minLength, numeric } from "vuelidate/lib/validators";
 export default {
   name: "IRP5Codes",
   data: () => {
     return {
       irp5codes: null,
       edit: false,
+      errors: [],
       irp5codesInput: {
-        irp5codes_id: "",
-        irp5codes_code: "",
-        irp5codes_description: ""
+        id: "",
+        code: "",
+        description: ""
       }
     };
   },
-  computed: {
-    isDisabled: function() {
-      return !this.irp5codesInput.irp5codes_description;
+  validations: {
+    irp5codesInput: {
+      code: {
+        required,
+        minLength: minLength(3),
+        numeric
+      },
+      description: {
+        required,
+        minLength: minLength(4)
+      }
     }
   },
   mounted() {
@@ -128,32 +145,30 @@ export default {
           c.responseonsole.log(error);
         });
     },
-    addIrp5codes(irp5codes_id) {
+    addIrp5codes(id) {
       if (this.edit === false) {
         axios
           .post("/api/irp5", this.irp5codesInput)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("IRP5 Code Added.");
-              this.irp5codesInput.irp5codes_code = "";
-              this.irp5codesInput.irp5codes_description = "";
+              this.irp5codesInput.code = "";
+              this.irp5codesInput.description = "";
               this.getIrp5codes();
             }
           })
           .catch(err => console.log(err.response));
       } else {
         axios
-          .patch(
-            `/api/irp5/` + this.irp5codesInput.irp5codes_id,
-            this.irp5codesInput
-          )
+          .patch(`/api/irp5/` + this.irp5codesInput.id, this.irp5codesInput)
           .then(res => {
             if (res.status == 200) {
               alert("IRP5 Code Updated.");
-              this.irp5codesInput.irp5codes_id = "";
-              this.irp5codesInput.irp5codes_code = "";
-              this.irp5codesInput.irp5codes_description = "";
+              this.irp5codesInput.id = "";
+              this.irp5codesInput.code = "";
+              this.irp5codesInput.description = "";
               this.edit = false;
+              this.errors = [];
               this.getIrp5codes();
             }
           })
@@ -162,14 +177,14 @@ export default {
     },
     editIrp5codes(item) {
       this.edit = true;
-      this.irp5codesInput.irp5codes_id = item.id;
-      this.irp5codesInput.irp5codes_code = item.code;
-      this.irp5codesInput.irp5codes_description = item.description;
+      this.irp5codesInput.id = item.id;
+      this.irp5codesInput.code = item.code;
+      this.irp5codesInput.description = item.description;
     },
-    deleteIrp5codes(irp5codes_id) {
+    deleteIrp5codes(id) {
       if (confirm("Are you sure you want to delete this IRP5 Code?")) {
         axios
-          .delete(`/api/irp5/${irp5codes_id}`)
+          .delete(`/api/irp5/${id}`)
           .then(response => {
             alert("IRP5 Code deleted.");
             this.getIrp5codes();

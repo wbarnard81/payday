@@ -1,23 +1,29 @@
 <template>
   <div>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Payment Method</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.paymethodInput.name.minLength}"
             type="text"
             placeholder="Enter code"
             name="name"
-            v-model="paymethodInput.name"
+            v-model.trim="$v.paymethodInput.name.$model"
           />
         </div>
       </div>
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+          class="bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addPaymethod()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
@@ -84,14 +90,16 @@
 </template>
 
 <script>
+import { required, minLength } from "vuelidate/lib/validators";
 export default {
   name: "PayMethod",
   data: () => {
     return {
       paymethods: null,
       edit: false,
+      errors: [],
       paymethodInput: {
-        paymethod_id: "",
+        id: "",
         name: ""
       }
     };
@@ -99,9 +107,12 @@ export default {
   mounted() {
     this.getPaymethods();
   },
-  computed: {
-    isDisabled: function() {
-      return !this.paymethodInput.name;
+  validations: {
+    paymethodInput: {
+      name: {
+        required,
+        minLength: minLength(3)
+      }
     }
   },
   methods: {
@@ -115,12 +126,12 @@ export default {
           console.log(error);
         });
     },
-    addPaymethod(paymethod_id) {
+    addPaymethod(id) {
       if (this.edit === false) {
         axios
           .post("/api/paymethod", this.paymethodInput)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("Payment Method Added.");
               this.paymethodInput.name = "";
               this.getPaymethods();
@@ -130,15 +141,16 @@ export default {
       } else {
         axios
           .patch(
-            `/api/paymethod/` + this.paymethodInput.paymethod_id,
+            `/api/paymethod/` + this.paymethodInput.id,
             this.paymethodInput
           )
           .then(res => {
             if (res.status == 200) {
               alert("Payment Method Updated.");
-              this.paymethodInput.paymethod_id = "";
+              this.paymethodInput.id = "";
               this.paymethodInput.name = "";
               this.edit = false;
+              this.errors = [];
               this.getPaymethods();
             }
           })
@@ -147,13 +159,13 @@ export default {
     },
     editPaymethods(item) {
       this.edit = true;
-      this.paymethodInput.paymethod_id = item.id;
+      this.paymethodInput.id = item.id;
       this.paymethodInput.name = item.name;
     },
-    deletePaymethod(paymethod_id) {
+    deletePaymethod(id) {
       if (confirm("Are you sure you want to delete this Payment Method?")) {
         axios
-          .delete(`/api/paymethod/${paymethod_id}`)
+          .delete(`/api/paymethod/${id}`)
           .then(response => {
             alert("Payment Method deleted.");
             this.getPaymethods();

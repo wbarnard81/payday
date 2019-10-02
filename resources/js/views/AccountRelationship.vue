@@ -1,23 +1,29 @@
 <template>
   <div>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter New Account Relationship</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.accrelationship.name.minLength}"
             type="text"
             placeholder="Enter Account Relationship"
             name="name"
-            v-model="accrelationship.name"
+            v-model.trim="$v.accrelationship.name.$model"
           />
         </div>
       </div>
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+          class="bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addAccrelationship()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
@@ -84,14 +90,16 @@
 </template>
 
 <script>
+import { required, minLength } from "vuelidate/lib/validators";
 export default {
   name: "AccRelationship",
   data: () => {
     return {
       accrelationships: null,
       edit: false,
+      errors: [],
       accrelationship: {
-        accrelationship_id: "",
+        id: "",
         name: ""
       }
     };
@@ -99,9 +107,12 @@ export default {
   mounted() {
     this.getAccrelationships();
   },
-  computed: {
-    isDisabled: function() {
-      return !this.accrelationship.name;
+  validations: {
+    accrelationship: {
+      name: {
+        required,
+        minLength: minLength(3)
+      }
     }
   },
   methods: {
@@ -115,12 +126,12 @@ export default {
           console.log(error.response);
         });
     },
-    addAccrelationship(accrelationship_id) {
+    addAccrelationship(id) {
       if (this.edit === false) {
         axios
           .post("/api/accrel", this.accrelationship)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("Activity Code Added.");
               this.accrelationship.name = "";
               this.getAccrelationships();
@@ -129,16 +140,14 @@ export default {
           .catch(err => console.log(err.response));
       } else {
         axios
-          .patch(
-            `/api/accrel/` + this.accrelationship.accrelationship_id,
-            this.accrelationship
-          )
+          .patch(`/api/accrel/` + this.accrelationship.id, this.accrelationship)
           .then(res => {
             if (res.status == 200) {
               alert("Activity Code Updated.");
-              this.accrelationship.accrelationship_id = "";
+              this.accrelationship.id = "";
               this.accrelationship.name = "";
               this.edit = false;
+              this.errors = [];
               this.getAccrelationships();
             }
           })
@@ -147,13 +156,13 @@ export default {
     },
     editActcrelationship(item) {
       this.edit = true;
-      this.accrelationship.accrelationship_id = item.id;
+      this.accrelationship.id = item.id;
       this.accrelationship.name = item.name;
     },
-    deleteAccrelationship(accrelationship_id) {
+    deleteAccrelationship(id) {
       if (confirm("Are you sure you want to delete this activity code?")) {
         axios
-          .delete(`/api/accrel/${accrelationship_id}`)
+          .delete(`/api/accrel/${id}`)
           .then(response => {
             alert("Activity Code deleted.");
             this.getAccrelationships();

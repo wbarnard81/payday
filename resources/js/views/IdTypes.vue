@@ -1,23 +1,29 @@
 <template>
   <div>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Other ID Type</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.idtypeInput.name.minLength}"
             type="text"
             placeholder="Enter other ID type"
-            name="otheridtype"
-            v-model="idtypeInput.otheridtype"
+            name="name"
+            v-model.trim="$v.idtypeInput.name.$model"
           />
         </div>
       </div>
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+          class="bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addIdType()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
@@ -84,24 +90,29 @@
 </template>
 
 <script>
+import { required, minLength } from "vuelidate/lib/validators";
 export default {
   name: "OtherIDTypes",
   data: () => {
     return {
       otheridtypes: null,
       edit: false,
+      errors: [],
       idtypeInput: {
-        idtype_id: "",
-        otheridtype: ""
+        id: "",
+        name: ""
       }
     };
   },
   mounted() {
     this.getIDTypes();
   },
-  computed: {
-    isDisabled: function() {
-      return !this.idtypeInput.otheridtype;
+  validations: {
+    idtypeInput: {
+      name: {
+        required,
+        minLength: minLength(3)
+      }
     }
   },
   methods: {
@@ -115,27 +126,28 @@ export default {
           console.log(error.response);
         });
     },
-    addIdType(idtype_id) {
+    addIdType(id) {
       if (this.edit === false) {
         axios
           .post("/api/idtype", this.idtypeInput)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("Other ID Type Added.");
-              this.idtypeInput.otheridtype = "";
+              this.idtypeInput.name = "";
               this.getIDTypes();
             }
           })
           .catch(err => console.log(err.response));
       } else {
         axios
-          .patch(`/api/idtype/` + this.idtypeInput.idtype_id, this.idtypeInput)
+          .patch(`/api/idtype/` + this.idtypeInput.id, this.idtypeInput)
           .then(res => {
             if (res.status == 200) {
               alert("ID Type Updated.");
-              this.idtypeInput.idtype_id = "";
-              this.idtypeInput.otheridtype = "";
+              this.idtypeInput.id = "";
+              this.idtypeInput.name = "";
               this.edit = false;
+              this.errors = [];
               this.getIDTypes();
             }
           })
@@ -144,13 +156,13 @@ export default {
     },
     editIDType(item) {
       this.edit = true;
-      this.idtypeInput.idtype_id = item.id;
-      this.idtypeInput.otheridtype = item.name;
+      this.idtypeInput.id = item.id;
+      this.idtypeInput.name = item.name;
     },
-    deleteIDType(idtype_id) {
+    deleteIDType(id) {
       if (confirm("Are you sure you want to delete this ID type?")) {
         axios
-          .delete(`/api/idtype/${idtype_id}`)
+          .delete(`/api/idtype/${id}`)
           .then(response => {
             alert("ID Type Deleted.");
             this.getIDTypes();

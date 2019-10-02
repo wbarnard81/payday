@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\RepPosition;
 use App\Http\Resources\RepPositionResource;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
 class RepPositionController extends Controller
 {
@@ -15,17 +16,32 @@ class RepPositionController extends Controller
         return RepPosition::all();
     }
 
-    public function store(Request $request)
+    public function store(RepPosition $repposition)
     {
-        $this->authorize('store', RepPosition::class);
-        $repposition = $request->isMethod('patch') ? RepPosition::findOrFail($request->id) : new RepPosition();
+        $this->authorize('store', $repposition);
 
-        $repposition->id = $request->input('repposition_id');
-        $repposition->name = $request->input('repposition');
+        $data = request()->validate([
+            'name' => 'required|min:4',
+        ]);
+        RepPosition::create($data);
+        return response()->json([
+            'status' => '201'
+        ]);
+    }
 
-        if ($repposition->save()) {
-            return new RepPositionResource($repposition);
-        }
+    public function update(RepPosition $repposition)
+    {
+        $this->authorize('update', $repposition);
+
+        $repposition = RepPosition::find(request()->id);
+
+        $repposition->name = request()->name;
+
+        $repposition->save();
+
+        return (new RepPositionResource($repposition))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 
     public function destroy($repposition)
@@ -37,5 +53,15 @@ class RepPositionController extends Controller
         return response()->json([
             'msg' => 'Deleted'
         ]);
+    }
+
+    public function create()
+    {
+        return null;
+    }
+
+    public function edit()
+    {
+        return null;
     }
 }

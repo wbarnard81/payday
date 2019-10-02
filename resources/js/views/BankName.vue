@@ -1,23 +1,29 @@
 <template>
   <div>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Bank Name</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.banknameInput.name.minLength}"
             type="text"
             placeholder="Enter bank name"
-            name="bankname"
-            v-model="banknameInput.bankname"
+            name="name"
+            v-model.trim="$v.banknameInput.name.$model"
           />
         </div>
       </div>
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+          class="bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addBankName()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
@@ -84,24 +90,29 @@
 </template>
 
 <script>
+import { required, minLength } from "vuelidate/lib/validators";
 export default {
   name: "BankName",
   data: () => {
     return {
       banknames: null,
       edit: false,
+      errors: [],
       banknameInput: {
-        bankname_id: "",
-        bankname: ""
+        id: "",
+        name: ""
       }
     };
   },
   mounted() {
     this.getBankNames();
   },
-  computed: {
-    isDisabled: function() {
-      return !this.banknameInput.bankname;
+  validations: {
+    banknameInput: {
+      name: {
+        required,
+        minLength: minLength(3)
+      }
     }
   },
   methods: {
@@ -115,30 +126,28 @@ export default {
           console.log(error.response);
         });
     },
-    addBankName(bankname_id) {
+    addBankName(id) {
       if (this.edit === false) {
         axios
           .post("/api/bank", this.banknameInput)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("Bank Name Added.");
-              this.banknameInput.bankname = "";
+              this.banknameInput.name = "";
               this.getBankNames();
             }
           })
           .catch(err => console.log(err.response));
       } else {
         axios
-          .patch(
-            `/api/bank/` + this.banknameInput.bankname_id,
-            this.banknameInput
-          )
+          .patch(`/api/bank/` + this.banknameInput.id, this.banknameInput)
           .then(res => {
             if (res.status == 200) {
               alert("Bank Name Updated.");
-              this.banknameInput.bankname_id = "";
-              this.banknameInput.bankname = "";
+              this.banknameInput.id = "";
+              this.banknameInput.name = "";
               this.edit = false;
+              this.errors = [];
               this.getBankNames();
             }
           })
@@ -147,13 +156,13 @@ export default {
     },
     editBankName(item) {
       this.edit = true;
-      this.banknameInput.bankname_id = item.id;
-      this.banknameInput.bankname = item.name;
+      this.banknameInput.id = item.id;
+      this.banknameInput.name = item.name;
     },
-    deleteBankName(bankname_id) {
+    deleteBankName(id) {
       if (confirm("Are you sure you want to delete this bank name?")) {
         axios
-          .delete(`/api/bank/${bankname_id}`)
+          .delete(`/api/bank/${id}`)
           .then(response => {
             alert("Bank name deleted.");
             this.getBankNames();

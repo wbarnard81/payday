@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\AccountType;
 use App\Http\Resources\AccountTypeResource;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
 class AccountTypeController extends Controller
 {
@@ -15,27 +16,52 @@ class AccountTypeController extends Controller
         return AccountType::all();
     }
 
-    public function store(Request $request)
+    public function store(AccountType $accountType)
     {
-        $this->authorize('store', AccountType::class);
-        $accountType = $request->isMethod('patch') ? AccountType::findOrFail($request->acctype_id) : new AccountType();
+        $this->authorize('store', $accountType);
 
-        $accountType->id = $request->input('acctype_id');
-        $accountType->name = $request->input('acctype');
+        $data = request()->validate([
+            'name' => 'required|min:3',
+        ]);
+        AccountType::create($data);
+        return response()->json([
+            'status' => '201'
+        ]);
+    }
 
-        if ($accountType->save()) {
-            return new AccountTypeResource($accountType);
-        }
+    public function update(AccountType $accountType)
+    {
+        $this->authorize('update', $accountType);
+
+        $accountType = AccountType::find(request()->id);
+
+        $accountType->name = request()->name;
+
+        $accountType->save();
+
+        return (new AccountTypeResource($accountType))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 
     public function destroy($accountType)
     {
         $this->authorize('delete', AccountType::class);
 
-        DB::table('employee_types')->where('id', '=', $accountType)->delete();
+        DB::table('account_types')->where('id', '=', $accountType)->delete();
 
         return response()->json([
             'msg' => 'Deleted'
         ]);
+    }
+
+    public function create()
+    {
+        return null;
+    }
+
+    public function edit()
+    {
+        return null;
     }
 }

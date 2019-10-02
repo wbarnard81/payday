@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\OtherIdtype;
 use App\Http\Resources\OtherIdtypeResource;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Response;
 
 class OtherIdtypeController extends Controller
 {
@@ -15,17 +16,32 @@ class OtherIdtypeController extends Controller
         return OtherIdtype::all();
     }
 
-    public function store(Request $request)
+    public function store(OtherIdtype $idtype)
     {
-        $this->authorize('store', OtherIdtype::class);
-        $idtype = $request->isMethod('patch') ? OtherIdtype::findOrFail($request->idtype_id) : new OtherIdtype();
+        $this->authorize('store', $idtype);
 
-        $idtype->id = $request->input('idtype_id');
-        $idtype->name = $request->input('otheridtype');
+        $data = request()->validate([
+            'name' => 'required|min:3',
+        ]);
+        OtherIdtype::create($data);
+        return response()->json([
+            'status' => '201'
+        ]);
+    }
 
-        if ($idtype->save()) {
-            return new OtherIdtypeResource($idtype);
-        }
+    public function update(OtherIdtype $idtype)
+    {
+        $this->authorize('update', $idtype);
+
+        $idtype = OtherIdtype::find(request()->id);
+
+        $idtype->name = request()->name;
+
+        $idtype->save();
+
+        return (new OtherIdtypeResource($idtype))
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
     }
 
     public function destroy($idtype)
@@ -37,5 +53,15 @@ class OtherIdtypeController extends Controller
         return response()->json([
             'msg' => 'Deleted'
         ]);
+    }
+
+    public function create()
+    {
+        return null;
+    }
+
+    public function edit()
+    {
+        return null;
     }
 }

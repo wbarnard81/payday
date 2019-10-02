@@ -1,15 +1,21 @@
 <template>
   <div>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Rep Position</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.reppositionInput.name.minLength}"
             type="text"
             placeholder="Enter rep position"
             name="repposition"
-            v-model="reppositionInput.repposition"
+            v-model.trim="$v.reppositionInput.name.$model"
           />
         </div>
       </div>
@@ -17,7 +23,7 @@
         <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addRepPosition()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
@@ -84,25 +90,30 @@
 </template>
 
 <script>
+import { required, minLength } from "vuelidate/lib/validators";
 export default {
   name: "RepPositions",
   data: () => {
     return {
       reppositions: null,
       edit: false,
+      errors: [],
       reppositionInput: {
-        repposition_id: "",
-        repposition: ""
+        id: "",
+        name: ""
       }
     };
   },
+  validations: {
+    reppositionInput: {
+      name: {
+        required,
+        minLength: minLength(4)
+      }
+    }
+  },
   mounted() {
     this.getRepPositions();
-  },
-  computed: {
-    isDisabled: function() {
-      return !this.reppositionInput.repposition;
-    }
   },
   methods: {
     getRepPositions() {
@@ -115,14 +126,14 @@ export default {
           console.log(error);
         });
     },
-    addRepPosition(repposition_id) {
+    addRepPosition(id) {
       if (this.edit === false) {
         axios
           .post("/api/reppos", this.reppositionInput)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("Rep Position Added.");
-              this.reppositionInput.repposition = "";
+              this.reppositionInput.name = "";
               this.getRepPositions();
             }
           })
@@ -130,30 +141,31 @@ export default {
       } else {
         axios
           .patch(
-            `/api/reppos/` + this.reppositionInput.repposition_id,
+            `/api/reppos/` + this.reppositionInput.id,
             this.reppositionInput
           )
           .then(res => {
             if (res.status == 200) {
               alert("Rep Position Updated.");
-              this.reppositionInput.repposition_id = "";
-              this.reppositionInput.repposition = "";
+              this.reppositionInput.id = "";
+              this.reppositionInput.name = "";
               this.edit = false;
+              this.errors = null;
               this.getRepPositions();
             }
           })
-          .catch(err => console.log(err));
+          .catch(err => console.log(err.response));
       }
     },
     editRepPosition(item) {
       this.edit = true;
-      this.reppositionInput.repposition_id = item.id;
-      this.reppositionInput.repposition = item.name;
+      this.reppositionInput.id = item.id;
+      this.reppositionInput.name = item.name;
     },
-    deleteBankName(repposition_id) {
+    deleteBankName(id) {
       if (confirm("Are you sure you want to delete this rep position?")) {
         axios
-          .delete(`/api/reppos/${repposition_id}`)
+          .delete(`/api/reppos/${id}`)
           .then(response => {
             alert("Rep position deleted.");
             this.getRepPositions();
