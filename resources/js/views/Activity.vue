@@ -1,43 +1,51 @@
 <template>
   <div>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Profit Code</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.activityInput.profit_code.numeric}"
             type="text"
             placeholder="Enter SIC7 code"
             name="profit_code"
-            v-model="activityInput.profit_code"
+            v-model.trim="$v.activityInput.profit_code.$model"
           />
         </div>
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Loss Code</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.activityInput.loss_code.numeric}"
             type="text"
             placeholder="Enter SIC7 code"
             name="loss_code"
-            v-model="activityInput.loss_code"
+            v-model.trim="$v.activityInput.loss_code.$model"
           />
         </div>
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Description</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.activityInput.description.minLength}"
             type="text"
             placeholder="Enter description"
-            name="activity_description"
-            v-model="activityInput.activity_description"
+            name="description"
+            v-model.trim="$v.activityInput.description.$model"
           />
         </div>
       </div>
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+          class="bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addActivity()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
@@ -108,26 +116,41 @@
 </template>
 
 <script>
+import { required, minLength, numeric } from "vuelidate/lib/validators";
 export default {
   name: "Activities",
   data: () => {
     return {
       activities: null,
       edit: false,
+      errors: [],
       activityInput: {
-        activity_id: "",
+        id: "",
         profit_code: "",
         loss_code: "",
-        activity_description: ""
+        description: ""
       }
     };
   },
   mounted() {
     this.getActivities();
   },
-  computed: {
-    isDisabled: function() {
-      return !this.activityInput.activity_description;
+  validations: {
+    activityInput: {
+      profit_code: {
+        required,
+        minLength: minLength(3),
+        numeric
+      },
+      loss_code: {
+        required,
+        minLength: minLength(3),
+        numeric
+      },
+      description: {
+        required,
+        minLength: minLength(4)
+      }
     }
   },
   methods: {
@@ -141,16 +164,16 @@ export default {
           console.log(error.response);
         });
     },
-    addActivity(activity_id) {
+    addActivity(id) {
       if (this.edit === false) {
         axios
           .post("/api/activity", this.activityInput)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("Activity Added.");
               this.activityInput.profit_code = "";
               this.activityInput.loss_code = "";
-              this.activityInput.activity_description = "";
+              this.activityInput.description = "";
               this.getActivities();
             }
           })
@@ -159,18 +182,16 @@ export default {
           });
       } else {
         axios
-          .patch(
-            `/api/activity/` + this.activityInput.activity_id,
-            this.activityInput
-          )
+          .patch(`/api/activity/` + this.activityInput.id, this.activityInput)
           .then(res => {
             if (res.status == 200) {
               alert("Activity Updated.");
-              this.activityInput.activity_id = "";
+              this.activityInput.id = "";
               this.activityInput.profit_code = "";
               this.activityInput.loss_code = "";
-              this.activityInput.activity_description = "";
+              this.activityInput.description = "";
               this.edit = false;
+              this.errors = [];
               this.getActivities();
             }
           })
@@ -179,15 +200,15 @@ export default {
     },
     editActivity(item) {
       this.edit = true;
-      this.activityInput.activity_id = item.id;
+      this.activityInput.id = item.id;
       this.activityInput.profit_code = item.profit_code;
       this.activityInput.loss_code = item.loss_code;
-      this.activityInput.activity_description = item.description;
+      this.activityInput.description = item.description;
     },
-    deleteActivity(activity_id) {
+    deleteActivity(id) {
       if (confirm("Are you sure you want to delete this activity?")) {
         axios
-          .delete(`/api/activity/${activity_id}`)
+          .delete(`/api/activity/${id}`)
           .then(response => {
             alert("Activity deleted.");
             this.getActivities();

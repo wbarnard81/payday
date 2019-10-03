@@ -1,33 +1,40 @@
 <template>
   <div>
     <div class="p-5 bg-gray-100">
+      <div
+        class="text-red-400 text-center"
+        v-for="error in errors"
+        :key="error.index"
+      >{{ error[0] }}</div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Activity Code</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.activitycodeInput.code.numeric}"
             type="text"
             placeholder="Enter Activity code"
             name="code"
-            v-model="activitycodeInput.code"
+            v-model.trim="$v.activitycodeInput.code.$model"
           />
         </div>
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Description</label>
           <input
-            class="block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            class="block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal"
+            :class="{invalid: !$v.activitycodeInput.description.minLength}"
             type="text"
             placeholder="Enter description"
             name="description"
-            v-model="activitycodeInput.description"
+            v-model.trim="$v.activitycodeInput.description.$model"
           />
         </div>
       </div>
       <div class="flex justify-end">
         <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full"
+          class="bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full"
           @click="addActivitycode()"
-          :disabled="isDisabled"
+          :disabled="$v.$invalid"
         >Submit</button>
       </div>
     </div>
@@ -96,14 +103,16 @@
 </template>
 
 <script>
+import { required, minLength, numeric } from "vuelidate/lib/validators";
 export default {
   name: "ActivityCode",
   data: () => {
     return {
       activitycodes: null,
       edit: false,
+      errors: [],
       activitycodeInput: {
-        activitycode_id: "",
+        id: "",
         code: "",
         description: ""
       }
@@ -112,9 +121,17 @@ export default {
   mounted() {
     this.getActivitycodes();
   },
-  computed: {
-    isDisabled: function() {
-      return !this.activitycodeInput.description;
+  validations: {
+    activitycodeInput: {
+      code: {
+        required,
+        minLength: minLength(3),
+        numeric
+      },
+      description: {
+        required,
+        minLength: minLength(4)
+      }
     }
   },
   methods: {
@@ -128,15 +145,14 @@ export default {
           console.log(error.response);
         });
     },
-    addActivitycode(activitycode_id) {
+    addActivitycode(id) {
       if (this.edit === false) {
         axios
           .post("/api/actcode", this.activitycodeInput)
           .then(res => {
-            if (res.status == 201) {
+            if (res.status == 200) {
               alert("Activity Code Added.");
               this.activitycodeInput.code = "";
-              this.activitycodeInput.loss_code = "";
               this.activitycodeInput.description = "";
               this.getActivitycodes();
             }
@@ -145,17 +161,17 @@ export default {
       } else {
         axios
           .patch(
-            `/api/actcode/` + this.activitycodeInput.activitycode_id,
+            `/api/actcode/` + this.activitycodeInput.id,
             this.activitycodeInput
           )
           .then(res => {
             if (res.status == 200) {
               alert("Activity Code Updated.");
-              this.activitycodeInput.activitycode_id = "";
+              this.activitycodeInput.id = "";
               this.activitycodeInput.code = "";
-              this.activitycodeInput.loss_code = "";
               this.activitycodeInput.description = "";
               this.edit = false;
+              this.errors = [];
               this.getActivitycodes();
             }
           })
@@ -164,14 +180,14 @@ export default {
     },
     editActivitycode(item) {
       this.edit = true;
-      this.activitycodeInput.activitycode_id = item.id;
+      this.activitycodeInput.id = item.id;
       this.activitycodeInput.code = item.code;
       this.activitycodeInput.description = item.description;
     },
-    deleteActivity(activitycode_id) {
+    deleteActivity(id) {
       if (confirm("Are you sure you want to delete this activity code?")) {
         axios
-          .delete(`/api/actcode/${activitycode_id}`)
+          .delete(`/api/actcode/${id}`)
           .then(response => {
             alert("Activity Code deleted.");
             this.getActivitycodes();

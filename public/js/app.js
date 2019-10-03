@@ -2895,6 +2895,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -3004,26 +3006,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Activities",
   data: function data() {
     return {
       activities: null,
       edit: false,
+      errors: [],
       activityInput: {
-        activity_id: "",
+        id: "",
         profit_code: "",
         loss_code: "",
-        activity_description: ""
+        description: ""
       }
     };
   },
   mounted: function mounted() {
     this.getActivities();
   },
-  computed: {
-    isDisabled: function isDisabled() {
-      return !this.activityInput.activity_description;
+  validations: {
+    activityInput: {
+      profit_code: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(3),
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["numeric"]
+      },
+      loss_code: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(3),
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["numeric"]
+      },
+      description: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(4)
+      }
     }
   },
   methods: {
@@ -3036,16 +3061,16 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error.response);
       });
     },
-    addActivity: function addActivity(activity_id) {
+    addActivity: function addActivity(id) {
       var _this2 = this;
 
       if (this.edit === false) {
         axios.post("/api/activity", this.activityInput).then(function (res) {
-          if (res.status == 201) {
+          if (res.status == 200) {
             alert("Activity Added.");
             _this2.activityInput.profit_code = "";
             _this2.activityInput.loss_code = "";
-            _this2.activityInput.activity_description = "";
+            _this2.activityInput.description = "";
 
             _this2.getActivities();
           }
@@ -3053,14 +3078,15 @@ __webpack_require__.r(__webpack_exports__);
           console.log(error.response);
         });
       } else {
-        axios.patch("/api/activity/" + this.activityInput.activity_id, this.activityInput).then(function (res) {
+        axios.patch("/api/activity/" + this.activityInput.id, this.activityInput).then(function (res) {
           if (res.status == 200) {
             alert("Activity Updated.");
-            _this2.activityInput.activity_id = "";
+            _this2.activityInput.id = "";
             _this2.activityInput.profit_code = "";
             _this2.activityInput.loss_code = "";
-            _this2.activityInput.activity_description = "";
+            _this2.activityInput.description = "";
             _this2.edit = false;
+            _this2.errors = [];
 
             _this2.getActivities();
           }
@@ -3071,16 +3097,16 @@ __webpack_require__.r(__webpack_exports__);
     },
     editActivity: function editActivity(item) {
       this.edit = true;
-      this.activityInput.activity_id = item.id;
+      this.activityInput.id = item.id;
       this.activityInput.profit_code = item.profit_code;
       this.activityInput.loss_code = item.loss_code;
-      this.activityInput.activity_description = item.description;
+      this.activityInput.description = item.description;
     },
-    deleteActivity: function deleteActivity(activity_id) {
+    deleteActivity: function deleteActivity(id) {
       var _this3 = this;
 
       if (confirm("Are you sure you want to delete this activity?")) {
-        axios["delete"]("/api/activity/".concat(activity_id)).then(function (response) {
+        axios["delete"]("/api/activity/".concat(id)).then(function (response) {
           alert("Activity deleted.");
 
           _this3.getActivities();
@@ -3103,6 +3129,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -3200,14 +3228,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ActivityCode",
   data: function data() {
     return {
       activitycodes: null,
       edit: false,
+      errors: [],
       activitycodeInput: {
-        activitycode_id: "",
+        id: "",
         code: "",
         description: ""
       }
@@ -3216,9 +3253,17 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.getActivitycodes();
   },
-  computed: {
-    isDisabled: function isDisabled() {
-      return !this.activitycodeInput.description;
+  validations: {
+    activitycodeInput: {
+      code: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(3),
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["numeric"]
+      },
+      description: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
+        minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(4)
+      }
     }
   },
   methods: {
@@ -3231,15 +3276,14 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error.response);
       });
     },
-    addActivitycode: function addActivitycode(activitycode_id) {
+    addActivitycode: function addActivitycode(id) {
       var _this2 = this;
 
       if (this.edit === false) {
         axios.post("/api/actcode", this.activitycodeInput).then(function (res) {
-          if (res.status == 201) {
+          if (res.status == 200) {
             alert("Activity Code Added.");
             _this2.activitycodeInput.code = "";
-            _this2.activitycodeInput.loss_code = "";
             _this2.activitycodeInput.description = "";
 
             _this2.getActivitycodes();
@@ -3248,14 +3292,14 @@ __webpack_require__.r(__webpack_exports__);
           return console.log(err.response);
         });
       } else {
-        axios.patch("/api/actcode/" + this.activitycodeInput.activitycode_id, this.activitycodeInput).then(function (res) {
+        axios.patch("/api/actcode/" + this.activitycodeInput.id, this.activitycodeInput).then(function (res) {
           if (res.status == 200) {
             alert("Activity Code Updated.");
-            _this2.activitycodeInput.activitycode_id = "";
+            _this2.activitycodeInput.id = "";
             _this2.activitycodeInput.code = "";
-            _this2.activitycodeInput.loss_code = "";
             _this2.activitycodeInput.description = "";
             _this2.edit = false;
+            _this2.errors = [];
 
             _this2.getActivitycodes();
           }
@@ -3266,15 +3310,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     editActivitycode: function editActivitycode(item) {
       this.edit = true;
-      this.activitycodeInput.activitycode_id = item.id;
+      this.activitycodeInput.id = item.id;
       this.activitycodeInput.code = item.code;
       this.activitycodeInput.description = item.description;
     },
-    deleteActivity: function deleteActivity(activitycode_id) {
+    deleteActivity: function deleteActivity(id) {
       var _this3 = this;
 
       if (confirm("Are you sure you want to delete this activity code?")) {
-        axios["delete"]("/api/actcode/".concat(activitycode_id)).then(function (response) {
+        axios["delete"]("/api/actcode/".concat(id)).then(function (response) {
           alert("Activity Code deleted.");
 
           _this3.getActivitycodes();
@@ -46358,135 +46402,171 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "p-5 bg-gray-100" }, [
-      _c("div", { staticClass: "flex" }, [
-        _c("div", { staticClass: "w-1/3" }, [
-          _c(
-            "label",
-            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
-            [_vm._v("Enter Profit Code")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.activityInput.profit_code,
-                expression: "activityInput.profit_code"
-              }
-            ],
-            staticClass:
-              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
-            attrs: {
-              type: "text",
-              placeholder: "Enter SIC7 code",
-              name: "profit_code"
-            },
-            domProps: { value: _vm.activityInput.profit_code },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+    _c(
+      "div",
+      { staticClass: "p-5 bg-gray-100" },
+      [
+        _vm._l(_vm.errors, function(error) {
+          return _c(
+            "div",
+            { key: error.index, staticClass: "text-red-400 text-center" },
+            [_vm._v(_vm._s(error[0]))]
+          )
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex" }, [
+          _c("div", { staticClass: "w-1/3" }, [
+            _c(
+              "label",
+              { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+              [_vm._v("Enter Profit Code")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model.trim",
+                  value: _vm.$v.activityInput.profit_code.$model,
+                  expression: "$v.activityInput.profit_code.$model",
+                  modifiers: { trim: true }
                 }
-                _vm.$set(_vm.activityInput, "profit_code", $event.target.value)
+              ],
+              staticClass:
+                "block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+              class: { invalid: !_vm.$v.activityInput.profit_code.numeric },
+              attrs: {
+                type: "text",
+                placeholder: "Enter SIC7 code",
+                name: "profit_code"
+              },
+              domProps: { value: _vm.$v.activityInput.profit_code.$model },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.$v.activityInput.profit_code,
+                    "$model",
+                    $event.target.value.trim()
+                  )
+                },
+                blur: function($event) {
+                  return _vm.$forceUpdate()
+                }
               }
-            }
-          })
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-1/3" }, [
+            _c(
+              "label",
+              { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+              [_vm._v("Enter Loss Code")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model.trim",
+                  value: _vm.$v.activityInput.loss_code.$model,
+                  expression: "$v.activityInput.loss_code.$model",
+                  modifiers: { trim: true }
+                }
+              ],
+              staticClass:
+                "block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+              class: { invalid: !_vm.$v.activityInput.loss_code.numeric },
+              attrs: {
+                type: "text",
+                placeholder: "Enter SIC7 code",
+                name: "loss_code"
+              },
+              domProps: { value: _vm.$v.activityInput.loss_code.$model },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.$v.activityInput.loss_code,
+                    "$model",
+                    $event.target.value.trim()
+                  )
+                },
+                blur: function($event) {
+                  return _vm.$forceUpdate()
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-1/3" }, [
+            _c(
+              "label",
+              { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+              [_vm._v("Enter Description")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model.trim",
+                  value: _vm.$v.activityInput.description.$model,
+                  expression: "$v.activityInput.description.$model",
+                  modifiers: { trim: true }
+                }
+              ],
+              staticClass:
+                "block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+              class: { invalid: !_vm.$v.activityInput.description.minLength },
+              attrs: {
+                type: "text",
+                placeholder: "Enter description",
+                name: "description"
+              },
+              domProps: { value: _vm.$v.activityInput.description.$model },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.$v.activityInput.description,
+                    "$model",
+                    $event.target.value.trim()
+                  )
+                },
+                blur: function($event) {
+                  return _vm.$forceUpdate()
+                }
+              }
+            })
+          ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "w-1/3" }, [
+        _c("div", { staticClass: "flex justify-end" }, [
           _c(
-            "label",
-            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
-            [_vm._v("Enter Loss Code")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.activityInput.loss_code,
-                expression: "activityInput.loss_code"
-              }
-            ],
-            staticClass:
-              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
-            attrs: {
-              type: "text",
-              placeholder: "Enter SIC7 code",
-              name: "loss_code"
-            },
-            domProps: { value: _vm.activityInput.loss_code },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+            "button",
+            {
+              staticClass:
+                "bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full",
+              attrs: { disabled: _vm.$v.$invalid },
+              on: {
+                click: function($event) {
+                  return _vm.addActivity()
                 }
-                _vm.$set(_vm.activityInput, "loss_code", $event.target.value)
               }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "w-1/3" }, [
-          _c(
-            "label",
-            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
-            [_vm._v("Enter Description")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.activityInput.activity_description,
-                expression: "activityInput.activity_description"
-              }
-            ],
-            staticClass:
-              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
-            attrs: {
-              type: "text",
-              placeholder: "Enter description",
-              name: "activity_description"
             },
-            domProps: { value: _vm.activityInput.activity_description },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(
-                  _vm.activityInput,
-                  "activity_description",
-                  $event.target.value
-                )
-              }
-            }
-          })
+            [_vm._v("Submit")]
+          )
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex justify-end" }, [
-        _c(
-          "button",
-          {
-            staticClass:
-              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-            attrs: { disabled: _vm.isDisabled },
-            on: {
-              click: function($event) {
-                return _vm.addActivity()
-              }
-            }
-          },
-          [_vm._v("Submit")]
-        )
-      ])
-    ]),
+      ],
+      2
+    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
@@ -46659,100 +46739,129 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "p-5 bg-gray-100" }, [
-      _c("div", { staticClass: "flex" }, [
-        _c("div", { staticClass: "w-1/3" }, [
-          _c(
-            "label",
-            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
-            [_vm._v("Enter Activity Code")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.activitycodeInput.code,
-                expression: "activitycodeInput.code"
-              }
-            ],
-            staticClass:
-              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
-            attrs: {
-              type: "text",
-              placeholder: "Enter Activity code",
-              name: "code"
-            },
-            domProps: { value: _vm.activitycodeInput.code },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+    _c(
+      "div",
+      { staticClass: "p-5 bg-gray-100" },
+      [
+        _vm._l(_vm.errors, function(error) {
+          return _c(
+            "div",
+            { key: error.index, staticClass: "text-red-400 text-center" },
+            [_vm._v(_vm._s(error[0]))]
+          )
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex" }, [
+          _c("div", { staticClass: "w-1/3" }, [
+            _c(
+              "label",
+              { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+              [_vm._v("Enter Activity Code")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model.trim",
+                  value: _vm.$v.activitycodeInput.code.$model,
+                  expression: "$v.activitycodeInput.code.$model",
+                  modifiers: { trim: true }
                 }
-                _vm.$set(_vm.activitycodeInput, "code", $event.target.value)
+              ],
+              staticClass:
+                "block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+              class: { invalid: !_vm.$v.activitycodeInput.code.numeric },
+              attrs: {
+                type: "text",
+                placeholder: "Enter Activity code",
+                name: "code"
+              },
+              domProps: { value: _vm.$v.activitycodeInput.code.$model },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.$v.activitycodeInput.code,
+                    "$model",
+                    $event.target.value.trim()
+                  )
+                },
+                blur: function($event) {
+                  return _vm.$forceUpdate()
+                }
               }
-            }
-          })
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-1/3" }, [
+            _c(
+              "label",
+              { staticClass: "block text-gray-700 text-sm font-bold my-2" },
+              [_vm._v("Enter Description")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model.trim",
+                  value: _vm.$v.activitycodeInput.description.$model,
+                  expression: "$v.activitycodeInput.description.$model",
+                  modifiers: { trim: true }
+                }
+              ],
+              staticClass:
+                "block w-3/4 bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
+              class: {
+                invalid: !_vm.$v.activitycodeInput.description.minLength
+              },
+              attrs: {
+                type: "text",
+                placeholder: "Enter description",
+                name: "description"
+              },
+              domProps: { value: _vm.$v.activitycodeInput.description.$model },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.$v.activitycodeInput.description,
+                    "$model",
+                    $event.target.value.trim()
+                  )
+                },
+                blur: function($event) {
+                  return _vm.$forceUpdate()
+                }
+              }
+            })
+          ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "w-1/3" }, [
+        _c("div", { staticClass: "flex justify-end" }, [
           _c(
-            "label",
-            { staticClass: "block text-gray-700 text-sm font-bold my-2" },
-            [_vm._v("Enter Description")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.activitycodeInput.description,
-                expression: "activitycodeInput.description"
-              }
-            ],
-            staticClass:
-              "block w-3/4 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 appearance-none leading-normal",
-            attrs: {
-              type: "text",
-              placeholder: "Enter description",
-              name: "description"
-            },
-            domProps: { value: _vm.activitycodeInput.description },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+            "button",
+            {
+              staticClass:
+                "bg-blue-500 hover:bg-blue-700 focus:outline-none text-white font-bold my-2 py-2 px-4 rounded-full",
+              attrs: { disabled: _vm.$v.$invalid },
+              on: {
+                click: function($event) {
+                  return _vm.addActivitycode()
                 }
-                _vm.$set(
-                  _vm.activitycodeInput,
-                  "description",
-                  $event.target.value
-                )
               }
-            }
-          })
+            },
+            [_vm._v("Submit")]
+          )
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex justify-end" }, [
-        _c(
-          "button",
-          {
-            staticClass:
-              "bg-blue-500 hover:bg-blue-700 text-white font-bold my-2 py-2 px-4 rounded-full",
-            attrs: { disabled: _vm.isDisabled },
-            on: {
-              click: function($event) {
-                return _vm.addActivitycode()
-              }
-            }
-          },
-          [_vm._v("Submit")]
-        )
-      ])
-    ]),
+      ],
+      2
+    ),
     _vm._v(" "),
     _c("hr", { staticClass: "border-2 border-black" }),
     _vm._v(" "),
