@@ -2002,287 +2002,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2369,6 +2088,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2378,7 +2115,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      searchTerm: '',
+      searchTerm: "",
       focus: false,
       results: []
     };
@@ -2391,7 +2128,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      axios.post('/api/search', {
+      axios.post("/api/search", {
         searchTerm: this.searchTerm
       }).then(function (response) {
         _this.results = response.data.data;
@@ -2517,6 +2254,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -2609,8 +2350,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AccRelationship",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       accrelationships: null,
@@ -2707,6 +2452,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -2799,8 +2548,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AccountType",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       acctype: null,
@@ -2897,6 +2650,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -3015,8 +2772,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Activities",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       activities: null,
@@ -3131,6 +2892,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -3236,8 +3001,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ActivityCode",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       activitycodes: null,
@@ -3343,6 +3112,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -3435,8 +3208,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BankName",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       banknames: null,
@@ -3553,6 +3330,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -3658,8 +3439,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Country",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       country: null,
@@ -3817,6 +3602,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -3910,8 +3699,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EmployeeType",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       employee: null,
@@ -4435,6 +4228,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -4527,8 +4324,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "EmployerType",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       employer: null,
@@ -4625,6 +4426,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -4717,8 +4522,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "OtherIDTypes",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       otheridtypes: null,
@@ -4815,6 +4624,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -4920,8 +4733,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "IRP5Codes",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       irp5codes: null,
@@ -5027,6 +4844,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -5119,8 +4940,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PayMethod",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       paymethods: null,
@@ -5217,6 +5042,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -5309,8 +5138,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RepPositions",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       reppositions: null,
@@ -5407,6 +5240,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -5512,8 +5349,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SEZ",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       sez: null,
@@ -5618,6 +5459,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Back__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Back */ "./resources/js/components/Back.vue");
+//
+//
+//
 //
 //
 //
@@ -5724,8 +5569,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SIC7",
+  components: {
+    Back: _components_Back__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       sic7s: null,
@@ -44853,396 +44702,6 @@ var render = function() {
                 {
                   staticClass:
                     "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/employertype" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-layers",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("polygon", {
-                        attrs: { points: "12 2 2 7 12 12 22 7 12 2" }
-                      }),
-                      _vm._v(" "),
-                      _c("polyline", { attrs: { points: "2 17 12 22 22 17" } }),
-                      _vm._v(" "),
-                      _c("polyline", { attrs: { points: "2 12 12 17 22 12" } })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("Employer Type")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/employeetype" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-loader",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("line", {
-                        attrs: { x1: "12", y1: "2", x2: "12", y2: "6" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "12", y1: "18", x2: "12", y2: "22" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: {
-                          x1: "4.93",
-                          y1: "4.93",
-                          x2: "7.76",
-                          y2: "7.76"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: {
-                          x1: "16.24",
-                          y1: "16.24",
-                          x2: "19.07",
-                          y2: "19.07"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "2", y1: "12", x2: "6", y2: "12" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "18", y1: "12", x2: "22", y2: "12" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: {
-                          x1: "4.93",
-                          y1: "19.07",
-                          x2: "7.76",
-                          y2: "16.24"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: {
-                          x1: "16.24",
-                          y1: "7.76",
-                          x2: "19.07",
-                          y2: "4.93"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("Employee Type")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/sez" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-globe",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("circle", { attrs: { cx: "12", cy: "12", r: "10" } }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "2", y1: "12", x2: "22", y2: "12" }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("New SEZ")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/accounttype" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-archive",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("polyline", {
-                        attrs: { points: "21 8 21 21 3 21 3 8" }
-                      }),
-                      _vm._v(" "),
-                      _c("rect", {
-                        attrs: { x: "1", y: "3", width: "22", height: "5" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "10", y1: "12", x2: "14", y2: "12" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("Account Type")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/accountrelationship" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-inbox",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("polyline", {
-                        attrs: { points: "22 12 16 12 14 15 10 15 8 12 2 12" }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("Acc Relationship")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/bankname" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-bold",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: { d: "M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z" }
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: { d: "M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("Bank Name")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/repposition" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-key",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("Rep Position")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/idtypes" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-sidebar",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("rect", {
-                        attrs: {
-                          x: "3",
-                          y: "3",
-                          width: "18",
-                          height: "18",
-                          rx: "2",
-                          ry: "2"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "9", y1: "3", x2: "9", y2: "21" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("Other ID Types")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
                   attrs: { to: "/transaction" }
                 },
                 [
@@ -45286,51 +44745,7 @@ var render = function() {
                 {
                   staticClass:
                     "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/paymethod" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-airplay",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("polygon", {
-                        attrs: { points: "12 15 17 21 7 21 12 15" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("Payment Method")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/irp5codes" }
+                  attrs: { to: "/admin" }
                 },
                 [
                   _c(
@@ -45389,190 +44804,7 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("IRP5 Codes")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/country" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-award",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("circle", { attrs: { cx: "12", cy: "8", r: "7" } }),
-                      _vm._v(" "),
-                      _c("polyline", {
-                        attrs: {
-                          points: "8.21 13.89 7 23 12 20 17 23 15.79 13.88"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("Country")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/sic7" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-codesandbox",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("polyline", {
-                        attrs: { points: "7.5 4.21 12 6.81 16.5 4.21" }
-                      }),
-                      _vm._v(" "),
-                      _c("polyline", {
-                        attrs: { points: "7.5 19.79 7.5 14.6 3 12" }
-                      }),
-                      _vm._v(" "),
-                      _c("polyline", {
-                        attrs: { points: "21 12 16.5 14.6 16.5 19.79" }
-                      }),
-                      _vm._v(" "),
-                      _c("polyline", {
-                        attrs: { points: "3.27 6.96 12 12.01 20.73 6.96" }
-                      }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "12", y1: "22.08", x2: "12", y2: "12" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("SIC7")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/activity" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-terminal",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("polyline", { attrs: { points: "4 17 10 11 4 5" } }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "12", y1: "19", x2: "20", y2: "19" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("Activity")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "flex items-center py-2 hover:text-blue-600 text-sm",
-                  attrs: { to: "/activitycodes" }
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "feather feather-git-pull-request",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "24",
-                        height: "24",
-                        viewBox: "0 0 24 24",
-                        fill: "none",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round"
-                      }
-                    },
-                    [
-                      _c("circle", { attrs: { cx: "18", cy: "18", r: "3" } }),
-                      _vm._v(" "),
-                      _c("circle", { attrs: { cx: "6", cy: "6", r: "3" } }),
-                      _vm._v(" "),
-                      _c("path", { attrs: { d: "M13 6h3a2 2 0 0 1 2 2v7" } }),
-                      _vm._v(" "),
-                      _c("line", {
-                        attrs: { x1: "6", y1: "9", x2: "6", y2: "21" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tracking-wide pl-3" }, [
-                    _vm._v("Activity Code")
+                    _vm._v("Admin Functions")
                   ])
                 ]
               ),
@@ -45658,6 +44890,69 @@ var render = function() {
       )
     ])
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Back.vue?vue&type=template&id=220ab052&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Back.vue?vue&type=template&id=220ab052& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "router-link",
+        {
+          staticClass:
+            "flex items-center p-2 hover:text-white hover:bg-blue-500 text-sm rounded-lg border border-blue-500 w-24",
+          attrs: { to: "/admin" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-arrow-left",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("line", { attrs: { x1: "19", y1: "12", x2: "5", y2: "12" } }),
+              _vm._v(" "),
+              _c("polyline", { attrs: { points: "12 19 5 12 12 5" } })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [_vm._v("Back")])
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -45761,6 +45056,7 @@ var render = function() {
                 return _c(
                   "div",
                   {
+                    key: result.id,
                     on: {
                       click: function($event) {
                         _vm.focus = false
@@ -45947,6 +45243,8 @@ var render = function() {
             [_vm._v(_vm._s(error[0]))]
           )
         }),
+        _vm._v(" "),
+        _c("div", [_c("Back")], 1),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
@@ -46181,6 +45479,8 @@ var render = function() {
           )
         }),
         _vm._v(" "),
+        _c("div", [_c("Back")], 1),
+        _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
             _c(
@@ -46413,6 +45713,8 @@ var render = function() {
             [_vm._v(_vm._s(error[0]))]
           )
         }),
+        _vm._v(" "),
+        _c("div", [_c("Back")], 1),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
@@ -46751,6 +46053,8 @@ var render = function() {
           )
         }),
         _vm._v(" "),
+        _c("div", [_c("Back")], 1),
+        _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
             _c(
@@ -47010,6 +46314,632 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Admin.vue?vue&type=template&id=7abcea40&":
+/*!***************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Admin.vue?vue&type=template&id=7abcea40& ***!
+  \***************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/employertype" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-layers",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("polygon", { attrs: { points: "12 2 2 7 12 12 22 7 12 2" } }),
+              _vm._v(" "),
+              _c("polyline", { attrs: { points: "2 17 12 22 22 17" } }),
+              _vm._v(" "),
+              _c("polyline", { attrs: { points: "2 12 12 17 22 12" } })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [
+            _vm._v("Employer Type")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/employeetype" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-loader",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("line", { attrs: { x1: "12", y1: "2", x2: "12", y2: "6" } }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "12", y1: "18", x2: "12", y2: "22" } }),
+              _vm._v(" "),
+              _c("line", {
+                attrs: { x1: "4.93", y1: "4.93", x2: "7.76", y2: "7.76" }
+              }),
+              _vm._v(" "),
+              _c("line", {
+                attrs: { x1: "16.24", y1: "16.24", x2: "19.07", y2: "19.07" }
+              }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "2", y1: "12", x2: "6", y2: "12" } }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "18", y1: "12", x2: "22", y2: "12" } }),
+              _vm._v(" "),
+              _c("line", {
+                attrs: { x1: "4.93", y1: "19.07", x2: "7.76", y2: "16.24" }
+              }),
+              _vm._v(" "),
+              _c("line", {
+                attrs: { x1: "16.24", y1: "7.76", x2: "19.07", y2: "4.93" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [
+            _vm._v("Employee Type")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/sez" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-globe",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("circle", { attrs: { cx: "12", cy: "12", r: "10" } }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "2", y1: "12", x2: "22", y2: "12" } }),
+              _vm._v(" "),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [_vm._v("New SEZ")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/accounttype" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-archive",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("polyline", { attrs: { points: "21 8 21 21 3 21 3 8" } }),
+              _vm._v(" "),
+              _c("rect", {
+                attrs: { x: "1", y: "3", width: "22", height: "5" }
+              }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "10", y1: "12", x2: "14", y2: "12" } })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [
+            _vm._v("Account Type")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/accountrelationship" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-inbox",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("polyline", {
+                attrs: { points: "22 12 16 12 14 15 10 15 8 12 2 12" }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                attrs: {
+                  d:
+                    "M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [
+            _vm._v("Acc Relationship")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/bankname" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-bold",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("path", {
+                attrs: { d: "M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z" }
+              }),
+              _vm._v(" "),
+              _c("path", {
+                attrs: { d: "M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [
+            _vm._v("Bank Name")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/repposition" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-key",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [
+            _vm._v("Rep Position")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/idtypes" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-sidebar",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("rect", {
+                attrs: {
+                  x: "3",
+                  y: "3",
+                  width: "18",
+                  height: "18",
+                  rx: "2",
+                  ry: "2"
+                }
+              }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "9", y1: "3", x2: "9", y2: "21" } })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [
+            _vm._v("Other ID Types")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/paymethod" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-airplay",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"
+                }
+              }),
+              _vm._v(" "),
+              _c("polygon", { attrs: { points: "12 15 17 21 7 21 12 15" } })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [
+            _vm._v("Payment Method")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/irp5codes" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-sliders",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("line", { attrs: { x1: "4", y1: "21", x2: "4", y2: "14" } }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "4", y1: "10", x2: "4", y2: "3" } }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "12", y1: "21", x2: "12", y2: "12" } }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "12", y1: "8", x2: "12", y2: "3" } }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "20", y1: "21", x2: "20", y2: "16" } }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "20", y1: "12", x2: "20", y2: "3" } }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "1", y1: "14", x2: "7", y2: "14" } }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "9", y1: "8", x2: "15", y2: "8" } }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "17", y1: "16", x2: "23", y2: "16" } })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [
+            _vm._v("IRP5 Codes")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/country" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-award",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("circle", { attrs: { cx: "12", cy: "8", r: "7" } }),
+              _vm._v(" "),
+              _c("polyline", {
+                attrs: { points: "8.21 13.89 7 23 12 20 17 23 15.79 13.88" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [_vm._v("Country")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/sic7" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-codesandbox",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                }
+              }),
+              _vm._v(" "),
+              _c("polyline", {
+                attrs: { points: "7.5 4.21 12 6.81 16.5 4.21" }
+              }),
+              _vm._v(" "),
+              _c("polyline", { attrs: { points: "7.5 19.79 7.5 14.6 3 12" } }),
+              _vm._v(" "),
+              _c("polyline", {
+                attrs: { points: "21 12 16.5 14.6 16.5 19.79" }
+              }),
+              _vm._v(" "),
+              _c("polyline", {
+                attrs: { points: "3.27 6.96 12 12.01 20.73 6.96" }
+              }),
+              _vm._v(" "),
+              _c("line", {
+                attrs: { x1: "12", y1: "22.08", x2: "12", y2: "12" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [_vm._v("SIC7")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/activity" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-terminal",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("polyline", { attrs: { points: "4 17 10 11 4 5" } }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "12", y1: "19", x2: "20", y2: "19" } })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [_vm._v("Activity")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        {
+          staticClass: "flex items-center py-2 hover:text-blue-600 text-sm",
+          attrs: { to: "/activitycodes" }
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "feather feather-git-pull-request",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                "stroke-width": "2",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }
+            },
+            [
+              _c("circle", { attrs: { cx: "18", cy: "18", r: "3" } }),
+              _vm._v(" "),
+              _c("circle", { attrs: { cx: "6", cy: "6", r: "3" } }),
+              _vm._v(" "),
+              _c("path", { attrs: { d: "M13 6h3a2 2 0 0 1 2 2v7" } }),
+              _vm._v(" "),
+              _c("line", { attrs: { x1: "6", y1: "9", x2: "6", y2: "21" } })
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tracking-wide pl-3" }, [
+            _vm._v("Activity Code")
+          ])
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/BankName.vue?vue&type=template&id=0979af86&scoped=true&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/BankName.vue?vue&type=template&id=0979af86&scoped=true& ***!
@@ -47037,6 +46967,8 @@ var render = function() {
             [_vm._v(_vm._s(error[0]))]
           )
         }),
+        _vm._v(" "),
+        _c("div", [_c("Back")], 1),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
@@ -47294,6 +47226,8 @@ var render = function() {
             [_vm._v(_vm._s(error[0]))]
           )
         }),
+        _vm._v(" "),
+        _c("div", [_c("Back")], 1),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
@@ -47595,6 +47529,8 @@ var render = function() {
             [_vm._v(_vm._s(error[0]))]
           )
         }),
+        _vm._v(" "),
+        _c("div", [_c("Back")], 1),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
@@ -48984,6 +48920,8 @@ var render = function() {
           )
         }),
         _vm._v(" "),
+        _c("div", [_c("Back", { attrs: { name: "back" } })], 1),
+        _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
             _c(
@@ -49212,6 +49150,8 @@ var render = function() {
             [_vm._v(_vm._s(error[0]))]
           )
         }),
+        _vm._v(" "),
+        _c("div", [_c("Back")], 1),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
@@ -49445,6 +49385,8 @@ var render = function() {
             [_vm._v(_vm._s(error[0]))]
           )
         }),
+        _vm._v(" "),
+        _c("div", [_c("Back")], 1),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
@@ -49727,6 +49669,8 @@ var render = function() {
           )
         }),
         _vm._v(" "),
+        _c("div", [_c("Back")], 1),
+        _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
             _c(
@@ -49955,6 +49899,8 @@ var render = function() {
             [_vm._v(_vm._s(error[0]))]
           )
         }),
+        _vm._v(" "),
+        _c("div", [_c("Back")], 1),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
@@ -50188,6 +50134,8 @@ var render = function() {
             [_vm._v(_vm._s(error[0]))]
           )
         }),
+        _vm._v(" "),
+        _c("div", [_c("Back")], 1),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
@@ -50469,6 +50417,8 @@ var render = function() {
             [_vm._v(_vm._s(error[0]))]
           )
         }),
+        _vm._v(" "),
+        _c("div", [_c("Back")], 1),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "w-1/3" }, [
@@ -68227,6 +68177,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Back.vue":
+/*!******************************************!*\
+  !*** ./resources/js/components/Back.vue ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Back_vue_vue_type_template_id_220ab052___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Back.vue?vue&type=template&id=220ab052& */ "./resources/js/components/Back.vue?vue&type=template&id=220ab052&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _Back_vue_vue_type_template_id_220ab052___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Back_vue_vue_type_template_id_220ab052___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Back.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Back.vue?vue&type=template&id=220ab052&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/Back.vue?vue&type=template&id=220ab052& ***!
+  \*************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Back_vue_vue_type_template_id_220ab052___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Back.vue?vue&type=template&id=220ab052& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Back.vue?vue&type=template&id=220ab052&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Back_vue_vue_type_template_id_220ab052___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Back_vue_vue_type_template_id_220ab052___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/SearchBar.vue":
 /*!***********************************************!*\
   !*** ./resources/js/components/SearchBar.vue ***!
@@ -68465,7 +68468,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Sic7__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./views/Sic7 */ "./resources/js/views/Sic7.vue");
 /* harmony import */ var _views_Activity__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./views/Activity */ "./resources/js/views/Activity.vue");
 /* harmony import */ var _views_ActivityCodes__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./views/ActivityCodes */ "./resources/js/views/ActivityCodes.vue");
-/* harmony import */ var _Actions_Logout__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./Actions/Logout */ "./resources/js/Actions/Logout.vue");
+/* harmony import */ var _views_Admin__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./views/Admin */ "./resources/js/views/Admin.vue");
+/* harmony import */ var _Actions_Logout__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./Actions/Logout */ "./resources/js/Actions/Logout.vue");
+
 
 
 
@@ -68504,7 +68509,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     }
   }, {
     path: "/logout",
-    component: _Actions_Logout__WEBPACK_IMPORTED_MODULE_21__["default"]
+    component: _Actions_Logout__WEBPACK_IMPORTED_MODULE_22__["default"]
   }, {
     path: "/employertype",
     component: _views_EmployerType__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -68606,6 +68611,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     component: _views_ActivityCodes__WEBPACK_IMPORTED_MODULE_20__["default"],
     meta: {
       title: "Add Activity Codes"
+    }
+  }, {
+    path: "/admin",
+    component: _views_Admin__WEBPACK_IMPORTED_MODULE_21__["default"],
+    meta: {
+      title: "Admin Functions"
     }
   }],
   mode: "history"
@@ -68884,6 +68895,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ActivityCodes_vue_vue_type_template_id_6f3c0f70_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ActivityCodes_vue_vue_type_template_id_6f3c0f70_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/Admin.vue":
+/*!**************************************!*\
+  !*** ./resources/js/views/Admin.vue ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Admin_vue_vue_type_template_id_7abcea40___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Admin.vue?vue&type=template&id=7abcea40& */ "./resources/js/views/Admin.vue?vue&type=template&id=7abcea40&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _Admin_vue_vue_type_template_id_7abcea40___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Admin_vue_vue_type_template_id_7abcea40___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/Admin.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/Admin.vue?vue&type=template&id=7abcea40&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/views/Admin.vue?vue&type=template&id=7abcea40& ***!
+  \*********************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Admin_vue_vue_type_template_id_7abcea40___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Admin.vue?vue&type=template&id=7abcea40& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Admin.vue?vue&type=template&id=7abcea40&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Admin_vue_vue_type_template_id_7abcea40___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Admin_vue_vue_type_template_id_7abcea40___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

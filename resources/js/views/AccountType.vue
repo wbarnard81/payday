@@ -6,6 +6,9 @@
         v-for="error in errors"
         :key="error.index"
       >{{ error[0] }}</div>
+      <div>
+        <Back />
+      </div>
       <div class="flex">
         <div class="w-1/3">
           <label class="block text-gray-700 text-sm font-bold my-2">Enter Account Type</label>
@@ -91,8 +94,10 @@
 
 <script>
 import { required, minLength } from "vuelidate/lib/validators";
+import Back from "../components/Back";
 export default {
   name: "AccountType",
+  components: { Back },
   data: () => {
     return {
       acctype: null,

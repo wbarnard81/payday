@@ -19,6 +19,7 @@ import Country from "./views/Country";
 import Sic7 from "./views/Sic7";
 import Activity from "./views/Activity";
 import ActivityCodes from "./views/ActivityCodes";
+import Admin from "./views/Admin";
 import Logout from "./Actions/Logout";
 
 Vue.use(VueRouter);
@@ -123,6 +124,11 @@ export default new VueRouter({
             path: "/activitycodes",
             component: ActivityCodes,
             meta: { title: "Add Activity Codes" }
+        },
+        {
+            path: "/admin",
+            component: Admin,
+            meta: { title: "Admin Functions" }
         }
     ],
     mode: "history"
