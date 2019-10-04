@@ -126,11 +126,6 @@ export default {
   mounted() {
     this.getCountries();
   },
-  computed: {
-    isDisabled: function() {
-      return !this.countryInput.name;
-    }
-  },
   validations: {
     countryInput: {
       code: {
@@ -177,7 +172,8 @@ export default {
               this.countryInput.code = "";
               this.countryInput.name = "";
               this.edit = false;
-              (this.errors = []), this.getCountries();
+              this.errors = [];
+              this.getCountries();
             }
           })
           .catch(err => console.log(err));

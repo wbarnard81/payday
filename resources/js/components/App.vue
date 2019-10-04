@@ -28,7 +28,7 @@
               <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
               <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
             </svg>
-            <div class="tracking-wide pl-3">New Employer</div>
+            <div class="tracking-wide pl-3">Employer</div>
           </router-link>
 
           <router-link
@@ -52,7 +52,7 @@
               <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
               <path d="M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
-            <div class="tracking-wide pl-3">New Employee</div>
+            <div class="tracking-wide pl-3">Employee</div>
           </router-link>
 
           <router-link to="/transaction" class="flex items-center py-2 hover:text-blue-600 text-sm">
@@ -71,7 +71,7 @@
               <line x1="12" y1="1" x2="12" y2="23" />
               <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
             </svg>
-            <div class="tracking-wide pl-3">Transaction</div>
+            <div class="tracking-wide pl-3">Transactions</div>
           </router-link>
 
           <router-link to="/admin" class="flex items-center py-2 hover:text-blue-600 text-sm">

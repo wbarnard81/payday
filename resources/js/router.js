@@ -32,11 +32,6 @@ export default new VueRouter({
             meta: { title: "Welcome" }
         },
         {
-            path: "/birthdays",
-            component: BirthdaysIndex,
-            meta: { title: "This Month's Birthdays" }
-        },
-        {
             path: "/logout",
             component: Logout
         },
@@ -58,12 +53,12 @@ export default new VueRouter({
         {
             path: "/employer/create",
             component: EmployerCreate,
-            meta: { title: "Add New Employer" }
+            meta: { title: "Employer functions" }
         },
         {
             path: "/employee/create",
             component: EmployeeCreate,
-            meta: { title: "Add New Employee" }
+            meta: { title: "Employee functions" }
         },
         {
             path: "/accounttype",
